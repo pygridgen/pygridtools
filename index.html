@@ -1,0 +1,273 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pygridtools &mdash; pygridtools 0.2.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pygridtools 0.2.1 documentation" href="#"/>
+        <link rel="next" title="Grid Generation Basics" href="tutorial/01_GridgenBasics.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="#" class="fa fa-home"> pygridtools</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/01_GridgenBasics.html">Grid Generation Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/01_GridgenBasics.html#load-and-plot-the-boundary-data">Load and plot the boundary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/01_GridgenBasics.html#generate-a-grid-with-pygridgen-plot-it-with-pygridtools">Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/01_GridgenBasics.html#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">Now numerically add focus the side channels, and coarsen the upper portion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#create-a-gridgen-object-and-convert-to-a-modelgrid">Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#show-the-raw-unmasked-grid">Show the raw (unmasked) grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#mask-out-everything-beyond-the-river-banks">Mask out everything beyond the river banks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#loop-through-and-mask-out-the-islands">Loop through and mask out the islands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#export-the-masked-cells-to-a-shapefile">Export the masked cells to a shapefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#create-3-model-grids-moving-counter-clockwise-in-the-axis">Create 3 model grids moving counter-clockwise in the axis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#display-positions-of-grids-relative-to-each-other">Display positions of grids relative to each other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#merge-grids-1-and-2-together-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#try-again-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#now-merge-all-three-in-a-single-chained-operation-inplace-false">Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#one-big-chained-operation-for-fun">One big chained operation for fun</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/core.html">The <cite>core</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/iotools.html">The <cite>iotools</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/misc.html">The <cite>misc</cite> API</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">pygridtools</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li><cite>pygridtools</cite></li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="pygridtools">
+<h1><cite>pygridtools</cite><a class="headerlink" href="#pygridtools" title="Permalink to this headline">¶</a></h1>
+<img alt="http://i.imgur.com/2SeSNsR.png" src="http://i.imgur.com/2SeSNsR.png" />
+<a class="reference external image-reference" href="https://travis-ci.org/phobson/pygridtools"><img alt="https://travis-ci.org/phobson/pygridtools.svg?branch=master" src="https://travis-ci.org/phobson/pygridtools.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://coveralls.io/github/phobson/pygridtools?branch=master"><img alt="https://coveralls.io/repos/phobson/pygridtools/badge.svg?branch=master&amp;service=github" src="https://coveralls.io/repos/phobson/pygridtools/badge.svg?branch=master&amp;service=github" /></a>
+<p>A high-level interface for curvilinear-orthogonal grid generation, manipulation, and visualization.</p>
+<p>Depends heavily on <a class="reference external" href="https://github.com/sakov/gridgen-c">gridgen</a> and <a class="reference external" href="https://phobson.github.io/pygridgen">pygridgen</a></p>
+<p>The full documentation for this for library is <a class="reference external" href="https://phobson.github.io/pygridtools">here</a>.</p>
+<div class="section" id="python-dependencies">
+<h2>Python Dependencies<a class="headerlink" href="#python-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basics">
+<h3>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h3>
+<p>Provided that all of the shared C libraries are installed, the remaining python depedencies are the following:</p>
+<ul class="simple">
+<li>numpy</li>
+<li>matplotlib, seaborn</li>
+<li>pyproj (only if working with geographic coordinates)</li>
+<li>fiona (for shapfile I/O)</li>
+<li>pandas (for easy data I/O and manipulation)</li>
+</ul>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>Tests are written using the <cite>nose</cite> package.
+From the source tree, run them simply with by invoking <code class="docutils literal"><span class="pre">nosetests</span></code> in a terminal.</p>
+</div>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Feedback is a huge contribution</li>
+<li>Get in touch by creating an issue to make sure we don&#8217;t duplicate work</li>
+<li>Fork this repo</li>
+<li>Submit a PR in a seperate branch</li>
+<li>Write a test (or two (or three))</li>
+<li>Stick to PEP8-ish &#8211; I&#8217;m lenient on the 80 chars thing (&lt;100 is probably a smart move though).</li>
+</ol>
+</div>
+<div class="section" id="tutorials">
+<h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/01_GridgenBasics.html">Grid Generation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/core.html">The <cite>core</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/iotools.html">The <cite>iotools</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/misc.html">The <cite>misc</cite> API</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial/01_GridgenBasics.html" class="btn btn-neutral float-right" title="Grid Generation Basics">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Paul Hobson.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

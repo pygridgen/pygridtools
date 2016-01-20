@@ -1,0 +1,611 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Index &mdash; pygridtools 0.2.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pygridtools 0.2.1 documentation" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> pygridtools</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/01_GridgenBasics.html">Grid Generation Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/01_GridgenBasics.html#load-and-plot-the-boundary-data">Load and plot the boundary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/01_GridgenBasics.html#generate-a-grid-with-pygridgen-plot-it-with-pygridtools">Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/01_GridgenBasics.html#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">Now numerically add focus the side channels, and coarsen the upper portion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#create-a-gridgen-object-and-convert-to-a-modelgrid">Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#show-the-raw-unmasked-grid">Show the raw (unmasked) grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#mask-out-everything-beyond-the-river-banks">Mask out everything beyond the river banks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#loop-through-and-mask-out-the-islands">Loop through and mask out the islands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#export-the-masked-cells-to-a-shapefile">Export the masked cells to a shapefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#create-3-model-grids-moving-counter-clockwise-in-the-axis">Create 3 model grids moving counter-clockwise in the axis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#display-positions-of-grids-relative-to-each-other">Display positions of grids relative to each other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#merge-grids-1-and-2-together-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#try-again-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#now-merge-all-three-in-a-single-chained-operation-inplace-false">Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial/03_MergingSpliting.html#one-big-chained-operation-for-fun">One big chained operation for fun</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/core.html">The <cite>core</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/iotools.html">The <cite>iotools</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/misc.html">The <cite>misc</cite> API</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">pygridtools</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li></li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ 
+</div>
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.cell_mask">cell_mask (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.cell_shape">cell_shape (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.cells_x">cells_x (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.cells_y">cells_y (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.domain">domain (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/iotools.html#pygridtools.iotools.dumpGridFiles">dumpGridFiles() (in module pygridtools.iotools)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.extent">extent (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.fliplr">fliplr() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.flipud">flipud() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.from_dataframe">from_dataframe() (pygridtools.core.ModelGrid class method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.from_Gridgen">from_Gridgen() (pygridtools.core.ModelGrid class method)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.from_shapefile">from_shapefile() (pygridtools.core.ModelGrid class method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/iotools.html#pygridtools.iotools.gridextToShapefile">gridextToShapefile() (in module pygridtools.iotools)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.icells">icells (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.inodes">inodes (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/misc.html#pygridtools.misc.interpolate_bathymetry">interpolate_bathymetry() (in module pygridtools.misc)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.islands">islands (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.jcells">jcells (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.jnodes">jnodes (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/iotools.html#pygridtools.iotools.loadBoundaryFromShapefile">loadBoundaryFromShapefile() (in module pygridtools.iotools)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/iotools.html#pygridtools.iotools.loadPolygonFromShapefile">loadPolygonFromShapefile() (in module pygridtools.iotools)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/misc.html#pygridtools.misc.make_gefdc_cells">make_gefdc_cells() (in module pygridtools.misc)</a>
+  </dt>
+
+      
+  <dt><a href="api/misc.html#pygridtools.misc.make_poly_coords">make_poly_coords() (in module pygridtools.misc)</a>
+  </dt>
+
+      
+  <dt><a href="api/misc.html#pygridtools.misc.make_record">make_record() (in module pygridtools.misc)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.makeGrid">makeGrid() (in module pygridtools.core)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.mask_cells_with_polygon">mask_cells_with_polygon() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      
+  <dt><a href="api/misc.html#pygridtools.misc.mask_with_polygon">mask_with_polygon() (in module pygridtools.misc)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.merge">merge() (in module pygridtools.core)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.merge">(pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid">ModelGrid (class in pygridtools.core)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.nodes_x">nodes_x (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.nodes_y">nodes_y (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/misc.html#pygridtools.misc.padded_stack">padded_stack() (in module pygridtools.misc)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.plotCells">plotCells() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#module-pygridtools.core">pygridtools.core (module)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/iotools.html#module-pygridtools.iotools">pygridtools.iotools (module)</a>
+  </dt>
+
+      
+  <dt><a href="api/misc.html#module-pygridtools.misc">pygridtools.misc (module)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/iotools.html#pygridtools.iotools.readGridShapefile">readGridShapefile() (in module pygridtools.iotools)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.refine">refine() (in module pygridtools.core)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.refine">(pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/iotools.html#pygridtools.iotools.saveGridShapefile">saveGridShapefile() (in module pygridtools.iotools)</a>
+  </dt>
+
+      
+  <dt><a href="api/iotools.html#pygridtools.iotools.savePointShapefile">savePointShapefile() (in module pygridtools.iotools)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.shape">shape (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.split">split() (in module pygridtools.core)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.split">(pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      </dl></dd>
+  </dl></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.template">template (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.to_coord_pairs">to_coord_pairs() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.to_dataframe">to_dataframe() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.to_shapefile">to_shapefile() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.transform">transform() (in module pygridtools.core)</a>
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.transform">(pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.transpose">transpose() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.update_cell_mask">update_cell_mask() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.writeGEFDCCellFile">writeGEFDCCellFile() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.writeGEFDCControlFile">writeGEFDCControlFile() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.writeGEFDCGridextFile">writeGEFDCGridextFile() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.writeGEFDCGridFile">writeGEFDCGridFile() (pygridtools.core.ModelGrid method)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.xc">xc (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.xn">xn (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.yc">yc (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/core.html#pygridtools.core.ModelGrid.yn">yn (pygridtools.core.ModelGrid attribute)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Paul Hobson.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.2.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

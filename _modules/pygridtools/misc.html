@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pygridtools.misc &mdash; pygridtools 0.2.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pygridtools 0.2.1 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../../index.html" class="fa fa-home"> pygridtools</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html">Grid Generation Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html#load-and-plot-the-boundary-data">Load and plot the boundary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html#generate-a-grid-with-pygridgen-plot-it-with-pygridtools">Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">Now numerically add focus the side channels, and coarsen the upper portion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#create-a-gridgen-object-and-convert-to-a-modelgrid">Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#show-the-raw-unmasked-grid">Show the raw (unmasked) grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#mask-out-everything-beyond-the-river-banks">Mask out everything beyond the river banks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#loop-through-and-mask-out-the-islands">Loop through and mask out the islands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#export-the-masked-cells-to-a-shapefile">Export the masked cells to a shapefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#create-3-model-grids-moving-counter-clockwise-in-the-axis">Create 3 model grids moving counter-clockwise in the axis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#display-positions-of-grids-relative-to-each-other">Display positions of grids relative to each other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#merge-grids-1-and-2-together-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#try-again-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#now-merge-all-three-in-a-single-chained-operation-inplace-false">Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#one-big-chained-operation-for-fun">One big chained operation for fun</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/core.html">The <cite>core</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/iotools.html">The <cite>iotools</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/misc.html">The <cite>misc</cite> API</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">pygridtools</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+    <li>pygridtools.misc</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for pygridtools.misc</h1><div class="highlight"><pre>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.path</span> <span class="kn">as</span> <span class="nn">mpath</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="kn">import</span> <span class="n">validate</span>
+
+
+<div class="viewcode-block" id="make_poly_coords"><a class="viewcode-back" href="../../api/misc.html#pygridtools.misc.make_poly_coords">[docs]</a><span class="k">def</span> <span class="nf">make_poly_coords</span><span class="p">(</span><span class="n">xarr</span><span class="p">,</span> <span class="n">yarr</span><span class="p">,</span> <span class="n">zpnt</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Makes an array for coordinates suitable for building</span>
+<span class="sd">    quadrilateral geometries in shapfiles via fiona.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xarr, yarr : numpy arrays</span>
+<span class="sd">        Arrays (2x2) of x coordinates and y coordinates for each vertex</span>
+<span class="sd">        of the quadrilateral.</span>
+<span class="sd">    zpnt : optional float or None (default)</span>
+<span class="sd">        If provided, this elevation value will be assigned to all four</span>
+<span class="sd">        vertices.</span>
+<span class="sd">    triangles : optional bool (default = False)</span>
+<span class="sd">        If True, triangles will be returned</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    coords : numpy array</span>
+<span class="sd">        An array suitable for feeding into fiona as the geometry of a record.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">process_input</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+        <span class="n">flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="n">flat</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">flat</span><span class="p">)]</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">process_input</span><span class="p">(</span><span class="n">xarr</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">process_input</span><span class="p">(</span><span class="n">yarr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">xarr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">MaskedArray</span><span class="p">)</span> <span class="ow">or</span> <span class="n">xarr</span><span class="o">.</span><span class="n">mask</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span>
+            <span class="ow">or</span> <span class="p">(</span><span class="n">triangles</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">zpnt</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">zpnt</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">return</span> <span class="n">coords</span>
+
+</div>
+<div class="viewcode-block" id="make_record"><a class="viewcode-back" href="../../api/misc.html#pygridtools.misc.make_record">[docs]</a><span class="k">def</span> <span class="nf">make_record</span><span class="p">(</span><span class="n">ID</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">geomtype</span><span class="p">,</span> <span class="n">props</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Creates a record to be appended to a shapefile via fiona.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ID : int</span>
+<span class="sd">        The record ID number</span>
+<span class="sd">    coords : tuple or array-like</span>
+<span class="sd">        The x-y coordinates of the geometry. For Points, just a tuple.</span>
+<span class="sd">        An array or list of tuples for LineStrings or Polygons</span>
+<span class="sd">    geomtype : string</span>
+<span class="sd">        A valid GDAL/OGR geometry specification (e.g. LineString, Point,</span>
+<span class="sd">        Polygon)</span>
+<span class="sd">    props : dict or collections.OrderedDict</span>
+<span class="sd">        A dict-like object defining the attributes of the record</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    record : dict</span>
+<span class="sd">        A nested dictionary suitable for the fiona package to append to</span>
+<span class="sd">        a shapefile</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This is ignore the mask of a MaskedArray. That might be bad.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">geomtype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;Point&#39;</span><span class="p">,</span> <span class="s">&#39;LineString&#39;</span><span class="p">,</span> <span class="s">&#39;Polygon&#39;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Geometry {} not suppered&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">geomtype</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">MaskedArray</span><span class="p">):</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="n">coords</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="n">record</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="n">ID</span><span class="p">,</span>
+        <span class="s">&#39;geometry&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;coordinates&#39;</span><span class="p">:</span> <span class="n">coords</span> <span class="k">if</span> <span class="n">geomtype</span> <span class="o">==</span> <span class="s">&#39;Point&#39;</span> <span class="k">else</span> <span class="p">[</span><span class="n">coords</span><span class="p">],</span>
+            <span class="s">&#39;type&#39;</span><span class="p">:</span> <span class="n">geomtype</span>
+        <span class="p">},</span>
+        <span class="s">&#39;properties&#39;</span><span class="p">:</span> <span class="n">props</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">record</span>
+
+</div>
+<div class="viewcode-block" id="interpolate_bathymetry"><a class="viewcode-back" href="../../api/misc.html#pygridtools.misc.interpolate_bathymetry">[docs]</a><span class="k">def</span> <span class="nf">interpolate_bathymetry</span><span class="p">(</span><span class="n">bathy</span><span class="p">,</span> <span class="n">x_points</span><span class="p">,</span> <span class="n">y_points</span><span class="p">,</span> <span class="n">xcol</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">ycol</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">zcol</span><span class="o">=</span><span class="s">&#39;z&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Interpolates x-y-z point data onto the grid of a Gridgen object.</span>
+<span class="sd">    Matplotlib&#39;s nearest-neighbor interpolation schema is used to</span>
+<span class="sd">    estimate the elevation at the grid centers.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bathy : pandas.DataFrame or None</span>
+<span class="sd">        The bathymetry data stored as x-y-z points in a DataFrame.</span>
+<span class="sd">    [x|y]_points : numpy arrays</span>
+<span class="sd">        The x, y locations onto which the bathymetry will be</span>
+<span class="sd">        interpolated.</span>
+<span class="sd">    xcol/ycol/zcol : optional strings</span>
+<span class="sd">        Column names for each of the quantities defining the elevation</span>
+<span class="sd">        pints. Defaults are &quot;x/y/z&quot;.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    gridbathy : pandas.DataFrame</span>
+<span class="sd">        The bathymetry for just the area covering the grid.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">pygridgen</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>  <span class="c"># pragma: no cover</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s">&quot;`pygridgen` not installed. Cannot interpolate bathymetry.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">bathy</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">elev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x_points</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x_points</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">MaskedArray</span><span class="p">):</span>
+            <span class="n">elev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">MaskedArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">elev</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">x_points</span><span class="o">.</span><span class="n">mask</span><span class="p">)</span>
+
+        <span class="n">bathy</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+            <span class="n">xcol</span><span class="p">:</span> <span class="n">x_points</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+            <span class="n">ycol</span><span class="p">:</span> <span class="n">y_points</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+            <span class="n">zcol</span><span class="p">:</span> <span class="n">elev</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="p">})</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">bathy</span> <span class="o">=</span> <span class="n">bathy</span><span class="p">[[</span><span class="n">xcol</span><span class="p">,</span> <span class="n">ycol</span><span class="p">,</span> <span class="n">zcol</span><span class="p">]]</span>
+
+    <span class="c"># find where the bathymetry is inside our grid</span>
+    <span class="n">grididx</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">bathy</span><span class="p">[</span><span class="n">xcol</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x_points</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">&amp;</span>
+        <span class="p">(</span><span class="n">bathy</span><span class="p">[</span><span class="n">xcol</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">x_points</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">&amp;</span>
+        <span class="p">(</span><span class="n">bathy</span><span class="p">[</span><span class="n">ycol</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">y_points</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">&amp;</span>
+        <span class="p">(</span><span class="n">bathy</span><span class="p">[</span><span class="n">ycol</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">y_points</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="p">)</span>
+
+    <span class="n">gridbathy</span> <span class="o">=</span> <span class="n">bathy</span><span class="p">[</span><span class="n">grididx</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s">&#39;any&#39;</span><span class="p">)</span>
+
+    <span class="c"># fill in NaNs with something outside of the bounds</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">x_points</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">yy</span> <span class="o">=</span> <span class="n">y_points</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">xx</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">x_points</span><span class="p">)]</span> <span class="o">=</span> <span class="n">x_points</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5</span>
+    <span class="n">yy</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y_points</span><span class="p">)]</span> <span class="o">=</span> <span class="n">y_points</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">5</span>
+
+    <span class="c"># use cubic-spline approximation to interpolate the grid</span>
+    <span class="n">csa</span> <span class="o">=</span> <span class="n">pygridgen</span><span class="o">.</span><span class="n">csa</span><span class="p">(</span><span class="n">gridbathy</span><span class="p">[</span><span class="n">xcol</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">gridbathy</span><span class="p">[</span><span class="n">ycol</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">gridbathy</span><span class="p">[</span><span class="n">zcol</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">csa</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="padded_stack"><a class="viewcode-back" href="../../api/misc.html#pygridtools.misc.padded_stack">[docs]</a><span class="k">def</span> <span class="nf">padded_stack</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padval</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Merge 2-dimensional numpy arrays with different shapes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    a, b : numpy arrays</span>
+<span class="sd">        The arrays to be merged</span>
+<span class="sd">    how : optional string (default = &#39;vert&#39;)</span>
+<span class="sd">        The method through wich the arrays should be stacked. `&#39;Vert&#39;`</span>
+<span class="sd">        is analogous to `np.vstack`. `&#39;Horiz&#39;` maps to `np.hstack`.</span>
+<span class="sd">    where : optional string (default = &#39;+&#39;)</span>
+<span class="sd">        The placement of the arrays relative to each other. Keeping in</span>
+<span class="sd">        mind that the origin of an array&#39;s index is in the upper-left</span>
+<span class="sd">        corner, `&#39;+&#39;` indicates that the second array will be placed</span>
+<span class="sd">        at higher index relative to the first array. Essentially:</span>
+<span class="sd">         - if how == &#39;vert&#39;</span>
+<span class="sd">            - `&#39;+&#39;` -&gt; `a` is above (higher index) `b`</span>
+<span class="sd">            - `&#39;-&#39;` -&gt; `a` is below (lower index) `b`</span>
+<span class="sd">         - if how == &#39;horiz&#39;</span>
+<span class="sd">            - `&#39;+&#39;` -&gt; `a` is to the left of `b`</span>
+<span class="sd">            - `&#39;-&#39;` -&gt; `a` is to the right of `b`</span>
+<span class="sd">        See the examples for more info.</span>
+<span class="sd">    shift : int (default = 0)</span>
+<span class="sd">        The number of indices the second array should be shifted in</span>
+<span class="sd">        axis other than the one being merged. In other words, vertically</span>
+<span class="sd">        stacked arrays can be shifted horizontally, and horizontally</span>
+<span class="sd">        stacked arrays can be shifted vertically.</span>
+<span class="sd">    padval : optional, same type as array (default = np.nan)</span>
+<span class="sd">        Value with which the arrays will be padded.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Stacked : numpy array</span>
+<span class="sd">        The merged and padded array</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pygridtools as pgt</span>
+<span class="sd">    &gt;&gt;&gt; a = np.arange(12).reshape(4, 3) * 1.0</span>
+<span class="sd">    &gt;&gt;&gt; b = np.arange(8).reshape(2, 4) * -1.0</span>
+<span class="sd">    &gt;&gt;&gt; pgt.padded_stack(a, b, how=&#39;vert&#39;, where=&#39;+&#39;, shift=1)</span>
+<span class="sd">        array([[  0.,   1.,   2.,  nan,  nan],</span>
+<span class="sd">               [  3.,   4.,   5.,  nan,  nan],</span>
+<span class="sd">               [  6.,   7.,   8.,  nan,  nan],</span>
+<span class="sd">               [  9.,  10.,  11.,  nan,  nan],</span>
+<span class="sd">               [ nan,  -0.,  -1.,  -2.,  -3.],</span>
+<span class="sd">               [ nan,  -4.,  -5.,  -6.,  -7.]])</span>
+
+<span class="sd">    &gt;&gt;&gt; pgt.padded_stack(a, b, how=&#39;h&#39;, where=&#39;-&#39;, shift=-2)</span>
+<span class="sd">        array([[ nan,  nan,  nan,  nan,   0.,   1.,   2.],</span>
+<span class="sd">               [ nan,  nan,  nan,  nan,   3.,   4.,   5.],</span>
+<span class="sd">               [ -0.,  -1.,  -2.,  -3.,   6.,   7.,   8.],</span>
+<span class="sd">               [ -4.,  -5.,  -6.,  -7.,   9.,  10.,  11.]]</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">where</span> <span class="o">==</span> <span class="s">&#39;-&#39;</span><span class="p">:</span>
+        <span class="n">stacked</span> <span class="o">=</span> <span class="n">padded_stack</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="mi">1</span><span class="o">*</span><span class="n">shift</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="n">how</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">where</span> <span class="o">==</span> <span class="s">&#39;+&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">how</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&#39;horizontal&#39;</span><span class="p">,</span> <span class="s">&#39;horiz&#39;</span><span class="p">,</span> <span class="s">&#39;h&#39;</span><span class="p">):</span>
+            <span class="n">stacked</span> <span class="o">=</span> <span class="n">padded_stack</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">shift</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span>
+                                   <span class="n">how</span><span class="o">=</span><span class="s">&#39;v&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="k">elif</span> <span class="n">how</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&#39;vertical&#39;</span><span class="p">,</span> <span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="s">&#39;v&#39;</span><span class="p">):</span>
+
+            <span class="n">a_pad_left</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">a_pad_right</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">b_pad_left</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">b_pad_right</span> <span class="o">=</span> <span class="mi">0</span>
+
+            <span class="n">diff_cols</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">shift</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">shift</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">b_pad_left</span> <span class="o">=</span> <span class="n">shift</span>
+            <span class="k">elif</span> <span class="n">shift</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">a_pad_left</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">shift</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">diff_cols</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">b_pad_right</span> <span class="o">=</span> <span class="n">diff_cols</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">a_pad_right</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">diff_cols</span><span class="p">)</span>
+
+            <span class="n">v_pads</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">x_pads</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_pads</span><span class="p">,</span> <span class="p">(</span><span class="n">a_pad_left</span><span class="p">,</span> <span class="n">a_pad_right</span><span class="p">))</span>
+            <span class="n">y_pads</span> <span class="o">=</span> <span class="p">(</span><span class="n">v_pads</span><span class="p">,</span> <span class="p">(</span><span class="n">b_pad_left</span><span class="p">,</span> <span class="n">b_pad_right</span><span class="p">))</span>
+
+            <span class="n">mode</span> <span class="o">=</span> <span class="s">&#39;constant&#39;</span>
+            <span class="n">fill</span> <span class="o">=</span> <span class="p">(</span><span class="n">padval</span><span class="p">,</span> <span class="n">padval</span><span class="p">)</span>
+            <span class="n">stacked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x_pads</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">constant_values</span><span class="o">=</span><span class="n">fill</span><span class="p">),</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">y_pads</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">constant_values</span><span class="o">=</span><span class="n">fill</span><span class="p">)</span>
+            <span class="p">])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">gen_msg</span> <span class="o">=</span> <span class="s">&#39;how must be either &quot;horizontal&quot; or &quot;vertical&quot;&#39;</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">gen_msg</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;`where` must be either &quot;+&quot; or &quot;-&quot;&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">stacked</span>
+
+</div>
+<div class="viewcode-block" id="mask_with_polygon"><a class="viewcode-back" href="../../api/misc.html#pygridtools.misc.mask_with_polygon">[docs]</a><span class="k">def</span> <span class="nf">mask_with_polygon</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">polyverts</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Mask x-y arrays inside or outside a polygon</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x, y : array-like</span>
+<span class="sd">        NxM arrays of x- and y-coordinates.</span>
+<span class="sd">    polyverts : sequence of a polygon&#39;s vertices</span>
+<span class="sd">        A sequence of x-y pairs for each vertex of the polygon.</span>
+<span class="sd">    inside : bool (default = True)</span>
+<span class="sd">        Toggles returning a mask *inside* or *outside* the polygon.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mask : bool array</span>
+<span class="sd">        The NxM mask that can be applied to ``x`` and ``y``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c"># validate input</span>
+    <span class="n">polyverts</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">polygon</span><span class="p">(</span><span class="n">polyverts</span><span class="p">)</span>
+    <span class="n">points</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">xy_array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">as_pairs</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c"># compute the mask</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">mpath</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">polyverts</span><span class="p">)</span><span class="o">.</span><span class="n">contains_points</span><span class="p">(</span><span class="n">points</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="c"># invert if we&#39;re masking things outside the polygon</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">inside</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">mask</span>
+
+    <span class="k">return</span> <span class="n">mask</span>
+
+</div>
+<div class="viewcode-block" id="make_gefdc_cells"><a class="viewcode-back" href="../../api/misc.html#pygridtools.misc.make_gefdc_cells">[docs]</a><span class="k">def</span> <span class="nf">make_gefdc_cells</span><span class="p">(</span><span class="n">node_mask</span><span class="p">,</span> <span class="n">cell_mask</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Take an array defining the nodes as wet (1) or dry (0) create</span>
+<span class="sd">    the array of cell values needed for GEFDC.</span>
+
+<span class="sd">    Input</span>
+<span class="sd">    -----</span>
+<span class="sd">    node_mask : numpy bool array (N x M)</span>
+<span class="sd">        Bool array specifying if a *node* is present in the raw</span>
+<span class="sd">        (unmasked) grid.</span>
+<span class="sd">    cell_mask : optional numpy bool array (N-1 x M-1) or None (default)</span>
+<span class="sd">        Bool array specifying if a cell should be masked (e.g. due to</span>
+<span class="sd">        being an island or something like that).</span>
+<span class="sd">    triangles : optional bool (default = False)</span>
+<span class="sd">        Currently not implemented. Will eventually enable the writting of</span>
+<span class="sd">        triangular cells when True.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cell_array : numpy array</span>
+<span class="sd">        Integer array of the values written to ``outfile``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">triangle_cells</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">land_cell</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">water_cell</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">bank_cell</span> <span class="o">=</span> <span class="mi">9</span>
+
+    <span class="c"># I can&#39;t figure this out</span>
+    <span class="k">if</span> <span class="n">triangles</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">&#39;triangles are experimental&#39;</span><span class="p">)</span>
+
+    <span class="c"># define the initial cells with everything labeled as a bank</span>
+    <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">cell_mask</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">cells</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nx</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="n">bank_cell</span>
+
+    <span class="c"># loop through each *node*</span>
+    <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c"># pull out the 4 nodes defining the cell (call it a quad)</span>
+            <span class="n">quad</span> <span class="o">=</span> <span class="n">node_mask</span><span class="p">[</span><span class="n">jj</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="n">jj</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ii</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">n_wet</span> <span class="o">=</span> <span class="n">quad</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+            <span class="c"># anything that&#39;s masked is a &quot;bank&quot;</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">cell_mask</span><span class="p">[</span><span class="n">jj</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ii</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="c"># if all 4 nodes are wet (=1), then the cell is 5</span>
+                <span class="k">if</span> <span class="n">n_wet</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="n">cells</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">water_cell</span>
+
+                <span class="c"># if only 3  are wet, might be a triangle, but...</span>
+                <span class="c"># this ignored since we already raised an error</span>
+                <span class="k">elif</span> <span class="n">n_wet</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">triangles</span><span class="p">:</span>
+                    <span class="n">dry_node</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">quad</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+                    <span class="n">cells</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">triangle_cells</span><span class="p">[</span><span class="n">dry_node</span><span class="p">]</span>
+
+            <span class="c"># otherwise it&#39;s just a bank</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cells</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">bank_cell</span>
+
+    <span class="n">padded_cells</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">&#39;constant&#39;</span><span class="p">,</span> <span class="n">constant_values</span><span class="o">=</span><span class="n">bank_cell</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">cj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">ci</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">shift</span> <span class="o">=</span> <span class="mi">3</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">padded_cells</span><span class="p">[</span><span class="n">cj</span><span class="p">:</span><span class="n">cj</span><span class="o">+</span><span class="n">shift</span><span class="p">,</span> <span class="n">ci</span><span class="p">:</span><span class="n">ci</span><span class="o">+</span><span class="n">shift</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">total</span> <span class="o">==</span> <span class="n">bank_cell</span> <span class="o">*</span> <span class="n">shift</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
+                <span class="n">cells</span><span class="p">[</span><span class="n">cj</span><span class="p">,</span> <span class="n">ci</span><span class="p">]</span> <span class="o">=</span> <span class="n">land_cell</span>
+
+    <span class="n">nrows</span> <span class="o">=</span> <span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ncols</span> <span class="o">=</span> <span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c"># nchunks = np.ceil(ncols / maxcols)</span>
+    <span class="c"># if ncols &gt; maxcols:</span>
+    <span class="c">#     final_cells = np.zeros((nrows*nchunks, maxcols), dtype=int)</span>
+    <span class="c">#     for n in np.arange(nchunks):</span>
+    <span class="c">#         col_start = n * maxcols</span>
+    <span class="c">#         col_stop = (n+1) * maxcols</span>
+
+    <span class="c">#         row_start = n * nrows</span>
+    <span class="c">#         row_stop = (n+1) * nrows</span>
+
+    <span class="c">#         cells_to_move = cells[:, col_start:col_stop]</span>
+    <span class="c">#         final_cells[row_start:row_stop, 0:cells_to_move.shape[1]] = cells_to_move</span>
+    <span class="c"># else:</span>
+    <span class="c">#     final_cells = cells.copy()</span>
+
+    <span class="n">final_cells</span> <span class="o">=</span> <span class="n">cells</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">final_cells</span></div>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Paul Hobson.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.2.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

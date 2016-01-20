@@ -1,0 +1,1391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The core API &mdash; pygridtools 0.2.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pygridtools 0.2.1 documentation" href="../index.html"/>
+        <link rel="next" title="The iotools API" href="iotools.html"/>
+        <link rel="prev" title="Grid Manipulations (merge, split, refine, transform)" href="../tutorial/03_MergingSpliting.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> pygridtools</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/01_GridgenBasics.html">Grid Generation Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/01_GridgenBasics.html#load-and-plot-the-boundary-data">Load and plot the boundary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/01_GridgenBasics.html#generate-a-grid-with-pygridgen-plot-it-with-pygridtools">Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/01_GridgenBasics.html#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">Now numerically add focus the side channels, and coarsen the upper portion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#create-a-gridgen-object-and-convert-to-a-modelgrid">Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#show-the-raw-unmasked-grid">Show the raw (unmasked) grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#mask-out-everything-beyond-the-river-banks">Mask out everything beyond the river banks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#loop-through-and-mask-out-the-islands">Loop through and mask out the islands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#export-the-masked-cells-to-a-shapefile">Export the masked cells to a shapefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#create-3-model-grids-moving-counter-clockwise-in-the-axis">Create 3 model grids moving counter-clockwise in the axis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#display-positions-of-grids-relative-to-each-other">Display positions of grids relative to each other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#merge-grids-1-and-2-together-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#try-again-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#now-merge-all-three-in-a-single-chained-operation-inplace-false">Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#one-big-chained-operation-for-fun">One big chained operation for fun</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">The <cite>core</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iotools.html">The <cite>iotools</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">The <cite>misc</cite> API</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">pygridtools</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>The <cite>core</cite> API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/api/core.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="module-pygridtools.core">
+<span id="the-core-api"></span><span id="core-auto"></span><h1>The <cite>core</cite> API<a class="headerlink" href="#module-pygridtools.core" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pygridtools.core.transform">
+<code class="descclassname">pygridtools.core.</code><code class="descname">transform</code><span class="sig-paren">(</span><em>nodes</em>, <em>fxn</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply an arbitrary function to an array of node coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nodes</strong> : numpy.ndarray</p>
+<blockquote>
+<div><p>An N x M array of individual node coordinates (i.e., the
+x-coords or the y-coords only)</p>
+</div></blockquote>
+<p><strong>fxn</strong> : callable</p>
+<blockquote>
+<div><p>The transformation to be applied to the whole <code class="docutils literal"><span class="pre">nodes</span></code> array</p>
+</div></blockquote>
+<p><strong>args, kwargs</strong></p>
+<blockquote>
+<div><p>Additional positional and keyword arguments that are passed to
+<code class="docutils literal"><span class="pre">fxn</span></code>. The final call will be <code class="docutils literal"><span class="pre">fxn(nodes,</span> <span class="pre">*args,</span> <span class="pre">**kwargs)</span></code>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>transformed</strong> : numpy.ndarray</p>
+<blockquote class="last">
+<div><p>The transformed array.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.core.split">
+<code class="descclassname">pygridtools.core.</code><code class="descname">split</code><span class="sig-paren">(</span><em>nodes</em>, <em>index</em>, <em>axis=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split a array of nodes into two separate, non-overlapping arrays.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nodes</strong> : numpy.ndarray</p>
+<blockquote>
+<div><p>An N x M array of individual node coordinates (i.e., the
+x-coords or the y-coords only)</p>
+</div></blockquote>
+<p><strong>index</strong> : int</p>
+<blockquote>
+<div><p>The leading edge of where the split should occur.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis along which <code class="docutils literal"><span class="pre">nodes</span></code> will be split. Use <cite>axis = 0</cite>
+to split along rows and <cite>axis = 1</cite> for columns.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>n1, n2</strong> : numpy.ndarrays</p>
+<blockquote>
+<div><p>The two non-overlapping sides of the original array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong></p>
+<blockquote class="last">
+<div><p>Trying to split <code class="docutils literal"><span class="pre">nodes</span></code> at the edge (i.e., resulting in the
+original array and an empty array) will raise an error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.core.merge">
+<code class="descclassname">pygridtools.core.</code><code class="descname">merge</code><span class="sig-paren">(</span><em>nodes</em>, <em>other_nodes</em>, <em>how='vert'</em>, <em>where='+'</em>, <em>shift=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge two sets of nodes together.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nodes, other_nodes</strong> : numpy.ndarrays</p>
+<blockquote>
+<div><p>The sets of nodes that will be merged.</p>
+</div></blockquote>
+<p><strong>how</strong> : string, optional (default = &#8216;vert&#8217;)</p>
+<blockquote>
+<div><p>The method through wich the arrays should be stacked.
+<cite>&#8216;Vert&#8217;</cite> is analogous to <cite>np.vstack</cite>. <cite>&#8216;Horiz&#8217;</cite> maps to
+<cite>np.hstack</cite>.</p>
+</div></blockquote>
+<p><strong>where</strong> : string, optional (default = &#8216;+&#8217;)</p>
+<blockquote>
+<div><p>The placement of the arrays relative to each other. Keeping
+in mind that the origin of an array&#8217;s index is in the
+upper-left corner, <cite>&#8216;+&#8217;</cite> indicates that the second array
+will be placed at higher index relative to the first array.
+Essentially</p>
+<ul class="simple">
+<li>if how == &#8216;vert&#8217;<ul>
+<li><cite>&#8216;+&#8217;</cite> -&gt; <cite>a</cite> is above (higher index) <cite>b</cite></li>
+<li><cite>&#8216;-&#8216;</cite> -&gt; <cite>a</cite> is below (lower index) <cite>b</cite></li>
+</ul>
+</li>
+<li>if how == &#8216;horiz&#8217;<ul>
+<li><cite>&#8216;+&#8217;</cite> -&gt; <cite>a</cite> is to the left of <cite>b</cite></li>
+<li><cite>&#8216;-&#8216;</cite> -&gt; <cite>a</cite> is to the right of <cite>b</cite></li>
+</ul>
+</li>
+</ul>
+<p>See the examples and :func:~`pygridtools.misc.padded_stack` for
+more info.</p>
+</div></blockquote>
+<p><strong>shift</strong> : int, optional (default = 0)</p>
+<blockquote>
+<div><p>The number of indices the second array should be shifted in
+axis other than the one being merged. In other words,
+vertically stacked arrays can be shifted horizontally,
+and horizontally stacked arrays can be shifted vertically.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>merged</strong> : numpy.ndarrays</p>
+<blockquote class="last">
+<div><p>The unified nodes coordinates</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.core.refine">
+<code class="descclassname">pygridtools.core.</code><code class="descname">refine</code><span class="sig-paren">(</span><em>nodes</em>, <em>index</em>, <em>axis=0</em>, <em>n_points=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#refine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.refine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert and linearly interpolate new nodes in an existing array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nodes</strong> : numpy.ndarray</p>
+<blockquote>
+<div><p>An N x M array of individual node coordinates (i.e., the
+x-coords or the y-coords only)</p>
+</div></blockquote>
+<p><strong>index</strong> : int</p>
+<blockquote>
+<div><p>The leading edge of where the split should occur.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis along which <code class="docutils literal"><span class="pre">nodes</span></code> will be split. Use <cite>axis = 0</cite>
+to split along rows and <cite>axis = 1</cite> for columns.</p>
+</div></blockquote>
+<p><strong>n_points</strong> : int, optional</p>
+<blockquote>
+<div><p>The number of <em>new</em> rows or columns to be inserted.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>refined</strong> : numpy.ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="pygridtools.core.ModelGrid">
+<em class="property">class </em><code class="descclassname">pygridtools.core.</code><code class="descname">ModelGrid</code><span class="sig-paren">(</span><em>nodes_x</em>, <em>nodes_y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Container for a curvilinear-orthogonal grid. Provides convenient
+access to masking, manipulation, and visualization methods.</p>
+<p>Although a good effort attempt is made to be consistent with the
+terminology, in general <em>node</em> and <em>vertex</em> are used
+interchangeably, with the former prefered over the latter.
+Similarly, <em>centroids</em> and <em>cells</em> can be interchangeable, although
+they are different. (Cell = the polygon created by 4 adjacent nodes
+and centroid = the centroid point of a cell).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nodes_x, nodes_y</strong> : numpy.ndarray</p>
+<blockquote class="last">
+<div><p>M-by-N arrays of node (vertex) coordinates for the grid.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.nodes_x">
+<code class="descname">nodes_x</code><a class="headerlink" href="#pygridtools.core.ModelGrid.nodes_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of node x-coordinates.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.nodes_y">
+<code class="descname">nodes_y</code><a class="headerlink" href="#pygridtools.core.ModelGrid.nodes_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of node y-coordinates.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.cells_x">
+<code class="descname">cells_x</code><a class="headerlink" href="#pygridtools.core.ModelGrid.cells_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of cell centroid x-coordinates</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.cells_y">
+<code class="descname">cells_y</code><a class="headerlink" href="#pygridtools.core.ModelGrid.cells_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of cell centroid y-coordinates</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.shape">
+<code class="descname">shape</code><a class="headerlink" href="#pygridtools.core.ModelGrid.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of the nodes arrays</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.cell_shape">
+<code class="descname">cell_shape</code><a class="headerlink" href="#pygridtools.core.ModelGrid.cell_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of the cells arrays</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.xn">
+<code class="descname">xn</code><a class="headerlink" href="#pygridtools.core.ModelGrid.xn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut to x-coords of nodes</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.yn">
+<code class="descname">yn</code><a class="headerlink" href="#pygridtools.core.ModelGrid.yn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut to y-coords of nodes</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.xc">
+<code class="descname">xc</code><a class="headerlink" href="#pygridtools.core.ModelGrid.xc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut to x-coords of cells/centroids</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.yc">
+<code class="descname">yc</code><a class="headerlink" href="#pygridtools.core.ModelGrid.yc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shortcut to y-coords of cells/centroids</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.icells">
+<code class="descname">icells</code><a class="headerlink" href="#pygridtools.core.ModelGrid.icells" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of rows of cells</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.jcells">
+<code class="descname">jcells</code><a class="headerlink" href="#pygridtools.core.ModelGrid.jcells" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of columns of cells</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.inodes">
+<code class="descname">inodes</code><a class="headerlink" href="#pygridtools.core.ModelGrid.inodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of rows of nodes</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.jnodes">
+<code class="descname">jnodes</code><a class="headerlink" href="#pygridtools.core.ModelGrid.jnodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of columns of nodes</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.cell_mask">
+<code class="descname">cell_mask</code><a class="headerlink" href="#pygridtools.core.ModelGrid.cell_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Boolean mask for the cells</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.template">
+<code class="descname">template</code><a class="headerlink" href="#pygridtools.core.ModelGrid.template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template shapefile (schema) for export</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.domain">
+<code class="descname">domain</code><a class="headerlink" href="#pygridtools.core.ModelGrid.domain" title="Permalink to this definition">¶</a></dt>
+<dd><p>The optional domain used to generate the raw grid</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.extent">
+<code class="descname">extent</code><a class="headerlink" href="#pygridtools.core.ModelGrid.extent" title="Permalink to this definition">¶</a></dt>
+<dd><p>The final extent of the model grid
+(everything outside is masked).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pygridtools.core.ModelGrid.islands">
+<code class="descname">islands</code><a class="headerlink" href="#pygridtools.core.ModelGrid.islands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Polygons used to make holes/gaps in the grid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><em>fxn</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply an attribrary function to the grid nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>fxn</strong> : callable</p>
+<blockquote>
+<div><p>The function to be applied to the nodes. It should accept
+a node array as its first argument.</p>
+</div></blockquote>
+<p><strong>inplace</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the application of <code class="docutils literal"><span class="pre">fxn</span></code> in-place or on a copy.</p>
+</div></blockquote>
+<p><strong>arg, kwargs</strong> : optional arguments and keyword arguments</p>
+<blockquote>
+<div><p>Additional values passed to <code class="docutils literal"><span class="pre">fxn</span></code> after the node array.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">None or ModelGrid</p>
+<blockquote class="last">
+<div><p><cite>None</cite> is returned if <code class="docutils literal"><span class="pre">inplace</span></code> is <cite>True</cite>. Otherwise,
+a new <a class="reference internal" href="#pygridtools.core.ModelGrid" title="pygridtools.core.ModelGrid"><code class="xref py py-class docutils literal"><span class="pre">ModelGrid</span></code></a> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.transpose">
+<code class="descname">transpose</code><span class="sig-paren">(</span><em>inplace=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.transpose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transposes the node arrays of the model grid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inplace</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the application of <code class="docutils literal"><span class="pre">fxn</span></code> in-place or on a copy.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">None or ModelGrid</p>
+<blockquote class="last">
+<div><p><cite>None</cite> is returned if <code class="docutils literal"><span class="pre">inplace</span></code> is <cite>True</cite>. Otherwise,
+a new <a class="reference internal" href="#pygridtools.core.ModelGrid" title="pygridtools.core.ModelGrid"><code class="xref py py-class docutils literal"><span class="pre">ModelGrid</span></code></a> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.fliplr">
+<code class="descname">fliplr</code><span class="sig-paren">(</span><em>inplace=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.fliplr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.fliplr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverses the columns of the node arrays of the model grid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inplace</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the application of <code class="docutils literal"><span class="pre">fxn</span></code> in-place or on a copy.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">None or ModelGrid</p>
+<blockquote class="last">
+<div><p><cite>None</cite> is returned if <code class="docutils literal"><span class="pre">inplace</span></code> is <cite>True</cite>. Otherwise,
+a new <a class="reference internal" href="#pygridtools.core.ModelGrid" title="pygridtools.core.ModelGrid"><code class="xref py py-class docutils literal"><span class="pre">ModelGrid</span></code></a> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.flipud">
+<code class="descname">flipud</code><span class="sig-paren">(</span><em>inplace=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.flipud"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.flipud" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reverses the rows of the node arrays of the model grid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inplace</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the application of <code class="docutils literal"><span class="pre">fxn</span></code> in-place or on a copy.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">None or ModelGrid</p>
+<blockquote class="last">
+<div><p><cite>None</cite> is returned if <code class="docutils literal"><span class="pre">inplace</span></code> is <cite>True</cite>. Otherwise,
+a new <a class="reference internal" href="#pygridtools.core.ModelGrid" title="pygridtools.core.ModelGrid"><code class="xref py py-class docutils literal"><span class="pre">ModelGrid</span></code></a> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.split">
+<code class="descname">split</code><span class="sig-paren">(</span><em>index</em>, <em>axis=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.split"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits a model grid into two separate objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>index</strong> : int</p>
+<blockquote>
+<div><p>The leading edge of where the split should occur.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis along which <code class="docutils literal"><span class="pre">nodes</span></code> will be split. Use <cite>axis = 0</cite>
+to split along rows and <cite>axis = 1</cite> for columns.</p>
+</div></blockquote>
+<p><strong>inplace</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the application of <code class="docutils literal"><span class="pre">fxn</span></code> in-place or on a copy.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>grid1, grid2</strong> : ModelGrids</p>
+<blockquote>
+<div><p>The two non-overlapping sides of the grid.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong></p>
+<blockquote class="last">
+<div><p>Trying to split at the edge (i.e., resulting in the
+original array and an empty array) will raise an error.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.refine">
+<code class="descname">refine</code><span class="sig-paren">(</span><em>index</em>, <em>axis=0</em>, <em>n_points=1</em>, <em>inplace=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.refine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.refine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert and linearly interpolate new nodes in an existing grid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>nodes</strong> : numpy.ndarray</p>
+<blockquote>
+<div><p>An N x M array of individual node coordinates (i.e., the
+x-coords or the y-coords only)</p>
+</div></blockquote>
+<p><strong>index</strong> : int</p>
+<blockquote>
+<div><p>The leading edge of where the split should occur.</p>
+</div></blockquote>
+<p><strong>axis</strong> : int, optional</p>
+<blockquote>
+<div><p>The axis along which <code class="docutils literal"><span class="pre">nodes</span></code> will be split. Use <cite>axis = 0</cite>
+to split along rows and <cite>axis = 1</cite> for columns.</p>
+</div></blockquote>
+<p><strong>n_points</strong> : int, optional</p>
+<blockquote>
+<div><p>The number of <em>new</em> rows or columns to be inserted.</p>
+</div></blockquote>
+<p><strong>inplace</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the application of <code class="docutils literal"><span class="pre">fxn</span></code> in-place or on a copy.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">None or ModelGrid</p>
+<blockquote class="last">
+<div><p><cite>None</cite> is returned if <code class="docutils literal"><span class="pre">inplace</span></code> is <cite>True</cite>. Otherwise,
+a new <a class="reference internal" href="#pygridtools.core.ModelGrid" title="pygridtools.core.ModelGrid"><code class="xref py py-class docutils literal"><span class="pre">ModelGrid</span></code></a> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.merge">
+<code class="descname">merge</code><span class="sig-paren">(</span><em>other</em>, <em>how='vert'</em>, <em>where='+'</em>, <em>shift=0</em>, <em>inplace=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.merge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merge with another grid using pygridtools.misc.padded_stack.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>other</strong> : ModelGrid</p>
+<blockquote>
+<div><p>The other ModelGrid object.</p>
+</div></blockquote>
+<p><strong>how</strong> : optional string (default = &#8216;vert&#8217;)</p>
+<blockquote>
+<div><p>The method through wich the arrays should be stacked.
+<cite>&#8216;Vert&#8217;</cite> is analogous to <cite>np.vstack</cite>. <cite>&#8216;Horiz&#8217;</cite> maps to
+<cite>np.hstack</cite>.</p>
+</div></blockquote>
+<p><strong>where</strong> : optional string (default = &#8216;+&#8217;)</p>
+<blockquote>
+<div><p>The placement of the arrays relative to each other. Keeping
+in mind that the origin of an array&#8217;s index is in the
+upper-left corner, <cite>&#8216;+&#8217;</cite> indicates that the second array
+will be placed at higher index relative to the first array.
+Essentially:</p>
+<blockquote>
+<div><ul class="simple">
+<li>if how == &#8216;vert&#8217;<ul>
+<li><cite>&#8216;+&#8217;</cite> -&gt; <cite>a</cite> is above (higher index) <cite>b</cite></li>
+<li><cite>&#8216;-&#8216;</cite> -&gt; <cite>a</cite> is below (lower index) <cite>b</cite></li>
+</ul>
+</li>
+<li>if how == &#8216;horiz&#8217;<ul>
+<li><cite>&#8216;+&#8217;</cite> -&gt; <cite>a</cite> is to the left of <cite>b</cite></li>
+<li><cite>&#8216;-&#8216;</cite> -&gt; <cite>a</cite> is to the right of <cite>b</cite></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p>See the examples and pygridtools.misc.padded_stack for more
+info.</p>
+</div></blockquote>
+<p><strong>shift</strong> : int (default = 0)</p>
+<blockquote>
+<div><p>The number of indices the second array should be shifted in
+axis other than the one being merged. In other words,
+vertically stacked arrays can be shifted horizontally,
+and horizontally stacked arrays can be shifted vertically.</p>
+</div></blockquote>
+<p><strong>inplace</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the application of <code class="docutils literal"><span class="pre">fxn</span></code> in-place or on a copy.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">None or ModelGrid</p>
+<blockquote class="last">
+<div><p><cite>None</cite> is returned if <code class="docutils literal"><span class="pre">inplace</span></code> is <cite>True</cite>. Otherwise,
+a new <a class="reference internal" href="#pygridtools.core.ModelGrid" title="pygridtools.core.ModelGrid"><code class="xref py py-class docutils literal"><span class="pre">ModelGrid</span></code></a> is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">pygridtools.padded_stack</span></code></p>
+</div>
+<p class="rubric">Notes</p>
+<p>The <code class="docutils literal"><span class="pre">cell_mask</span></code> attribute is not automatically updated
+following merge operates. See the Examples section on handling
+this manually.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">domain1</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="go">    &#39;x&#39;: [2, 5, 5, 2],</span>
+<span class="go">    &#39;y&#39;: [6, 6, 4, 4],</span>
+<span class="go">    &#39;beta&#39;: [1, 1, 1, 1]</span>
+<span class="go">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">domain2</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<span class="go">    &#39;x&#39;: [6, 11, 11, 5],</span>
+<span class="go">    &#39;y&#39;: [5, 5, 3, 3],</span>
+<span class="go">    &#39;beta&#39;: [1, 1, 1, 1]</span>
+<span class="go">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid1</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">makeGrid</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain1</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">rawgrid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid2</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">makeGrid</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain2</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">rawgrid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;horiz&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># update the cell mask to include new NA points:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid1</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid1</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.update_cell_mask">
+<code class="descname">update_cell_mask</code><span class="sig-paren">(</span><em>mask=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.update_cell_mask"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.update_cell_mask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regenerate the cell mask based on either the NaN cells
+or a user-provided mask. This is usefull after splitting,
+merging, or anything other transformation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>mask</strong> : numpy.ndarray of bools, optional</p>
+<blockquote>
+<div><p>The custom make to apply. If ommited, the mask will be
+determined by the missing values in the cells arrays.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">self</p>
+<blockquote class="last">
+<div><p>So you can method-chain this.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.mask_cells_with_polygon">
+<code class="descname">mask_cells_with_polygon</code><span class="sig-paren">(</span><em>polyverts</em>, <em>use_centroids=True</em>, <em>min_nodes=3</em>, <em>inside=True</em>, <em>use_existing=True</em>, <em>triangles=False</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.mask_cells_with_polygon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.mask_cells_with_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create mask for the cells of the ModelGrid with a polygon.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>polyverts</strong> : sequence of a polygon&#8217;s vertices</p>
+<blockquote>
+<div><p>A sequence of x-y pairs for each vertex of the polygon.</p>
+</div></blockquote>
+<p><strong>use_centroids</strong> : bool (default = True)</p>
+<blockquote>
+<div><p>When True, the cell centroid will be used to determine
+whether the cell is &#8220;inside&#8221; the polygon. If False, the
+nodes are used instead.</p>
+</div></blockquote>
+<p><strong>min_nodes</strong> : int (default = 3)</p>
+<blockquote>
+<div><p>Only used when <code class="docutils literal"><span class="pre">use_centroids</span></code> is False. This is the
+minimum number of nodes inside the polygon required to mark
+the cell as &#8220;inside&#8221;. Must be greater than 0, but no more
+than 4.</p>
+</div></blockquote>
+<p><strong>inside</strong> : bool (default = True)</p>
+<blockquote>
+<div><p>Toggles masking of cells either <em>inside</em> (True) or <em>outside</em>
+(False) the polygon.</p>
+</div></blockquote>
+<p><strong>triangles</strong> : bool</p>
+<blockquote>
+<div><p>Not yet implemented.</p>
+</div></blockquote>
+<p><strong>use_existing</strong> : bool (default = True)</p>
+<blockquote>
+<div><p>When True, the newly computed mask is combined (via a
+bit-wise <cite>or</cite> operation) with the existing <code class="docutils literal"><span class="pre">cell_mask</span></code>
+attribute of the MdoelGrid.</p>
+</div></blockquote>
+<p><strong>inplace</strong> : bool (default = True):</p>
+<blockquote>
+<div><p>If True, the <code class="docutils literal"><span class="pre">cell_mask</span></code> attribute of the ModelGrid is set
+to the returned masked and None is returned. Otherwise, the
+a new mask is returned the <code class="docutils literal"><span class="pre">cell_mask</span></code> attribute of the
+ModelGrid is unchanged.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>cell_mask</strong> : np.array of bools</p>
+<blockquote class="last">
+<div><p>The final mask to be applied to the cells of the ModelGrid.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.writeGEFDCControlFile">
+<code class="descname">writeGEFDCControlFile</code><span class="sig-paren">(</span><em>outputdir=None</em>, <em>filename='gefdc.inp'</em>, <em>bathyrows=0</em>, <em>title='test'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.writeGEFDCControlFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.writeGEFDCControlFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the GEFDC control (gefdc.inp) file for the EFDC grid
+preprocessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>outputdir</strong> : str, optional</p>
+<blockquote>
+<div><p>The path to where the should be saved.</p>
+</div></blockquote>
+<p><strong>filename</strong> : str, optional</p>
+<blockquote>
+<div><p>The name of the output file.</p>
+</div></blockquote>
+<p><strong>bathyrows</strong> : int, optional</p>
+<blockquote>
+<div><p>The number of rows in the grid&#8217;s bathymetry data file.</p>
+</div></blockquote>
+<p><strong>title</strong> : str, optional</p>
+<blockquote>
+<div><p>The title of the grid as portrayed in <code class="docutils literal"><span class="pre">filename</span></code>.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>gefdc</strong> : str</p>
+<blockquote class="last">
+<div><p>The text of the output file.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.writeGEFDCCellFile">
+<code class="descname">writeGEFDCCellFile</code><span class="sig-paren">(</span><em>outputdir=None</em>, <em>filename='cell.inp'</em>, <em>triangles=False</em>, <em>maxcols=125</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.writeGEFDCCellFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.writeGEFDCCellFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the cell definition/ASCII-art file for GEFDC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>outputdir</strong> : str, optional</p>
+<blockquote>
+<div><p>The path to where the should be saved.</p>
+</div></blockquote>
+<p><strong>filename</strong> : str, optional</p>
+<blockquote>
+<div><p>The name of the output file.</p>
+</div></blockquote>
+<p><strong>triangles</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the inclusion of triangular cells.</p>
+</div></blockquote>
+<p><strong>maxcols</strong> : int, optional</p>
+<blockquote>
+<div><p>The maximum number of columns to write to each row. Cells
+beyond this number will be writted in separate section at
+the bottom of the file.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>cells</strong> : str</p>
+<blockquote class="last">
+<div><p>The text of the output file.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.writeGEFDCGridFile">
+<code class="descname">writeGEFDCGridFile</code><span class="sig-paren">(</span><em>outputdir=None</em>, <em>filename='grid.out'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.writeGEFDCGridFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.writeGEFDCGridFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes to the nodes as coordinate pairs for GEFDC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>outputdir</strong> : str, optional</p>
+<blockquote>
+<div><p>The path to where the should be saved.</p>
+</div></blockquote>
+<p><strong>filename</strong> : str, optional</p>
+<blockquote>
+<div><p>The name of the output file.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> : pandas.DataFrame</p>
+<blockquote class="last">
+<div><p>The dataframe of node coordinate pairs.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.writeGEFDCGridextFile">
+<code class="descname">writeGEFDCGridextFile</code><span class="sig-paren">(</span><em>outputdir</em>, <em>filename='gridext.inp'</em>, <em>shift=2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.writeGEFDCGridextFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.writeGEFDCGridextFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes to the nodes and I/J cell index as to a file for GEFDC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>outputdir</strong> : str, optional</p>
+<blockquote>
+<div><p>The path to where the should be saved.</p>
+</div></blockquote>
+<p><strong>filename</strong> : str, optional</p>
+<blockquote>
+<div><p>The name of the output file.</p>
+</div></blockquote>
+<p><strong>shift</strong> : int, optional</p>
+<blockquote>
+<div><p>The shift that should be applied to the I/J index. The
+default value to 2 means that the first cell is at (2, 2)
+instead of (0, 0).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> : pandas.DataFrame</p>
+<blockquote class="last">
+<div><p>The dataframe of coordinates and I/J index.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.plotCells">
+<code class="descname">plotCells</code><span class="sig-paren">(</span><em>engine='mpl'</em>, <em>ax=None</em>, <em>usemask=True</em>, <em>cell_kws=None</em>, <em>domain_kws=None</em>, <em>extent_kws=None</em>, <em>showisland=True</em>, <em>island_kws=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.plotCells"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.plotCells" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a figure of the cells, boundary, domain, and islands.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>engine</strong> : str</p>
+<blockquote>
+<div><p>The plotting engine to be used. Right now, only <cite>&#8216;mpl&#8217;</cite> has
+been implemented. Interactive figures via <cite>&#8216;bokeh&#8217;</cite> are
+planned.</p>
+</div></blockquote>
+<p><strong>ax</strong> : matplotlib.Axes, optional</p>
+<blockquote>
+<div><p>The axes onto which the data will be drawn. If not provided,
+a new one will be created. Applies only to the <em>mpl</em> engine.</p>
+</div></blockquote>
+<p><strong>usemask</strong> : bool, optional</p>
+<blockquote>
+<div><p>Whether or not cells should have the ModelGrid&#8217;s mask
+applied to them.</p>
+</div></blockquote>
+<p><strong>cell_kws, domain_kws, extent_kws, island_kws</strong> : dict</p>
+<blockquote class="last">
+<div><p>Dictionaries of plotting options for each element
+of the figure.</p>
+<p><code class="docutils literal"><span class="pre">cell_kws</span></code> and <code class="docutils literal"><span class="pre">island_kws</span></code> are feed to
+<code class="xref py py-func docutils literal"><span class="pre">Polygon()</span></code>. All others are sent
+to <code class="xref py py-meth docutils literal"><span class="pre">plot()</span></code>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.to_dataframe">
+<code class="descname">to_dataframe</code><span class="sig-paren">(</span><em>usemask=False</em>, <em>which='nodes'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.to_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.to_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a grid to a wide dataframe of coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>usemask</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the ommission of masked values (as determined by
+<a class="reference internal" href="#pygridtools.core.ModelGrid.cell_mask" title="pygridtools.core.ModelGrid.cell_mask"><code class="xref py py-meth docutils literal"><span class="pre">cell_mask()</span></code></a>.</p>
+</div></blockquote>
+<p><strong>which</strong> : str, optional (&#8216;nodes&#8217;)</p>
+<blockquote>
+<div><p>This can be &#8220;nodes&#8221; (default) or &#8220;cells&#8221;. Specifies which
+coordinates should be used.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">pandas.DataFrame</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.to_coord_pairs">
+<code class="descname">to_coord_pairs</code><span class="sig-paren">(</span><em>usemask=False</em>, <em>which='nodes'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.to_coord_pairs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.to_coord_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a grid to a long array of coordinates pairs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>usemask</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the ommission of masked values (as determined by
+<a class="reference internal" href="#pygridtools.core.ModelGrid.cell_mask" title="pygridtools.core.ModelGrid.cell_mask"><code class="xref py py-meth docutils literal"><span class="pre">cell_mask()</span></code></a>.</p>
+</div></blockquote>
+<p><strong>which</strong> : str, optional (&#8216;nodes&#8217;)</p>
+<blockquote>
+<div><p>This can be &#8220;nodes&#8221; (default) or &#8220;cells&#8221;. Specifies which
+coordinates should be used.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">numpy.ndarray</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.core.ModelGrid.to_shapefile">
+<code class="descname">to_shapefile</code><span class="sig-paren">(</span><em>outputfile</em>, <em>usemask=True</em>, <em>which='cells'</em>, <em>river=None</em>, <em>reach=0</em>, <em>elev=None</em>, <em>template=None</em>, <em>geom='Polygon'</em>, <em>mode='w'</em>, <em>triangles=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.to_shapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.to_shapefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a grid to a shapefile via the <em>fiona</em> package.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>outputfile</strong> : str</p>
+<blockquote>
+<div><p>The name of the shapefile where the data will be saved.</p>
+</div></blockquote>
+<p><strong>usemask</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the ommission of masked values (as determined by
+<a class="reference internal" href="#pygridtools.core.ModelGrid.cell_mask" title="pygridtools.core.ModelGrid.cell_mask"><code class="xref py py-meth docutils literal"><span class="pre">cell_mask()</span></code></a>.</p>
+</div></blockquote>
+<p><strong>which</strong> : str, optional</p>
+<blockquote>
+<div><p>This can be &#8220;nodes&#8221; (default) or &#8220;cells&#8221;. Specifies which
+coordinates should be used.</p>
+</div></blockquote>
+<p><strong>river</strong> : str, optional</p>
+<blockquote>
+<div><p>Identifier of the river.</p>
+</div></blockquote>
+<p><strong>reach</strong> : int or str, optional</p>
+<blockquote>
+<div><p>Indetifier of the reach of <code class="docutils literal"><span class="pre">river</span></code>.</p>
+</div></blockquote>
+<p><strong>elev</strong> : numpy.ndarray, optional</p>
+<blockquote>
+<div><p>Bathymetry data to be assigned to each record in the
+shapefile.</p>
+</div></blockquote>
+<p><strong>template</strong> : str, optional</p>
+<blockquote>
+<div><p>The shapefile schema template. If not provided, the
+<code class="docutils literal"><span class="pre">template</span></code> attribute of the ModelGrid object is used.</p>
+</div></blockquote>
+<p><strong>geom</strong> : str, optional</p>
+<blockquote>
+<div><p>The type of geometry to use. If &#8220;Point&#8221;, either the grid
+nodes or the centroids of the can be used (see the
+<code class="docutils literal"><span class="pre">which</span></code> parameter). However, if &#8220;Polygon&#8221; is specified,
+cells will be generated from the nodes, regardless of the
+value of <code class="docutils literal"><span class="pre">which</span></code>.</p>
+</div></blockquote>
+<p><strong>mode</strong> : str, optional</p>
+<blockquote>
+<div><p>The mode in which <code class="docutils literal"><span class="pre">outputfile</span></code> will be opened. Should be
+either &#8216;w&#8217; (write) or &#8216;a&#8217; (append).</p>
+</div></blockquote>
+<p><strong>triangles</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles the inclusion of triangular cells.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pygridtools.core.ModelGrid.from_dataframe">
+<em class="property">classmethod </em><code class="descname">from_dataframe</code><span class="sig-paren">(</span><em>df</em>, <em>xcol='easting'</em>, <em>ycol='northing'</em>, <em>ilevel='ii'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.from_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.from_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a ModelGrid from a DataFrame of I/J indexes and x/y
+columns.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>df</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>Must have a MultiIndex of I/J cell index values.</p>
+</div></blockquote>
+<p><strong>xcol, ycol</strong> : str, optional</p>
+<blockquote>
+<div><p>The names of the columns for the x and y coordinates.</p>
+</div></blockquote>
+<p><strong>ilevel</strong> : str, optional</p>
+<blockquote>
+<div><p>The index level specifying the I-index of the grid.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">ModelGrid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pygridtools.core.ModelGrid.from_shapefile">
+<em class="property">classmethod </em><code class="descname">from_shapefile</code><span class="sig-paren">(</span><em>shapefile</em>, <em>icol='ii'</em>, <em>jcol='jj'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.from_shapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.from_shapefile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a ModelGrid from a shapefile of <em>nodes</em>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>outputfile</strong> : str</p>
+<blockquote>
+<div><p>The name of the shapefile of the grid <em>nodes</em>.</p>
+</div></blockquote>
+<p><strong>icol, jcol</strong> : str, optional</p>
+<blockquote>
+<div><p>The names of the columns in the shapefile containing the
+I/J index of the nodes.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">ModelGrid</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="pygridtools.core.ModelGrid.from_Gridgen">
+<em class="property">classmethod </em><code class="descname">from_Gridgen</code><span class="sig-paren">(</span><em>gridgen</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#ModelGrid.from_Gridgen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.ModelGrid.from_Gridgen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a ModelGrid from a <code class="xref py py-class docutils literal"><span class="pre">Gridgen</span></code> object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>gridgen</strong> : pygridgen.Gridgen</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">ModelGrid</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.core.makeGrid">
+<code class="descclassname">pygridtools.core.</code><code class="descname">makeGrid</code><span class="sig-paren">(</span><em>ny</em>, <em>nx</em>, <em>domain</em>, <em>bathydata=None</em>, <em>verbose=False</em>, <em>rawgrid=True</em>, <em>**gparams</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/core.html#makeGrid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.core.makeGrid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a <code class="xref py py-class docutils literal"><span class="pre">Gridgen</span></code> or <a class="reference internal" href="#pygridtools.core.ModelGrid" title="pygridtools.core.ModelGrid"><code class="xref py py-class docutils literal"><span class="pre">ModelGrid</span></code></a>
+from scratch. This can take a large number of parameters passed
+directly to the <code class="docutils literal"><span class="pre">Gridgen</span></code> constructor. See the
+<cite>Other Parameters</cite> section.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ny, nx</strong> : int</p>
+<blockquote>
+<div><p>The number of rows and columns that will make up the grid&#8217;s
+<em>nodes</em>. Note the final grid <em>cells</em> will be (ny-1) by (nx-1).</p>
+</div></blockquote>
+<p><strong>domain</strong> : optional pandas.DataFrame or None (default)</p>
+<blockquote>
+<div><p>Defines the boundary of the model area. Must be provided if
+<cite>makegrid</cite> = True. Required columns:</p>
+<blockquote>
+<div><ul class="simple">
+<li>&#8216;x&#8217; (easting)</li>
+<li>&#8216;y&#8217; (northing),</li>
+<li>&#8216;beta&#8217; (turning points, must sum to 1)</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>bathydata</strong> : optional pandas.DataFrame or None (default)</p>
+<blockquote>
+<div><p>Point bathymetry/elevation data. Will be interpolated unto the
+grid if provided. If None, a default value of 0 will be used.
+Required columns:</p>
+<blockquote>
+<div><ul class="simple">
+<li>&#8216;x&#8217; (easting)</li>
+<li>&#8216;y&#8217; (northing),</li>
+<li>&#8216;z&#8217; (elevation)</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>verbose</strong> : bool, optional</p>
+<blockquote>
+<div><p>Toggles on the printing of status updates.</p>
+</div></blockquote>
+<p><strong>rawgrid</strong> : bool (default = True)</p>
+<blockquote>
+<div><p>When True, returns a pygridgen.Gridgen object. Otherwise, a
+pygridtools.ModelGrid object is returned.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>grid</strong> : pygridgen.Gridgen or ModelGrid</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Other Parameters:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>ul_idx</strong> : optional int (default = 0)</p>
+<blockquote>
+<div><p>The index of the what should be considered the upper left
+corner of the grid boundary in the <cite>xbry</cite>, <cite>ybry</cite>, and
+<cite>beta</cite> inputs. This is actually more arbitrary than it
+sounds. Put it some place convenient for you, and the
+algorthim will conceptually rotate the boundary to place
+this point in the upper left corner. Keep that in mind when
+specifying the shape of the grid.</p>
+</div></blockquote>
+<p><strong>focus</strong> : optional pygridgen.Focus instance or None (default)</p>
+<blockquote>
+<div><p>A focus object to tighten/loosen the grid in certain
+sections.</p>
+</div></blockquote>
+<p><strong>proj</strong> : option pyproj projection or None (default)</p>
+<blockquote>
+<div><p>A pyproj projection to be used to convert lat/lon
+coordinates to a projected (Cartesian) coordinate system
+(e.g., UTM, state plane).</p>
+</div></blockquote>
+<p><strong>nnodes</strong> : optional int (default = 14)</p>
+<blockquote>
+<div><p>The number of nodes used in grid generation. This affects
+the precision and computation time. A rule of thumb is that
+this should be equal to or slightly larger than
+-log10(precision).</p>
+</div></blockquote>
+<p><strong>precision</strong> : optional float (default = 1.0e-12)</p>
+<blockquote>
+<div><p>The precision with which the grid is generated. The default
+value is good for lat/lon coordinate (i.e., smaller
+magnitudes of boundary coordinates). You can relax this to
+e.g., 1e-3 when working in state plane or UTM grids and
+you&#8217;ll typically get better performance.</p>
+</div></blockquote>
+<p><strong>nppe</strong> : optional int (default = 3)</p>
+<blockquote>
+<div><p>The number of points per internal edge. Lower values will
+coarsen the image.</p>
+</div></blockquote>
+<p><strong>newton</strong> : optional bool (default = True)</p>
+<blockquote>
+<div><p>Toggles the use of Gauss-Newton solver with Broyden update
+to determine the sigma values of the grid domains. If False
+simple iterations will be used instead.</p>
+</div></blockquote>
+<p><strong>thin</strong> : optional bool (default = True)</p>
+<blockquote>
+<div><p>Toggle to True when the (some portion of) the grid is
+generally narrow in one dimension compared to another.</p>
+</div></blockquote>
+<p><strong>checksimplepoly</strong> : optional bool (default = True)</p>
+<blockquote>
+<div><p>Toggles a check to confirm that the boundary inputs form a
+valid geometry.</p>
+</div></blockquote>
+<p><strong>verbose</strong> : optional bool (default = True)</p>
+<blockquote class="last">
+<div><p>Toggles the printing of console statements to track the
+progress of the grid generation.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-obj docutils literal"><span class="pre">pygridgen.Gridgen</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">pygridgen.csa</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">pygridtools.ModelGrid</span></code></p>
+</div>
+<p class="rubric">Notes</p>
+<p>If your boundary has a lot of points, this really can take quite
+some time. Setting verbose=True will help track the progress of the
+grid generattion.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="iotools.html" class="btn btn-neutral float-right" title="The iotools API">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorial/03_MergingSpliting.html" class="btn btn-neutral" title="Grid Manipulations (merge, split, refine, transform)"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Paul Hobson.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

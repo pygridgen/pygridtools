@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Masking grid cells &mdash; pygridtools 0.2.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="pygridtools 0.2.1 documentation" href="../index.html"/>
+        <link rel="next" title="Grid Manipulations (merge, split, refine, transform)" href="03_MergingSpliting.html"/>
+        <link rel="prev" title="Grid Generation Basics" href="01_GridgenBasics.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="../index.html" class="fa fa-home"> pygridtools</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_GridgenBasics.html">Grid Generation Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#load-and-plot-the-boundary-data">Load and plot the boundary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#generate-a-grid-with-pygridgen-plot-it-with-pygridtools">Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">Now numerically add focus the side channels, and coarsen the upper portion</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Masking grid cells</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#masking-basics">Masking basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-gridgen-object-and-convert-to-a-modelgrid">Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-the-raw-unmasked-grid">Show the raw (unmasked) grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mask-out-everything-beyond-the-river-banks">Mask out everything beyond the river banks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loop-through-and-mask-out-the-islands">Loop through and mask out the islands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#export-the-masked-cells-to-a-shapefile">Export the masked cells to a shapefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#create-3-model-grids-moving-counter-clockwise-in-the-axis">Create 3 model grids moving counter-clockwise in the axis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#display-positions-of-grids-relative-to-each-other">Display positions of grids relative to each other</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#merge-grids-1-and-2-together-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#try-again-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#now-merge-all-three-in-a-single-chained-operation-inplace-false">Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#one-big-chained-operation-for-fun">One big chained operation for fun</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/core.html">The <cite>core</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/iotools.html">The <cite>iotools</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/misc.html">The <cite>misc</cite> API</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">pygridtools</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Masking grid cells</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/tutorial/02_ShapefilesAndCellMasks.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="masking-grid-cells">
+<h1>Masking grid cells<a class="headerlink" href="#masking-grid-cells" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial will demonstrate the following:</p>
+<ol class="arabic simple">
+<li>Basics of grid masking</li>
+<li>Reading boundary, river, and island data from shapefiles</li>
+<li>Generating a focused grid</li>
+<li>Masking land cells from the shapefiles</li>
+<li>Writing grid data to shapefiles</li>
+</ol>
+<div class="code python highlight-python"><div class="highlight"><pre>import numpy as np
+import matplotlib.pyplot as plt
+import pandas
+
+import seaborn
+clear_bkgd = {&#39;axes.facecolor&#39;:&#39;none&#39;, &#39;figure.facecolor&#39;:&#39;none&#39;}
+palette = seaborn.color_palette(palette=&#39;deep&#39;)
+seaborn.set(style=&#39;ticks&#39;, context=&#39;notebook&#39;, rc=clear_bkgd)
+
+import pygridgen as pgg
+import pygridtools as pgt
+
+%matplotlib inline
+</pre></div>
+</div>
+<div class="section" id="masking-basics">
+<h2>Masking basics<a class="headerlink" href="#masking-basics" title="Permalink to this headline">¶</a></h2>
+<p>Let&#8217;s consider a simple, orthogonal <span class="math">\(5\times5\)</span> unit grid and a
+basic rectangle that we will use to mask some elements of the grid:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">mg</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">ModelGrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">rectangle_coords</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">3.25</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">2.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
+    <span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">rectangle</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">rectangle_coords</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;forestgreen&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rectangle</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.patches.Polygon at 0x10dbd5da0&gt;
+</pre></div>
+</div>
+<img alt="../_images/02_ShapefilesAndCellMasks_3_1.png" src="../_images/02_ShapefilesAndCellMasks_3_1.png" />
+<div class="section" id="applying-the-masks-options">
+<h3>Applying the masks options<a class="headerlink" href="#applying-the-masks-options" title="Permalink to this headline">¶</a></h3>
+<p>You have few options when applying a mask to a grid</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">inside=True</span></code> - by default, elements inside the polygon are masked.
+Setting this parameter to <code class="docutils literal"><span class="pre">False</span></code> will mask everything outside the
+polygon.</li>
+<li><code class="docutils literal"><span class="pre">use_centroids=True</span></code> - The default behavior is to determine if a
+cell is inside or outside the polygon based on the centroid of the
+cell. Setting to <code class="docutils literal"><span class="pre">False</span></code> will instead count the number of nodes of
+each cell inside the polygon and make the determination based on the
+<code class="docutils literal"><span class="pre">min_nodes</span></code> parameter (continue reading)</li>
+<li><code class="docutils literal"><span class="pre">min_nodes=3</span></code> - This parameter configures how many nodes of a cell
+must be inside a polygon to flag the whole cell as inside thet
+polygon.</li>
+<li><code class="docutils literal"><span class="pre">use_existing=True</span></code> - When this is <code class="docutils literal"><span class="pre">True</span></code> the new mask determined
+from the passed polygons will be unioned (<code class="docutils literal"><span class="pre">np.bitwise_or</span></code>) with any
+existing mask that may be present. When this is <code class="docutils literal"><span class="pre">False</span></code> the old
+mask is completely overwritten with the new mask.</li>
+</ol>
+</div>
+<div class="section" id="masking-inside-vs-outside-a-polygon">
+<h3>Masking inside vs outside a polygon<a class="headerlink" href="#masking-inside-vs-outside-a-polygon" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">common_opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">use_centroids</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c"># mask inside</span>
+<span class="n">mg</span><span class="o">.</span><span class="n">mask_cells_with_polygon</span><span class="p">(</span><span class="n">rectangle_coords</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">common_opts</span><span class="p">)</span>
+<span class="n">rect1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">rectangle_coords</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;forestgreen&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">mg</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">&#39;Mask inside&#39;</span><span class="p">)</span>
+
+<span class="c"># mask outside</span>
+<span class="n">mg</span><span class="o">.</span><span class="n">mask_cells_with_polygon</span><span class="p">(</span><span class="n">rectangle_coords</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="o">**</span><span class="n">common_opts</span><span class="p">)</span>
+<span class="n">rect2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">rectangle_coords</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">mg</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">&quot;Mask outside&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.text.Text at 0x10dd13198&gt;
+</pre></div>
+</div>
+<img alt="../_images/02_ShapefilesAndCellMasks_6_1.png" src="../_images/02_ShapefilesAndCellMasks_6_1.png" />
+</div>
+<div class="section" id="masking-with-nodes-instead-of-centroids">
+<h3>Masking with nodes instead of centroids<a class="headerlink" href="#masking-with-nodes-instead-of-centroids" title="Permalink to this headline">¶</a></h3>
+<p>This time, we&#8217;ll mask with the nodes of the cells instead of the
+centroids. We&#8217;ll show four different masks, each generated with a
+different minimum number of nodes requires to classify a cell as inside
+the polygon.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span><span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+
+<span class="n">common_opts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">use_centroids</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">min_nodes</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="c"># mask inside</span>
+    <span class="n">mg</span><span class="o">.</span><span class="n">mask_cells_with_polygon</span><span class="p">(</span><span class="n">rectangle_coords</span><span class="p">,</span> <span class="n">min_nodes</span><span class="o">=</span><span class="n">min_nodes</span><span class="p">,</span> <span class="o">**</span><span class="n">common_opts</span><span class="p">)</span>
+    <span class="n">rect</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">rectangle_coords</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;forestgreen&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">mg</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">&quot;min_nodes = {:d}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_nodes</span><span class="p">))</span>
+</pre></div>
+</div>
+<img alt="../_images/02_ShapefilesAndCellMasks_8_0.png" src="../_images/02_ShapefilesAndCellMasks_8_0.png" />
+</div>
+</div>
+<div class="section" id="load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">
+<h2>Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code><a class="headerlink" href="#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">boundaryfile</span> <span class="o">=</span> <span class="s">&quot;masking_data/input/GridBoundary.shp&quot;</span>
+<span class="n">gridbounds</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">iotools</span><span class="o">.</span><span class="n">loadBoundaryFromShapefile</span><span class="p">(</span>
+    <span class="n">boundaryfile</span><span class="p">,</span>
+    <span class="n">sortcol</span><span class="o">=</span><span class="s">&#39;sort_order&#39;</span><span class="p">,</span>
+    <span class="n">upperleftcol</span><span class="o">=</span><span class="s">&#39;upper_left&#39;</span>
+<span class="p">)</span>
+
+<span class="n">riverfile</span> <span class="o">=</span> <span class="s">&quot;masking_data/input/River.shp&quot;</span>
+<span class="n">river</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">iotools</span><span class="o">.</span><span class="n">loadPolygonFromShapefile</span><span class="p">(</span><span class="n">riverfile</span><span class="p">)</span>
+
+<span class="n">islandfile</span> <span class="o">=</span> <span class="s">&quot;masking_data/input/Islands.shp&quot;</span>
+<span class="n">island_arrays</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">iotools</span><span class="o">.</span><span class="n">loadPolygonFromShapefile</span><span class="p">(</span><span class="n">islandfile</span><span class="p">)</span>
+<span class="n">island_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+    <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="n">arr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="n">arr</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="n">n</span><span class="p">})</span>
+    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">arr</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">island_arrays</span><span class="p">)</span>
+<span class="p">])</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;aspect&#39;</span><span class="p">:</span> <span class="s">&#39;equal&#39;</span><span class="p">})</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plotDomain</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">gridbounds</span><span class="p">,</span> <span class="n">domain_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">domain_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">viz</span><span class="o">.</span><span class="n">plotBoundaries</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">extent_x</span><span class="o">=</span><span class="n">river</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">extent_y</span><span class="o">=</span><span class="n">river</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                             <span class="n">islands</span><span class="o">=</span><span class="n">island_df</span><span class="p">,</span> <span class="n">islands_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">islands_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">islands_name</span><span class="o">=</span><span class="s">&#39;name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/02_ShapefilesAndCellMasks_10_0.png" src="../_images/02_ShapefilesAndCellMasks_10_0.png" />
+</div>
+<div class="section" id="create-a-gridgen-object-and-convert-to-a-modelgrid">
+<h2>Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code><a class="headerlink" href="#create-a-gridgen-object-and-convert-to-a-modelgrid" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c"># number of nodes in each dimension</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">ny</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c"># grid focus</span>
+<span class="n">focus</span> <span class="o">=</span> <span class="n">pgg</span><span class="o">.</span><span class="n">Focus</span><span class="p">()</span>
+
+<span class="c"># tighten the grid in the channels around the big island</span>
+<span class="n">focus</span><span class="o">.</span><span class="n">add_focus</span><span class="p">(</span><span class="mf">5.</span><span class="o">/</span><span class="n">ny</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="mf">8.</span><span class="o">/</span><span class="n">ny</span><span class="p">)</span>
+<span class="n">focus</span><span class="o">.</span><span class="n">add_focus</span><span class="p">(</span><span class="mf">14.5</span><span class="o">/</span><span class="n">ny</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="mf">4.</span><span class="o">/</span><span class="n">ny</span><span class="p">)</span>
+
+<span class="c"># coarsen the grid upstream</span>
+<span class="n">focus</span><span class="o">.</span><span class="n">add_focus</span><span class="p">(</span><span class="mf">98.</span><span class="o">/</span><span class="n">nx</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="mf">4.</span><span class="o">/</span><span class="n">nx</span><span class="p">)</span>
+
+<span class="c"># tighten the grid around the big island&#39;s bend</span>
+<span class="n">focus</span><span class="o">.</span><span class="n">add_focus</span><span class="p">(</span><span class="mf">52.</span><span class="o">/</span><span class="n">nx</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="mf">20.</span><span class="o">/</span><span class="n">nx</span><span class="p">)</span>
+
+<span class="c"># generate the main grid</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">makeGrid</span><span class="p">(</span>
+    <span class="n">domain</span><span class="o">=</span><span class="n">gridbounds</span><span class="p">,</span>
+    <span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span>
+    <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">,</span>
+    <span class="n">focus</span><span class="o">=</span><span class="n">focus</span><span class="p">,</span>
+    <span class="n">rawgrid</span><span class="o">=</span><span class="bp">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-the-raw-unmasked-grid">
+<h2>Show the raw (unmasked) grid<a class="headerlink" href="#show-the-raw-unmasked-grid" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="n">gridbounds</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">extent</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">river</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">])</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">islands</span> <span class="o">=</span> <span class="n">island_df</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">domain_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">domain_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">domain_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="s">&#39;beta&#39;</span><span class="p">),</span>
+    <span class="n">extent_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">extent_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">extent_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">),</span>
+    <span class="n">island_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">islands_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">islands_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">islands_name</span><span class="o">=</span><span class="s">&#39;name&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/02_ShapefilesAndCellMasks_14_0.png" src="../_images/02_ShapefilesAndCellMasks_14_0.png" />
+</div>
+<div class="section" id="mask-out-everything-beyond-the-river-banks">
+<h2>Mask out everything beyond the river banks<a class="headerlink" href="#mask-out-everything-beyond-the-river-banks" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c"># outside the banks</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">mask_cells_with_polygon</span><span class="p">(</span><span class="n">river</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">domain_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">domain_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">domain_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="s">&#39;beta&#39;</span><span class="p">),</span>
+    <span class="n">extent_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">extent_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">extent_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s">&#39;equal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/02_ShapefilesAndCellMasks_16_0.png" src="../_images/02_ShapefilesAndCellMasks_16_0.png" />
+</div>
+<div class="section" id="loop-through-and-mask-out-the-islands">
+<h2>Loop through and mask out the islands<a class="headerlink" href="#loop-through-and-mask-out-the-islands" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c"># inside the multiple islands</span>
+<span class="k">for</span> <span class="n">island</span> <span class="ow">in</span> <span class="n">island_arrays</span><span class="p">:</span>
+    <span class="n">grid</span><span class="o">.</span><span class="n">mask_cells_with_polygon</span><span class="p">(</span><span class="n">island</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">domain_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">domain_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">domain_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">),</span>
+    <span class="n">extent_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">extent_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">extent_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../_images/02_ShapefilesAndCellMasks_18_0.png" src="../_images/02_ShapefilesAndCellMasks_18_0.png" />
+</div>
+<div class="section" id="export-the-masked-cells-to-a-shapefile">
+<h2>Export the masked cells to a shapefile<a class="headerlink" href="#export-the-masked-cells-to-a-shapefile" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">template</span> <span class="o">=</span> <span class="s">&#39;masking_data/input/cell_template.shp&#39;</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">to_shapefile</span><span class="p">(</span><span class="s">&#39;masking_data/output/ModelCells.shp&#39;</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                  <span class="n">which</span><span class="o">=</span><span class="s">&#39;grid&#39;</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&#39;Polygon&#39;</span><span class="p">,</span>
+                  <span class="n">template</span><span class="o">=</span><span class="n">template</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">
+<h2>View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code><a class="headerlink" href="#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="03_MergingSpliting.html" class="btn btn-neutral float-right" title="Grid Manipulations (merge, split, refine, transform)">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="01_GridgenBasics.html" class="btn btn-neutral" title="Grid Generation Basics"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Paul Hobson.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -143,7 +143,7 @@
 <a class="reference external image-reference" href="https://travis-ci.org/Geosyntec/pygridtools"><img alt="https://travis-ci.org/Geosyntec/pygridtools.svg?branch=master" src="https://travis-ci.org/Geosyntec/pygridtools.svg?branch=master" /></a>
 <a class="reference external image-reference" href="https://coveralls.io/github/Geosyntec/pygridtools?branch=master"><img alt="https://coveralls.io/repos/Geosyntec/pygridtools/badge.svg?branch=master&amp;service=github" src="https://coveralls.io/repos/Geosyntec/pygridtools/badge.svg?branch=master&amp;service=github" /></a>
 <p>A high-level interface for curvilinear-orthogonal grid generation, manipulation, and visualization.</p>
-<p>Depends heavily on <a class="reference external" href="https://github.com/sakov/gridgen-c">gridgen</a> and <a class="reference external" href="https://Geosyntec.github.io/pygridgen">pygridgen</a></p>
+<p>Depends heavily on <a class="reference external" href="https://github.com/sakov/gridgen-c">gridgen</a> and <a href="#id2"><span class="problematic" id="id3">`pygridgen`_</span></a></p>
 <p>The full documentation for this for library is <a class="reference external" href="https://Geosyntec.github.io/pygridtools">here</a>.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -165,6 +165,14 @@
 <li>fiona (for shapfile I/O)</li>
 <li>pandas (for easy data I/O and manipulation)</li>
 </ul>
+</div>
+<div class="section" id="grid-generation">
+<h3>Grid Generation<a class="headerlink" href="#grid-generation" title="Permalink to this headline">¶</a></h3>
+<p>If you wish to generate new grids from scratch, you&#8217;ll need <a class="reference external" href="https://github.com/phobson/pygridgen">pygridgen</a>, which is also available through the IOOS conda channel.</p>
+<div class="highlight-python"><div class="highlight"><pre>conda install --channel=IOOS pygridgen
+</pre></div>
+</div>
+<p>The documentation <cite>pygridgen</cite> has a <a class="reference external" href="http://phobson.github.io/pygridgen/tutorial/basics.html">more detailed tutorial</a> on generating new grids.</p>
 </div>
 <div class="section" id="testing">
 <h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>

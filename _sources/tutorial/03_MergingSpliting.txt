@@ -13,6 +13,10 @@ demonstrated below.
 
 .. code:: python
 
+    %matplotlib inline
+
+.. code:: python
+
     import numpy as np
     import matplotlib.pyplot as plt
     import pandas
@@ -24,7 +28,6 @@ demonstrated below.
     clear_bkgd = {'axes.facecolor':'none', 'figure.facecolor':'none'}
     palette = seaborn.color_palette(palette='deep')
     seaborn.set(style='ticks', context='notebook', rc=clear_bkgd)
-    %matplotlib inline
 
 Create 3 model grids moving counter-clockwise in the axis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -57,7 +60,7 @@ Display positions of grids relative to each other
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_5_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_6_0.png
 
 
 Merge grids 1 and 2 together, horizontally
@@ -75,7 +78,7 @@ updated. We do that manually for now.
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_7_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_8_0.png
 
 
 Use the shift parameter to center grid 2
@@ -94,7 +97,7 @@ relative to grid 1
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_9_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_10_0.png
 
 
 Vertically merge grid 2 and grid 3
@@ -113,7 +116,7 @@ grid 3 ties into the *top* of grid 2
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_11_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_12_0.png
 
 
 Try again, switching the order of the grids
@@ -131,7 +134,7 @@ Notice the change in sign of the ``shift`` parameter.
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_13_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_14_0.png
 
 
 Alternatively, you can switch the arguments and use ``where='-'`` to indicate that the "other" grid is below the first.
@@ -149,7 +152,7 @@ And the sign of the ``shift`` parameter returns to its original value.
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_15_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_16_0.png
 
 
 Now merge all three in a single chained operation (``inplace=False``).
@@ -169,7 +172,7 @@ Now merge all three in a single chained operation (``inplace=False``).
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_17_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_18_0.png
 
 
 Split the final grid into two vertical parts
@@ -191,7 +194,7 @@ Split the final grid into two vertical parts
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_19_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_20_0.png
 
 
 Split the final grid into two horizontal parts
@@ -213,7 +216,7 @@ Split the final grid into two horizontal parts
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_21_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_22_0.png
 
 
 Refine individual rows of the grid cells
@@ -233,7 +236,7 @@ Refine individual rows of the grid cells
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_23_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_24_0.png
 
 
 Refine individual columns of the grid cells
@@ -252,7 +255,7 @@ Refine individual columns of the grid cells
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_25_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_26_0.png
 
 
 One big chained operation for fun
@@ -275,5 +278,5 @@ One big chained operation for fun
 
 
 
-.. image:: 03_MergingSpliting_files/03_MergingSpliting_27_0.png
+.. image:: 03_MergingSpliting_files/03_MergingSpliting_28_0.png
 

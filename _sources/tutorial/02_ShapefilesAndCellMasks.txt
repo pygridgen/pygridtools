@@ -12,6 +12,10 @@ This tutorial will demonstrate the following:
 
 .. code:: python
 
+    %matplotlib inline
+
+.. code:: python
+
     import numpy as np
     import matplotlib.pyplot as plt
     import pandas
@@ -23,8 +27,6 @@ This tutorial will demonstrate the following:
     
     import pygridgen as pgg
     import pygridtools as pgt
-    
-    %matplotlib inline
 
 Masking basics
 --------------
@@ -53,12 +55,12 @@ basic rectangle that we will use to mask some elements of the grid:
 
 .. parsed-literal::
 
-    <matplotlib.patches.Polygon at 0x10dbd5da0>
+    <matplotlib.patches.Polygon at 0x10d3ebef0>
 
 
 
 
-.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_3_1.png
+.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_4_1.png
 
 
 Applying the masks options
@@ -110,12 +112,12 @@ Masking inside vs outside a polygon
 
 .. parsed-literal::
 
-    <matplotlib.text.Text at 0x10dd13198>
+    <matplotlib.text.Text at 0x10d5d6978>
 
 
 
 
-.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_6_1.png
+.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_7_1.png
 
 
 Masking with nodes instead of centroids
@@ -144,7 +146,7 @@ the polygon.
 
 
 
-.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_8_0.png
+.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_9_0.png
 
 
 Load a grid boundary, river, and set of islands using ``pygridtools.io``
@@ -177,7 +179,7 @@ Load a grid boundary, river, and set of islands using ``pygridtools.io``
 
 
 
-.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_10_0.png
+.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_11_0.png
 
 
 Create a ``Gridgen`` object and convert to a ``ModelGrid``
@@ -231,7 +233,7 @@ Show the raw (unmasked) grid
 
 
 
-.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_14_0.png
+.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_15_0.png
 
 
 Mask out everything beyond the river banks
@@ -253,7 +255,7 @@ Mask out everything beyond the river banks
 
 
 
-.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_16_0.png
+.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_17_0.png
 
 
 Loop through and mask out the islands
@@ -275,7 +277,7 @@ Loop through and mask out the islands
 
 
 
-.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_18_0.png
+.. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_19_0.png
 
 
 Export the masked cells to a shapefile

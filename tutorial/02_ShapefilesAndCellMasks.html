@@ -148,19 +148,20 @@
 <li>Masking land cells from the shapefiles</li>
 <li>Writing grid data to shapefiles</li>
 </ol>
-<div class="code python highlight-python"><div class="highlight"><pre>import numpy as np
-import matplotlib.pyplot as plt
-import pandas
+<div class="code python highlight-python"><div class="highlight"><pre>%matplotlib inline
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
 
-import seaborn
-clear_bkgd = {&#39;axes.facecolor&#39;:&#39;none&#39;, &#39;figure.facecolor&#39;:&#39;none&#39;}
-palette = seaborn.color_palette(palette=&#39;deep&#39;)
-seaborn.set(style=&#39;ticks&#39;, context=&#39;notebook&#39;, rc=clear_bkgd)
+<span class="kn">import</span> <span class="nn">seaborn</span>
+<span class="n">clear_bkgd</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;axes.facecolor&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="s">&#39;figure.facecolor&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">}</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s">&#39;deep&#39;</span><span class="p">)</span>
+<span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">&#39;ticks&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">clear_bkgd</span><span class="p">)</span>
 
-import pygridgen as pgg
-import pygridtools as pgt
-
-%matplotlib inline
+<span class="kn">import</span> <span class="nn">pygridgen</span> <span class="kn">as</span> <span class="nn">pgg</span>
+<span class="kn">import</span> <span class="nn">pygridtools</span> <span class="kn">as</span> <span class="nn">pgt</span>
 </pre></div>
 </div>
 <div class="section" id="masking-basics">
@@ -182,10 +183,10 @@ basic rectangle that we will use to mask some elements of the grid:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rectangle</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.patches.Polygon at 0x10dbd5da0&gt;
+<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.patches.Polygon at 0x10d3ebef0&gt;
 </pre></div>
 </div>
-<img alt="../_images/02_ShapefilesAndCellMasks_3_1.png" src="../_images/02_ShapefilesAndCellMasks_3_1.png" />
+<img alt="../_images/02_ShapefilesAndCellMasks_4_1.png" src="../_images/02_ShapefilesAndCellMasks_4_1.png" />
 <div class="section" id="applying-the-masks-options">
 <h3>Applying the masks options<a class="headerlink" href="#applying-the-masks-options" title="Permalink to this headline">¶</a></h3>
 <p>You have few options when applying a mask to a grid</p>
@@ -228,10 +229,10 @@ mask is completely overwritten with the new mask.</li>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">&quot;Mask outside&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.text.Text at 0x10dd13198&gt;
+<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.text.Text at 0x10d5d6978&gt;
 </pre></div>
 </div>
-<img alt="../_images/02_ShapefilesAndCellMasks_6_1.png" src="../_images/02_ShapefilesAndCellMasks_6_1.png" />
+<img alt="../_images/02_ShapefilesAndCellMasks_7_1.png" src="../_images/02_ShapefilesAndCellMasks_7_1.png" />
 </div>
 <div class="section" id="masking-with-nodes-instead-of-centroids">
 <h3>Masking with nodes instead of centroids<a class="headerlink" href="#masking-with-nodes-instead-of-centroids" title="Permalink to this headline">¶</a></h3>
@@ -253,7 +254,7 @@ the polygon.</p>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">&quot;min_nodes = {:d}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_nodes</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/02_ShapefilesAndCellMasks_8_0.png" src="../_images/02_ShapefilesAndCellMasks_8_0.png" />
+<img alt="../_images/02_ShapefilesAndCellMasks_9_0.png" src="../_images/02_ShapefilesAndCellMasks_9_0.png" />
 </div>
 </div>
 <div class="section" id="load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">
@@ -282,7 +283,7 @@ the polygon.</p>
                              <span class="n">islands</span><span class="o">=</span><span class="n">island_df</span><span class="p">,</span> <span class="n">islands_x</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">islands_y</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">islands_name</span><span class="o">=</span><span class="s">&#39;name&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/02_ShapefilesAndCellMasks_10_0.png" src="../_images/02_ShapefilesAndCellMasks_10_0.png" />
+<img alt="../_images/02_ShapefilesAndCellMasks_11_0.png" src="../_images/02_ShapefilesAndCellMasks_11_0.png" />
 </div>
 <div class="section" id="create-a-gridgen-object-and-convert-to-a-modelgrid">
 <h2>Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code><a class="headerlink" href="#create-a-gridgen-object-and-convert-to-a-modelgrid" title="Permalink to this headline">¶</a></h2>
@@ -329,7 +330,7 @@ the polygon.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/02_ShapefilesAndCellMasks_14_0.png" src="../_images/02_ShapefilesAndCellMasks_14_0.png" />
+<img alt="../_images/02_ShapefilesAndCellMasks_15_0.png" src="../_images/02_ShapefilesAndCellMasks_15_0.png" />
 </div>
 <div class="section" id="mask-out-everything-beyond-the-river-banks">
 <h2>Mask out everything beyond the river banks<a class="headerlink" href="#mask-out-everything-beyond-the-river-banks" title="Permalink to this headline">¶</a></h2>
@@ -346,7 +347,7 @@ the polygon.</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s">&#39;equal&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/02_ShapefilesAndCellMasks_16_0.png" src="../_images/02_ShapefilesAndCellMasks_16_0.png" />
+<img alt="../_images/02_ShapefilesAndCellMasks_17_0.png" src="../_images/02_ShapefilesAndCellMasks_17_0.png" />
 </div>
 <div class="section" id="loop-through-and-mask-out-the-islands">
 <h2>Loop through and mask out the islands<a class="headerlink" href="#loop-through-and-mask-out-the-islands" title="Permalink to this headline">¶</a></h2>
@@ -362,7 +363,7 @@ the polygon.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/02_ShapefilesAndCellMasks_18_0.png" src="../_images/02_ShapefilesAndCellMasks_18_0.png" />
+<img alt="../_images/02_ShapefilesAndCellMasks_19_0.png" src="../_images/02_ShapefilesAndCellMasks_19_0.png" />
 </div>
 <div class="section" id="export-the-masked-cells-to-a-shapefile">
 <h2>Export the masked cells to a shapefile<a class="headerlink" href="#export-the-masked-cells-to-a-shapefile" title="Permalink to this headline">¶</a></h2>

@@ -147,18 +147,20 @@ new object, allowing consecutive operations to be chained together.
 Optionally, you can pass <code class="docutils literal"><span class="pre">inplace=True</span></code> to the call signature to
 modify the existing object and return <code class="docutils literal"><span class="pre">None</span></code>. Both approaches are
 demonstrated below.</p>
-<div class="code python highlight-python"><div class="highlight"><pre>import numpy as np
-import matplotlib.pyplot as plt
-import pandas
+<div class="code python highlight-python"><div class="highlight"><pre>%matplotlib inline
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
 
-import pygridgen as pgg
-import pygridtools as pgt
+<span class="kn">import</span> <span class="nn">pygridgen</span> <span class="kn">as</span> <span class="nn">pgg</span>
+<span class="kn">import</span> <span class="nn">pygridtools</span> <span class="kn">as</span> <span class="nn">pgt</span>
 
-import seaborn
-clear_bkgd = {&#39;axes.facecolor&#39;:&#39;none&#39;, &#39;figure.facecolor&#39;:&#39;none&#39;}
-palette = seaborn.color_palette(palette=&#39;deep&#39;)
-seaborn.set(style=&#39;ticks&#39;, context=&#39;notebook&#39;, rc=clear_bkgd)
-%matplotlib inline
+<span class="kn">import</span> <span class="nn">seaborn</span>
+<span class="n">clear_bkgd</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;axes.facecolor&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="s">&#39;figure.facecolor&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">}</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s">&#39;deep&#39;</span><span class="p">)</span>
+<span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">&#39;ticks&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">clear_bkgd</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -187,7 +189,7 @@ seaborn.set(style=&#39;ticks&#39;, context=&#39;notebook&#39;, rc=clear_bkgd)
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid3</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_5_0.png" src="../_images/03_MergingSpliting_5_0.png" />
+<img alt="../_images/03_MergingSpliting_6_0.png" src="../_images/03_MergingSpliting_6_0.png" />
 </div>
 <div class="section" id="merge-grids-1-and-2-together-horizontally">
 <h2>Merge grids 1 and 2 together, horizontally<a class="headerlink" href="#merge-grids-1-and-2-together-horizontally" title="Permalink to this headline">¶</a></h2>
@@ -199,7 +201,7 @@ updated. We do that manually for now.</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_7_0.png" src="../_images/03_MergingSpliting_7_0.png" />
+<img alt="../_images/03_MergingSpliting_8_0.png" src="../_images/03_MergingSpliting_8_0.png" />
 </div>
 <div class="section" id="use-the-shift-parameter-to-center-grid-2">
 <h2>Use the shift parameter to center grid 2<a class="headerlink" href="#use-the-shift-parameter-to-center-grid-2" title="Permalink to this headline">¶</a></h2>
@@ -212,7 +214,7 @@ relative to grid 1</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_9_0.png" src="../_images/03_MergingSpliting_9_0.png" />
+<img alt="../_images/03_MergingSpliting_10_0.png" src="../_images/03_MergingSpliting_10_0.png" />
 </div>
 <div class="section" id="vertically-merge-grid-2-and-grid-3">
 <h2>Vertically merge grid 2 and grid 3<a class="headerlink" href="#vertically-merge-grid-2-and-grid-3" title="Permalink to this headline">¶</a></h2>
@@ -225,7 +227,7 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid2</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;firebrick&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_11_0.png" src="../_images/03_MergingSpliting_11_0.png" />
+<img alt="../_images/03_MergingSpliting_12_0.png" src="../_images/03_MergingSpliting_12_0.png" />
 </div>
 <div class="section" id="try-again-switching-the-order-of-the-grids">
 <h2>Try again, switching the order of the grids<a class="headerlink" href="#try-again-switching-the-order-of-the-grids" title="Permalink to this headline">¶</a></h2>
@@ -237,7 +239,7 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid3</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_13_0.png" src="../_images/03_MergingSpliting_13_0.png" />
+<img alt="../_images/03_MergingSpliting_14_0.png" src="../_images/03_MergingSpliting_14_0.png" />
 </div>
 <div class="section" id="alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">
 <h2>Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.<a class="headerlink" href="#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first" title="Permalink to this headline">¶</a></h2>
@@ -249,7 +251,7 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid2</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_15_0.png" src="../_images/03_MergingSpliting_15_0.png" />
+<img alt="../_images/03_MergingSpliting_16_0.png" src="../_images/03_MergingSpliting_16_0.png" />
 </div>
 <div class="section" id="now-merge-all-three-in-a-single-chained-operation-inplace-false">
 <h2>Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).<a class="headerlink" href="#now-merge-all-three-in-a-single-chained-operation-inplace-false" title="Permalink to this headline">¶</a></h2>
@@ -264,7 +266,7 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_17_0.png" src="../_images/03_MergingSpliting_17_0.png" />
+<img alt="../_images/03_MergingSpliting_18_0.png" src="../_images/03_MergingSpliting_18_0.png" />
 </div>
 <div class="section" id="split-the-final-grid-into-two-vertical-parts">
 <h2>Split the final grid into two vertical parts<a class="headerlink" href="#split-the-final-grid-into-two-vertical-parts" title="Permalink to this headline">¶</a></h2>
@@ -280,7 +282,7 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid_top</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_19_0.png" src="../_images/03_MergingSpliting_19_0.png" />
+<img alt="../_images/03_MergingSpliting_20_0.png" src="../_images/03_MergingSpliting_20_0.png" />
 </div>
 </div>
 <div class="section" id="split-the-final-grid-into-two-horizontal-parts">
@@ -297,7 +299,7 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid_right</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_21_0.png" src="../_images/03_MergingSpliting_21_0.png" />
+<img alt="../_images/03_MergingSpliting_22_0.png" src="../_images/03_MergingSpliting_22_0.png" />
 </div>
 </div>
 <div class="section" id="refine-individual-rows-of-the-grid-cells">
@@ -312,7 +314,7 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid_refined</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_23_0.png" src="../_images/03_MergingSpliting_23_0.png" />
+<img alt="../_images/03_MergingSpliting_24_0.png" src="../_images/03_MergingSpliting_24_0.png" />
 </div>
 </div>
 <div class="section" id="refine-individual-columns-of-the-grid-cells">
@@ -326,7 +328,7 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">grid_refined_again</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_25_0.png" src="../_images/03_MergingSpliting_25_0.png" />
+<img alt="../_images/03_MergingSpliting_26_0.png" src="../_images/03_MergingSpliting_26_0.png" />
 </div>
 </div>
 <div class="section" id="one-big-chained-operation-for-fun">
@@ -345,7 +347,7 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_27_0.png" src="../_images/03_MergingSpliting_27_0.png" />
+<img alt="../_images/03_MergingSpliting_28_0.png" src="../_images/03_MergingSpliting_28_0.png" />
 </div>
 </div>
 

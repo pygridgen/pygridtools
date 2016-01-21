@@ -11,6 +11,9 @@ This section will cover:
 .. code:: python
 
     %matplotlib inline
+
+.. code:: python
+
     import warnings
     warnings.simplefilter('ignore')
     
@@ -66,7 +69,7 @@ Load and plot the boundary data
 
 
 
-.. image:: 01_GridgenBasics_files/01_GridgenBasics_4_0.png
+.. image:: 01_GridgenBasics_files/01_GridgenBasics_5_0.png
 
 
 Generate a grid with ``pygridgen``, plot it with ``pygridtools``
@@ -85,7 +88,7 @@ Generate a grid with ``pygridgen``, plot it with ``pygridtools``
 
 
 
-.. image:: 01_GridgenBasics_files/01_GridgenBasics_6_0.png
+.. image:: 01_GridgenBasics_files/01_GridgenBasics_7_0.png
 
 
 Now numerically add focus the side channels, and coarsen the upper portion
@@ -111,5 +114,5 @@ Now numerically add focus the side channels, and coarsen the upper portion
 
 
 
-.. image:: 01_GridgenBasics_files/01_GridgenBasics_8_0.png
+.. image:: 01_GridgenBasics_files/01_GridgenBasics_9_0.png
 

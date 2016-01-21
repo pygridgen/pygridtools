@@ -147,20 +147,22 @@
 <li>Adding focus to the grid</li>
 </ol>
 <div class="code python highlight-python"><div class="highlight"><pre>%matplotlib inline
-import warnings
-warnings.simplefilter(&#39;ignore&#39;)
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s">&#39;ignore&#39;</span><span class="p">)</span>
 
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
 
-import pygridgen as pgg
-import pygridtools as pgt
+<span class="kn">import</span> <span class="nn">pygridgen</span> <span class="kn">as</span> <span class="nn">pgg</span>
+<span class="kn">import</span> <span class="nn">pygridtools</span> <span class="kn">as</span> <span class="nn">pgt</span>
 
-import seaborn
-clear_bkgd = {&#39;axes.facecolor&#39;:&#39;none&#39;, &#39;figure.facecolor&#39;:&#39;none&#39;}
-palette = seaborn.color_palette(palette=&#39;deep&#39;)
-seaborn.set(style=&#39;ticks&#39;, context=&#39;notebook&#39;, rc=clear_bkgd)
+<span class="kn">import</span> <span class="nn">seaborn</span>
+<span class="n">clear_bkgd</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;axes.facecolor&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="s">&#39;figure.facecolor&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">}</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s">&#39;deep&#39;</span><span class="p">)</span>
+<span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">&#39;ticks&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">clear_bkgd</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="load-and-plot-the-boundary-data">
@@ -195,7 +197,7 @@ seaborn.set(style=&#39;ticks&#39;, context=&#39;notebook&#39;, rc=clear_bkgd)
 <span class="n">seaborn</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/01_GridgenBasics_4_0.png" src="../_images/01_GridgenBasics_4_0.png" />
+<img alt="../_images/01_GridgenBasics_5_0.png" src="../_images/01_GridgenBasics_5_0.png" />
 </div>
 <div class="section" id="generate-a-grid-with-pygridgen-plot-it-with-pygridtools">
 <h2>Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code><a class="headerlink" href="#generate-a-grid-with-pygridgen-plot-it-with-pygridtools" title="Permalink to this headline">¶</a></h2>
@@ -209,7 +211,7 @@ seaborn.set(style=&#39;ticks&#39;, context=&#39;notebook&#39;, rc=clear_bkgd)
 <span class="n">seaborn</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/01_GridgenBasics_6_0.png" src="../_images/01_GridgenBasics_6_0.png" />
+<img alt="../_images/01_GridgenBasics_7_0.png" src="../_images/01_GridgenBasics_7_0.png" />
 </div>
 <div class="section" id="now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">
 <h2>Now numerically add focus the side channels, and coarsen the upper portion<a class="headerlink" href="#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion" title="Permalink to this headline">¶</a></h2>
@@ -230,7 +232,7 @@ seaborn.set(style=&#39;ticks&#39;, context=&#39;notebook&#39;, rc=clear_bkgd)
 <span class="n">seaborn</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/01_GridgenBasics_8_0.png" src="../_images/01_GridgenBasics_8_0.png" />
+<img alt="../_images/01_GridgenBasics_9_0.png" src="../_images/01_GridgenBasics_9_0.png" />
 </div>
 </div>
 

@@ -55,7 +55,7 @@ basic rectangle that we will use to mask some elements of the grid:
 
 .. parsed-literal::
 
-    <matplotlib.patches.Polygon at 0x10d3e7f60>
+    <matplotlib.patches.Polygon at 0x10d2e8f60>
 
 
 
@@ -112,7 +112,7 @@ Masking inside vs outside a polygon
 
 .. parsed-literal::
 
-    <matplotlib.text.Text at 0x10d4cd828>
+    <matplotlib.text.Text at 0x10d3e39e8>
 
 
 

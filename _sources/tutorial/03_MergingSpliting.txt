@@ -199,8 +199,8 @@ Split the final grid into two vertical parts
 .. image:: 03_MergingSpliting_files/03_MergingSpliting_20_0.png
 
 
-Splitting and linearly refining grid
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Splitting and linearly refining columns and rows
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Split the final grid into two horizontal parts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -151,14 +151,11 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>shapefile</strong> : string</p>
 <blockquote>
 <div><p>Path to the shapefile containaing boundary points.
-Expected schema of the shapefile:</p>
-<blockquote>
-<div><p>order: numeric sort order of the points
-beta: the &#8216;beta&#8217; parameter used in grid generation to define</p>
-<blockquote>
-<div><p>turning points</p>
-</div></blockquote>
-</div></blockquote>
+Expected schema of the shapefile...</p>
+<ul class="simple">
+<li>order: numeric sort order of the points</li>
+<li>beta: the &#8216;beta&#8217; parameter used in grid generation to define turning points</li>
+</ul>
 </div></blockquote>
 <p><strong>betacol</strong> : string (default=&#8217;beta&#8217;)</p>
 <blockquote>
@@ -190,9 +187,8 @@ to <cite>True</cite> to consider everything.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> : pandas.DataFrame</p>
 <blockquote class="last">
-<div><dl class="docutils">
-<dt>A DataFrame of the boundary points with the following columns:</dt>
-<dd><ul class="first last simple">
+<div><p>A DataFrame of the boundary points with the following columns:</p>
+<ul class="simple">
 <li>x (easting)</li>
 <li>y (northing)</li>
 <li>beta (turning parameter)</li>
@@ -200,8 +196,6 @@ to <cite>True</cite> to consider everything.</p>
 <li>reach</li>
 <li>upperleft</li>
 </ul>
-</dd>
-</dl>
 </div></blockquote>
 </td>
 </tr>

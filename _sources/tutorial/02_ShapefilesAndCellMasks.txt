@@ -55,7 +55,7 @@ basic rectangle that we will use to mask some elements of the grid:
 
 .. parsed-literal::
 
-    <matplotlib.patches.Polygon at 0x10d3ebef0>
+    <matplotlib.patches.Polygon at 0x10d3e7f60>
 
 
 
@@ -112,7 +112,7 @@ Masking inside vs outside a polygon
 
 .. parsed-literal::
 
-    <matplotlib.text.Text at 0x10d5d6978>
+    <matplotlib.text.Text at 0x10d4cd828>
 
 
 
@@ -149,8 +149,8 @@ the polygon.
 .. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_9_0.png
 
 
-Load a grid boundary, river, and set of islands using ``pygridtools.io``
-------------------------------------------------------------------------
+Loading data from shapefiles via ``pygridtools.iotools``
+--------------------------------------------------------
 
 .. code:: python
 
@@ -182,8 +182,8 @@ Load a grid boundary, river, and set of islands using ``pygridtools.io``
 .. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_11_0.png
 
 
-Create a ``Gridgen`` object and convert to a ``ModelGrid``
-----------------------------------------------------------
+Creating a ``Gridgen`` objects
+------------------------------
 
 .. code:: python
 
@@ -215,7 +215,7 @@ Create a ``Gridgen`` object and convert to a ``ModelGrid``
 
 
 Show the raw (unmasked) grid
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
 
@@ -237,7 +237,7 @@ Show the raw (unmasked) grid
 
 
 Mask out everything beyond the river banks
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
 
@@ -259,7 +259,7 @@ Mask out everything beyond the river banks
 
 
 Loop through and mask out the islands
--------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
 
@@ -280,8 +280,8 @@ Loop through and mask out the islands
 .. image:: 02_ShapefilesAndCellMasks_files/02_ShapefilesAndCellMasks_19_0.png
 
 
-Export the masked cells to a shapefile
---------------------------------------
+Exporting the masked cells to a shapefile
+-----------------------------------------
 
 .. code:: python
 

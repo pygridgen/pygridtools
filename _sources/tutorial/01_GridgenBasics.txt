@@ -8,6 +8,10 @@ This section will cover:
 2. Generating visualizing a basic grid
 3. Adding focus to the grid
 
+This is sorely lacking in detail and explanation. For more help on this
+matter, see the `pygridgen
+documentation <http://phobson.github.io/pygridgen/tutorial/basics.html>`__.
+
 .. code:: python
 
     %matplotlib inline
@@ -29,8 +33,8 @@ This section will cover:
     palette = seaborn.color_palette(palette='deep')
     seaborn.set(style='ticks', context='notebook', rc=clear_bkgd)
 
-Load and plot the boundary data
--------------------------------
+Loading and plotting the boundary data
+--------------------------------------
 
 .. code:: python
 
@@ -72,8 +76,8 @@ Load and plot the boundary data
 .. image:: 01_GridgenBasics_files/01_GridgenBasics_5_0.png
 
 
-Generate a grid with ``pygridgen``, plot it with ``pygridtools``
-----------------------------------------------------------------
+Generating a grid with ``pygridgen``, plotting with ``pygridtools``
+-------------------------------------------------------------------
 
 .. code:: python
 
@@ -91,8 +95,8 @@ Generate a grid with ``pygridgen``, plot it with ``pygridtools``
 .. image:: 01_GridgenBasics_files/01_GridgenBasics_7_0.png
 
 
-Now numerically add focus the side channels, and coarsen the upper portion
---------------------------------------------------------------------------
+Using *focus* to refine and coarsen portions of the grid
+--------------------------------------------------------
 
 .. code:: python
 

@@ -29,8 +29,11 @@ demonstrated below.
     palette = seaborn.color_palette(palette='deep')
     seaborn.set(style='ticks', context='notebook', rc=clear_bkgd)
 
-Create 3 model grids moving counter-clockwise in the axis
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Basic merging operations
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The function below create our 3 test model grids moving
+counter-clockwise in the figure shown two cells down.
 
 .. code:: python
 
@@ -47,7 +50,6 @@ Create 3 model grids moving counter-clockwise in the axis
 
 
 Display positions of grids relative to each other
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
 
@@ -64,7 +66,7 @@ Display positions of grids relative to each other
 
 
 Merge grids 1 and 2 together, horizontally
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By default, the bottom rows are aligned and the cell mask is not
 updated. We do that manually for now.
@@ -82,7 +84,7 @@ updated. We do that manually for now.
 
 
 Use the shift parameter to center grid 2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Use ``shift=-1`` since we're sliding grid 2's i-j indexes downward
 relative to grid 1
@@ -101,7 +103,7 @@ relative to grid 1
 
 
 Vertically merge grid 2 and grid 3
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Notice that by default, the grids are left-aligned and the *bottom* of
 grid 3 ties into the *top* of grid 2
@@ -120,7 +122,7 @@ grid 3 ties into the *top* of grid 2
 
 
 Try again, switching the order of the grids
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Notice the change in sign of the ``shift`` parameter.
 
@@ -138,7 +140,7 @@ Notice the change in sign of the ``shift`` parameter.
 
 
 Alternatively, you can switch the arguments and use ``where='-'`` to indicate that the "other" grid is below the first.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 And the sign of the ``shift`` parameter returns to its original value.
 
@@ -156,7 +158,7 @@ And the sign of the ``shift`` parameter returns to its original value.
 
 
 Now merge all three in a single chained operation (``inplace=False``).
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -197,11 +199,13 @@ Split the final grid into two vertical parts
 .. image:: 03_MergingSpliting_files/03_MergingSpliting_20_0.png
 
 
+Splitting and linearly refining grid
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Split the final grid into two horizontal parts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``grid.split(<index of split>, axis=1)``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -220,10 +224,9 @@ Split the final grid into two horizontal parts
 
 
 Refine individual rows of the grid cells
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``grid.refine(<index of cell>, axis=0, n_points=<num. of divisions>)``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -240,10 +243,9 @@ Refine individual rows of the grid cells
 
 
 Refine individual columns of the grid cells
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``grid.refine(<index of cell>, axis=1, n_points=<num. of divisions>)``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -258,8 +260,11 @@ Refine individual columns of the grid cells
 .. image:: 03_MergingSpliting_files/03_MergingSpliting_26_0.png
 
 
+Chained operations
+~~~~~~~~~~~~~~~~~~
+
 One big chained operation for fun
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 

@@ -65,37 +65,25 @@
           
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Grid Generation Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#load-and-plot-the-boundary-data">Load and plot the boundary data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#generate-a-grid-with-pygridgen-plot-it-with-pygridtools">Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">Now numerically add focus the side channels, and coarsen the upper portion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-and-plotting-the-boundary-data">Loading and plotting the boundary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generating-a-grid-with-pygridgen-plotting-with-pygridtools">Generating a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plotting with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-focus-to-refine-and-coarsen-portions-of-the-grid">Using <em>focus</em> to refine and coarsen portions of the grid</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#create-a-gridgen-object-and-convert-to-a-modelgrid">Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#show-the-raw-unmasked-grid">Show the raw (unmasked) grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#mask-out-everything-beyond-the-river-banks">Mask out everything beyond the river banks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#loop-through-and-mask-out-the-islands">Loop through and mask out the islands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#export-the-masked-cells-to-a-shapefile">Export the masked cells to a shapefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#loading-data-from-shapefiles-via-pygridtools-iotools">Loading data from shapefiles via <code class="docutils literal"><span class="pre">pygridtools.iotools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#creating-a-gridgen-objects">Creating a <code class="docutils literal"><span class="pre">Gridgen</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#exporting-the-masked-cells-to-a-shapefile">Exporting the masked cells to a shapefile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#notes">Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#create-3-model-grids-moving-counter-clockwise-in-the-axis">Create 3 model grids moving counter-clockwise in the axis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#display-positions-of-grids-relative-to-each-other">Display positions of grids relative to each other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#merge-grids-1-and-2-together-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#try-again-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#now-merge-all-three-in-a-single-chained-operation-inplace-false">Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#basic-merging-operations">Basic merging operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#one-big-chained-operation-for-fun">One big chained operation for fun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#splitting-and-linearly-refining-grid">Splitting and linearly refining grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#chained-operations">Chained operations</a></li>
 </ul>
 </li>
 </ul>
@@ -146,6 +134,9 @@
 <li>Generating visualizing a basic grid</li>
 <li>Adding focus to the grid</li>
 </ol>
+<p>This is sorely lacking in detail and explanation. For more help on this
+matter, see the <a class="reference external" href="http://phobson.github.io/pygridgen/tutorial/basics.html">pygridgen
+documentation</a>.</p>
 <div class="code python highlight-python"><div class="highlight"><pre>%matplotlib inline
 </pre></div>
 </div>
@@ -165,8 +156,8 @@
 <span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">&#39;ticks&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">clear_bkgd</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="load-and-plot-the-boundary-data">
-<h2>Load and plot the boundary data<a class="headerlink" href="#load-and-plot-the-boundary-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="loading-and-plotting-the-boundary-data">
+<h2>Loading and plotting the boundary data<a class="headerlink" href="#loading-and-plotting-the-boundary-data" title="Permalink to this headline">¶</a></h2>
 <div class="code python highlight-python"><div class="highlight"><pre>csvfile = &quot;basic_data/boundary.csv&quot;
 !cat {csvfile}
 </pre></div>
@@ -199,8 +190,8 @@
 </div>
 <img alt="../_images/01_GridgenBasics_5_0.png" src="../_images/01_GridgenBasics_5_0.png" />
 </div>
-<div class="section" id="generate-a-grid-with-pygridgen-plot-it-with-pygridtools">
-<h2>Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code><a class="headerlink" href="#generate-a-grid-with-pygridgen-plot-it-with-pygridtools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generating-a-grid-with-pygridgen-plotting-with-pygridtools">
+<h2>Generating a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plotting with <code class="docutils literal"><span class="pre">pygridtools</span></code><a class="headerlink" href="#generating-a-grid-with-pygridgen-plotting-with-pygridtools" title="Permalink to this headline">¶</a></h2>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid</span> <span class="o">=</span> <span class="n">pgg</span><span class="o">.</span><span class="n">Gridgen</span><span class="p">(</span><span class="n">boundary</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">boundary</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">boundary</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">),</span> <span class="n">ul_idx</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;aspect&#39;</span><span class="p">:</span><span class="s">&#39;equal&#39;</span><span class="p">})</span>
@@ -213,8 +204,8 @@
 </div>
 <img alt="../_images/01_GridgenBasics_7_0.png" src="../_images/01_GridgenBasics_7_0.png" />
 </div>
-<div class="section" id="now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">
-<h2>Now numerically add focus the side channels, and coarsen the upper portion<a class="headerlink" href="#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-focus-to-refine-and-coarsen-portions-of-the-grid">
+<h2>Using <em>focus</em> to refine and coarsen portions of the grid<a class="headerlink" href="#using-focus-to-refine-and-coarsen-portions-of-the-grid" title="Permalink to this headline">¶</a></h2>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="n">focus</span> <span class="o">=</span> <span class="n">pgg</span><span class="o">.</span><span class="n">Focus</span><span class="p">()</span>
 
 <span class="n">focus</span><span class="o">.</span><span class="n">add_focus</span><span class="p">(</span><span class="mf">0.90</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>

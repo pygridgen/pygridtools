@@ -65,37 +65,25 @@
           
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="01_GridgenBasics.html">Grid Generation Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#load-and-plot-the-boundary-data">Load and plot the boundary data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#generate-a-grid-with-pygridgen-plot-it-with-pygridtools">Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">Now numerically add focus the side channels, and coarsen the upper portion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#loading-and-plotting-the-boundary-data">Loading and plotting the boundary data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#generating-a-grid-with-pygridgen-plotting-with-pygridtools">Generating a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plotting with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#using-focus-to-refine-and-coarsen-portions-of-the-grid">Using <em>focus</em> to refine and coarsen portions of the grid</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Masking grid cells</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#masking-basics">Masking basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#create-a-gridgen-object-and-convert-to-a-modelgrid">Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#show-the-raw-unmasked-grid">Show the raw (unmasked) grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mask-out-everything-beyond-the-river-banks">Mask out everything beyond the river banks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#loop-through-and-mask-out-the-islands">Loop through and mask out the islands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#export-the-masked-cells-to-a-shapefile">Export the masked cells to a shapefile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-data-from-shapefiles-via-pygridtools-iotools">Loading data from shapefiles via <code class="docutils literal"><span class="pre">pygridtools.iotools</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-gridgen-objects">Creating a <code class="docutils literal"><span class="pre">Gridgen</span></code> objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exporting-the-masked-cells-to-a-shapefile">Exporting the masked cells to a shapefile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#notes">Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#create-3-model-grids-moving-counter-clockwise-in-the-axis">Create 3 model grids moving counter-clockwise in the axis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#display-positions-of-grids-relative-to-each-other">Display positions of grids relative to each other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#merge-grids-1-and-2-together-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#try-again-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#now-merge-all-three-in-a-single-chained-operation-inplace-false">Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#basic-merging-operations">Basic merging operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#one-big-chained-operation-for-fun">One big chained operation for fun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#splitting-and-linearly-refining-grid">Splitting and linearly refining grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_MergingSpliting.html#chained-operations">Chained operations</a></li>
 </ul>
 </li>
 </ul>
@@ -183,7 +171,7 @@ basic rectangle that we will use to mask some elements of the grid:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rectangle</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.patches.Polygon at 0x10d3ebef0&gt;
+<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.patches.Polygon at 0x10d3e7f60&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_ShapefilesAndCellMasks_4_1.png" src="../_images/02_ShapefilesAndCellMasks_4_1.png" />
@@ -229,7 +217,7 @@ mask is completely overwritten with the new mask.</li>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">&quot;Mask outside&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.text.Text at 0x10d5d6978&gt;
+<div class="highlight-python"><div class="highlight"><pre>&lt;matplotlib.text.Text at 0x10d4cd828&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_ShapefilesAndCellMasks_7_1.png" src="../_images/02_ShapefilesAndCellMasks_7_1.png" />
@@ -257,8 +245,8 @@ the polygon.</p>
 <img alt="../_images/02_ShapefilesAndCellMasks_9_0.png" src="../_images/02_ShapefilesAndCellMasks_9_0.png" />
 </div>
 </div>
-<div class="section" id="load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">
-<h2>Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code><a class="headerlink" href="#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="loading-data-from-shapefiles-via-pygridtools-iotools">
+<h2>Loading data from shapefiles via <code class="docutils literal"><span class="pre">pygridtools.iotools</span></code><a class="headerlink" href="#loading-data-from-shapefiles-via-pygridtools-iotools" title="Permalink to this headline">¶</a></h2>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="n">boundaryfile</span> <span class="o">=</span> <span class="s">&quot;masking_data/input/GridBoundary.shp&quot;</span>
 <span class="n">gridbounds</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">iotools</span><span class="o">.</span><span class="n">loadBoundaryFromShapefile</span><span class="p">(</span>
     <span class="n">boundaryfile</span><span class="p">,</span>
@@ -285,8 +273,8 @@ the polygon.</p>
 </div>
 <img alt="../_images/02_ShapefilesAndCellMasks_11_0.png" src="../_images/02_ShapefilesAndCellMasks_11_0.png" />
 </div>
-<div class="section" id="create-a-gridgen-object-and-convert-to-a-modelgrid">
-<h2>Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code><a class="headerlink" href="#create-a-gridgen-object-and-convert-to-a-modelgrid" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-a-gridgen-objects">
+<h2>Creating a <code class="docutils literal"><span class="pre">Gridgen</span></code> objects<a class="headerlink" href="#creating-a-gridgen-objects" title="Permalink to this headline">¶</a></h2>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="c"># number of nodes in each dimension</span>
 <span class="n">nx</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">ny</span> <span class="o">=</span> <span class="mi">20</span>
@@ -314,9 +302,8 @@ the polygon.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
 <div class="section" id="show-the-raw-unmasked-grid">
-<h2>Show the raw (unmasked) grid<a class="headerlink" href="#show-the-raw-unmasked-grid" title="Permalink to this headline">¶</a></h2>
+<h3>Show the raw (unmasked) grid<a class="headerlink" href="#show-the-raw-unmasked-grid" title="Permalink to this headline">¶</a></h3>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid</span><span class="o">.</span><span class="n">domain</span> <span class="o">=</span> <span class="n">gridbounds</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">extent</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">river</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">])</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">islands</span> <span class="o">=</span> <span class="n">island_df</span>
@@ -333,7 +320,7 @@ the polygon.</p>
 <img alt="../_images/02_ShapefilesAndCellMasks_15_0.png" src="../_images/02_ShapefilesAndCellMasks_15_0.png" />
 </div>
 <div class="section" id="mask-out-everything-beyond-the-river-banks">
-<h2>Mask out everything beyond the river banks<a class="headerlink" href="#mask-out-everything-beyond-the-river-banks" title="Permalink to this headline">¶</a></h2>
+<h3>Mask out everything beyond the river banks<a class="headerlink" href="#mask-out-everything-beyond-the-river-banks" title="Permalink to this headline">¶</a></h3>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="c"># outside the banks</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">mask_cells_with_polygon</span><span class="p">(</span><span class="n">river</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
@@ -350,7 +337,7 @@ the polygon.</p>
 <img alt="../_images/02_ShapefilesAndCellMasks_17_0.png" src="../_images/02_ShapefilesAndCellMasks_17_0.png" />
 </div>
 <div class="section" id="loop-through-and-mask-out-the-islands">
-<h2>Loop through and mask out the islands<a class="headerlink" href="#loop-through-and-mask-out-the-islands" title="Permalink to this headline">¶</a></h2>
+<h3>Loop through and mask out the islands<a class="headerlink" href="#loop-through-and-mask-out-the-islands" title="Permalink to this headline">¶</a></h3>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="c"># inside the multiple islands</span>
 <span class="k">for</span> <span class="n">island</span> <span class="ow">in</span> <span class="n">island_arrays</span><span class="p">:</span>
     <span class="n">grid</span><span class="o">.</span><span class="n">mask_cells_with_polygon</span><span class="p">(</span><span class="n">island</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -365,8 +352,9 @@ the polygon.</p>
 </div>
 <img alt="../_images/02_ShapefilesAndCellMasks_19_0.png" src="../_images/02_ShapefilesAndCellMasks_19_0.png" />
 </div>
-<div class="section" id="export-the-masked-cells-to-a-shapefile">
-<h2>Export the masked cells to a shapefile<a class="headerlink" href="#export-the-masked-cells-to-a-shapefile" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="exporting-the-masked-cells-to-a-shapefile">
+<h2>Exporting the masked cells to a shapefile<a class="headerlink" href="#exporting-the-masked-cells-to-a-shapefile" title="Permalink to this headline">¶</a></h2>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="n">template</span> <span class="o">=</span> <span class="s">&#39;masking_data/input/cell_template.shp&#39;</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">to_shapefile</span><span class="p">(</span><span class="s">&#39;masking_data/output/ModelCells.shp&#39;</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
                   <span class="n">which</span><span class="o">=</span><span class="s">&#39;grid&#39;</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s">&#39;Polygon&#39;</span><span class="p">,</span>

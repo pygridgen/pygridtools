@@ -5,16 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The misc API &mdash; pygridtools 0.2.1 documentation</title>
+  <title>The misc API &mdash; pygridtools 0.3.0 documentation</title>
   
 
   
   
+  
+  
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -22,33 +24,45 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="The iotools API" href="iotools.html" /> 
 
   
-
-  
-    <link rel="top" title="pygridtools 0.2.1 documentation" href="../index.html"/>
-        <link rel="prev" title="The iotools API" href="iotools.html"/> 
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
-          <a href="../index.html" class="fa fa-home"> pygridtools</a>
-        
-        
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pygridtools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -56,88 +70,110 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
           
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+            
+            
+              
+            
+            
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/01_GridgenBasics.html">Grid Generation Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/01_GridgenBasics.html#load-and-plot-the-boundary-data">Load and plot the boundary data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/01_GridgenBasics.html#generate-a-grid-with-pygridgen-plot-it-with-pygridtools">Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/01_GridgenBasics.html#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">Now numerically add focus the side channels, and coarsen the upper portion</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#create-a-gridgen-object-and-convert-to-a-modelgrid">Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#show-the-raw-unmasked-grid">Show the raw (unmasked) grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#mask-out-everything-beyond-the-river-banks">Mask out everything beyond the river banks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#loop-through-and-mask-out-the-islands">Loop through and mask out the islands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#export-the-masked-cells-to-a-shapefile">Export the masked cells to a shapefile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#notes">Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#create-3-model-grids-moving-counter-clockwise-in-the-axis">Create 3 model grids moving counter-clockwise in the axis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#display-positions-of-grids-relative-to-each-other">Display positions of grids relative to each other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#merge-grids-1-and-2-together-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#try-again-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#now-merge-all-three-in-a-single-chained-operation-inplace-false">Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#one-big-chained-operation-for-fun">One big chained operation for fun</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/01_GridgenBasics.html">Grid Generation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="core.html">The <cite>core</cite> API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iotools.html">The <cite>iotools</cite> API</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">The <cite>misc</cite> API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The <cite>misc</cite> API</a></li>
 </ul>
 
+            
           
-        
+        </div>
       </div>
-      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">pygridtools</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pygridtools</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>The <cite>misc</cite> API</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>The <cite>misc</cite> API</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/api/misc.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/api/misc.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
-          <div role="main" class="document">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
-  <div class="section" id="module-pygridtools.misc">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="module-pygridtools.misc">
 <span id="the-misc-api"></span><span id="misc-auto"></span><h1>The <cite>misc</cite> API<a class="headerlink" href="#module-pygridtools.misc" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="pygridtools.misc.make_poly_coords">
@@ -148,26 +184,26 @@ quadrilateral geometries in shapfiles via fiona.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>xarr, yarr</strong> : numpy arrays</p>
-<blockquote>
-<div><p>Arrays (2x2) of x coordinates and y coordinates for each vertex
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>xarr, yarr</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy arrays</span></dt>
+<dd><p class="first last">Arrays (2x2) of x coordinates and y coordinates for each vertex
 of the quadrilateral.</p>
-</div></blockquote>
-<p><strong>zpnt</strong> : optional float or None (default)</p>
-<blockquote>
-<div><p>If provided, this elevation value will be assigned to all four
+</dd>
+<dt><strong>zpnt</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional float or None (default)</span></dt>
+<dd><p class="first last">If provided, this elevation value will be assigned to all four
 vertices.</p>
-</div></blockquote>
-<p><strong>triangles</strong> : optional bool (default = False)</p>
-<blockquote>
-<div><p>If True, triangles will be returned</p>
-</div></blockquote>
+</dd>
+<dt><strong>triangles</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional bool (default = False)</span></dt>
+<dd><p class="first last">If True, triangles will be returned</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>coords</strong> : numpy array</p>
-<blockquote class="last">
-<div><p>An array suitable for feeding into fiona as the geometry of a record.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>coords</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">An array suitable for feeding into fiona as the geometry of a record.</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -177,36 +213,34 @@ vertices.</p>
 <dl class="function">
 <dt id="pygridtools.misc.make_record">
 <code class="descclassname">pygridtools.misc.</code><code class="descname">make_record</code><span class="sig-paren">(</span><em>ID</em>, <em>coords</em>, <em>geomtype</em>, <em>props</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/misc.html#make_record"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.misc.make_record" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a record to be appended to a shapefile via fiona.</p>
+<dd><p>Creates a record to be appended to a GIS file via <em>geopandas</em>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>ID</strong> : int</p>
-<blockquote>
-<div><p>The record ID number</p>
-</div></blockquote>
-<p><strong>coords</strong> : tuple or array-like</p>
-<blockquote>
-<div><p>The x-y coordinates of the geometry. For Points, just a tuple.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>ID</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int</span></dt>
+<dd><p class="first last">The record ID number</p>
+</dd>
+<dt><strong>coords</strong> <span class="classifier-delimiter">:</span> <span class="classifier">tuple or array-like</span></dt>
+<dd><p class="first last">The x-y coordinates of the geometry. For Points, just a tuple.
 An array or list of tuples for LineStrings or Polygons</p>
-</div></blockquote>
-<p><strong>geomtype</strong> : string</p>
-<blockquote>
-<div><p>A valid GDAL/OGR geometry specification (e.g. LineString, Point,
+</dd>
+<dt><strong>geomtype</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">A valid GDAL/OGR geometry specification (e.g. LineString, Point,
 Polygon)</p>
-</div></blockquote>
-<p><strong>props</strong> : dict or collections.OrderedDict</p>
-<blockquote>
-<div><p>A dict-like object defining the attributes of the record</p>
-</div></blockquote>
+</dd>
+<dt><strong>props</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict or collections.OrderedDict</span></dt>
+<dd><p class="first last">A dict-like object defining the attributes of the record</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>record</strong> : dict</p>
-<blockquote class="last">
-<div><p>A nested dictionary suitable for the fiona package to append to
-a shapefile</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>record</strong> <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd><p class="first last">A nested dictionary suitable for the a <em>geopandas.GeoDataFrame</em>,</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -219,32 +253,32 @@ a shapefile</p>
 <dt id="pygridtools.misc.interpolate_bathymetry">
 <code class="descclassname">pygridtools.misc.</code><code class="descname">interpolate_bathymetry</code><span class="sig-paren">(</span><em>bathy</em>, <em>x_points</em>, <em>y_points</em>, <em>xcol='x'</em>, <em>ycol='y'</em>, <em>zcol='z'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/misc.html#interpolate_bathymetry"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.misc.interpolate_bathymetry" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interpolates x-y-z point data onto the grid of a Gridgen object.
-Matplotlib&#8217;s nearest-neighbor interpolation schema is used to
+Matplotlib’s nearest-neighbor interpolation schema is used to
 estimate the elevation at the grid centers.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>bathy</strong> : pandas.DataFrame or None</p>
-<blockquote>
-<div><p>The bathymetry data stored as x-y-z points in a DataFrame.</p>
-</div></blockquote>
-<p><strong>[x|y]_points</strong> : numpy arrays</p>
-<blockquote>
-<div><p>The x, y locations onto which the bathymetry will be
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>bathy</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pandas.DataFrame or None</span></dt>
+<dd><p class="first last">The bathymetry data stored as x-y-z points in a DataFrame.</p>
+</dd>
+<dt><strong>[x|y]_points</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy arrays</span></dt>
+<dd><p class="first last">The x, y locations onto which the bathymetry will be
 interpolated.</p>
-</div></blockquote>
-<p><strong>xcol/ycol/zcol</strong> : optional strings</p>
-<blockquote>
-<div><p>Column names for each of the quantities defining the elevation
-pints. Defaults are &#8220;x/y/z&#8221;.</p>
-</div></blockquote>
+</dd>
+<dt><strong>xcol/ycol/zcol</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional strings</span></dt>
+<dd><p class="first last">Column names for each of the quantities defining the elevation
+pints. Defaults are “x/y/z”.</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>gridbathy</strong> : pandas.DataFrame</p>
-<blockquote class="last">
-<div><p>The bathymetry for just the area covering the grid.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>gridbathy</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pandas.DataFrame</span></dt>
+<dd><p class="first last">The bathymetry for just the area covering the grid.</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -259,84 +293,81 @@ pints. Defaults are &#8220;x/y/z&#8221;.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>a, b</strong> : numpy arrays</p>
-<blockquote>
-<div><p>The arrays to be merged</p>
-</div></blockquote>
-<p><strong>how</strong> : optional string (default = &#8216;vert&#8217;)</p>
-<blockquote>
-<div><p>The method through wich the arrays should be stacked. <cite>&#8216;Vert&#8217;</cite>
-is analogous to <cite>np.vstack</cite>. <cite>&#8216;Horiz&#8217;</cite> maps to <cite>np.hstack</cite>.</p>
-</div></blockquote>
-<p><strong>where</strong> : optional string (default = &#8216;+&#8217;)</p>
-<blockquote>
-<div><p>The placement of the arrays relative to each other. Keeping in
-mind that the origin of an array&#8217;s index is in the upper-left
-corner, <cite>&#8216;+&#8217;</cite> indicates that the second array will be placed
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>a, b</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy arrays</span></dt>
+<dd><p class="first last">The arrays to be merged</p>
+</dd>
+<dt><strong>how</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional string (default = ‘vert’)</span></dt>
+<dd><p class="first last">The method through wich the arrays should be stacked. <cite>‘Vert’</cite>
+is analogous to <cite>numpy.vstack</cite>. <cite>‘Horiz’</cite> maps to <cite>numpy.hstack</cite>.</p>
+</dd>
+<dt><strong>where</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional string (default = ‘+’)</span></dt>
+<dd><p class="first">The placement of the arrays relative to each other. Keeping in
+mind that the origin of an array’s index is in the upper-left
+corner, <cite>‘+’</cite> indicates that the second array will be placed
 at higher index relative to the first array. Essentially:</p>
-<blockquote>
-<div><ul>
+<ul class="simple">
 <li><dl class="first docutils">
-<dt>if how == &#8216;vert&#8217;</dt>
-<dd><ul class="first last simple">
-<li><cite>&#8216;+&#8217;</cite> -&gt; <cite>a</cite> is above (higher index) <cite>b</cite></li>
-<li><cite>&#8216;-&#8216;</cite> -&gt; <cite>a</cite> is below (lower index) <cite>b</cite></li>
+<dt>if how == ‘vert’</dt>
+<dd><ul class="first last">
+<li><cite>‘+’</cite> -&gt; <cite>a</cite> is above (higher index) <cite>b</cite></li>
+<li><cite>‘-‘</cite> -&gt; <cite>a</cite> is below (lower index) <cite>b</cite></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt>if how == &#8216;horiz&#8217;</dt>
-<dd><ul class="first last simple">
-<li><cite>&#8216;+&#8217;</cite> -&gt; <cite>a</cite> is to the left of <cite>b</cite></li>
-<li><cite>&#8216;-&#8216;</cite> -&gt; <cite>a</cite> is to the right of <cite>b</cite></li>
+<dt>if how == ‘horiz’</dt>
+<dd><ul class="first last">
+<li><cite>‘+’</cite> -&gt; <cite>a</cite> is to the left of <cite>b</cite></li>
+<li><cite>‘-‘</cite> -&gt; <cite>a</cite> is to the right of <cite>b</cite></li>
 </ul>
 </dd>
 </dl>
 </li>
 </ul>
-</div></blockquote>
-<p>See the examples for more info.</p>
-</div></blockquote>
-<p><strong>shift</strong> : int (default = 0)</p>
-<blockquote>
-<div><p>The number of indices the second array should be shifted in
+<p class="last">See the examples for more info.</p>
+</dd>
+<dt><strong>shift</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int (default = 0)</span></dt>
+<dd><p class="first last">The number of indices the second array should be shifted in
 axis other than the one being merged. In other words, vertically
 stacked arrays can be shifted horizontally, and horizontally
 stacked arrays can be shifted vertically.</p>
-</div></blockquote>
-<p><strong>padval</strong> : optional, same type as array (default = np.nan)</p>
-<blockquote>
-<div><p>Value with which the arrays will be padded.</p>
-</div></blockquote>
+</dd>
+<dt><strong>padval</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional, same type as array (default = numpy.nan)</span></dt>
+<dd><p class="first last">Value with which the arrays will be padded.</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>Stacked</strong> : numpy array</p>
-<blockquote class="last">
-<div><p>The merged and padded array</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>Stacked</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">The merged and padded array</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Examples</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pygridtools</span> <span class="kn">as</span> <span class="nn">pgt</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mf">1.0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pgt</span><span class="o">.</span><span class="n">padded_stack</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">    array([[  0.,   1.,   2.,  nan,  nan],</span>
-<span class="go">           [  3.,   4.,   5.,  nan,  nan],</span>
-<span class="go">           [  6.,   7.,   8.,  nan,  nan],</span>
-<span class="go">           [  9.,  10.,  11.,  nan,  nan],</span>
-<span class="go">           [ nan,  -0.,  -1.,  -2.,  -3.],</span>
-<span class="go">           [ nan,  -4.,  -5.,  -6.,  -7.]])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pygridtools</span> <span class="k">as</span> <span class="nn">pgt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mf">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pgt</span><span class="o">.</span><span class="n">padded_stack</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">array([[ 0.,  1.,  2.,   -,   -,   -],</span>
+<span class="go">       [ 3.,  4.,  5.,   -,   -,   -],</span>
+<span class="go">       [ 6.,  7.,  8.,   -,   -,   -],</span>
+<span class="go">       [ 9., 10., 11.,   -,   -,   -],</span>
+<span class="go">       [  -,   -, -0., -1., -2., -3.],</span>
+<span class="go">       [  -,   -, -4., -5., -6., -7.]])</span>
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pgt</span><span class="o">.</span><span class="n">padded_stack</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;h&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
-<span class="go">    array([[ nan,  nan,  nan,  nan,   0.,   1.,   2.],</span>
-<span class="go">           [ nan,  nan,  nan,  nan,   3.,   4.,   5.],</span>
-<span class="go">           [ -0.,  -1.,  -2.,  -3.,   6.,   7.,   8.],</span>
-<span class="go">           [ -4.,  -5.,  -6.,  -7.,   9.,  10.,  11.]]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pgt</span><span class="o">.</span><span class="n">padded_stack</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">array([[-0., -1., -2., -3.,   -,   -,   -],</span>
+<span class="go">       [-4., -5., -6., -7.,  0.,  1.,  2.],</span>
+<span class="go">       [  -,   -,   -,   -,  3.,  4.,  5.],</span>
+<span class="go">       [  -,   -,   -,   -,  6.,  7.,  8.],</span>
+<span class="go">       [  -,   -,   -,   -,  9., 10., 11.]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -349,24 +380,24 @@ stacked arrays can be shifted vertically.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>x, y</strong> : array-like</p>
-<blockquote>
-<div><p>NxM arrays of x- and y-coordinates.</p>
-</div></blockquote>
-<p><strong>polyverts</strong> : sequence of a polygon&#8217;s vertices</p>
-<blockquote>
-<div><p>A sequence of x-y pairs for each vertex of the polygon.</p>
-</div></blockquote>
-<p><strong>inside</strong> : bool (default = True)</p>
-<blockquote>
-<div><p>Toggles returning a mask <em>inside</em> or <em>outside</em> the polygon.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>x, y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array-like</span></dt>
+<dd><p class="first last">NxM arrays of x- and y-coordinates.</p>
+</dd>
+<dt><strong>polyverts</strong> <span class="classifier-delimiter">:</span> <span class="classifier">sequence of a polygon’s vertices</span></dt>
+<dd><p class="first last">A sequence of x-y pairs for each vertex of the polygon.</p>
+</dd>
+<dt><strong>inside</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool (default is True)</span></dt>
+<dd><p class="first last">Toggles masking the inside or outside the polygon</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>mask</strong> : bool array</p>
-<blockquote class="last">
-<div><p>The NxM mask that can be applied to <code class="docutils literal"><span class="pre">x</span></code> and <code class="docutils literal"><span class="pre">y</span></code>.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool array</span></dt>
+<dd><p class="first last">The NxM mask that can be applied to <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -382,10 +413,27 @@ the array of cell values needed for GEFDC.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>cell_array</strong> : numpy array</p>
-<blockquote class="last">
-<div><p>Integer array of the values written to <code class="docutils literal"><span class="pre">outfile</span></code>.</p>
-</div></blockquote>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>node_mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy bool array (N x M)</span></dt>
+<dd><p class="first last">Bool array specifying if a <em>node</em> is present in the raw
+(unmasked) grid.</p>
+</dd>
+<dt><strong>cell_mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional numpy bool array (N-1 x M-1) or None (default)</span></dt>
+<dd><p class="first last">Bool array specifying if a cell should be masked (e.g. due to
+being an island or something like that).</p>
+</dd>
+<dt><strong>triangles</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional bool (default = False)</span></dt>
+<dd><p class="first last">Currently not implemented. Will eventually enable the writting of
+triangular cells when True.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>cell_array</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">Integer array of the values written to <code class="docutils literal notranslate"><span class="pre">outfile</span></code>.</p>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -395,13 +443,15 @@ the array of cell values needed for GEFDC.</p>
 </div>
 
 
+           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="iotools.html" class="btn btn-neutral" title="The iotools API"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="iotools.html" class="btn btn-neutral" title="The iotools API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -410,13 +460,14 @@ the array of cell values needed for GEFDC.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Paul Hobson.
+        &copy; Copyright 2016 - 2018, Paul Hobson.
+
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
 </footer>
+
         </div>
       </div>
 
@@ -431,32 +482,28 @@ the array of cell values needed for GEFDC.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.2.1',
+            VERSION:'0.3.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

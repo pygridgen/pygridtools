@@ -1,0 +1,356 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Grid Manipulations (merge, split, refine, transform)\n",
+    "### Notes\n",
+    "Most grid transformations such as `merge` and `transpose` return a new object, allowing consecutive operations to be chained together.\n",
+    "Optionally, you can pass `inplace=True` to the call signature to modify the existing object and return `None`.\n",
+    "Both approaches are demonstrated below."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%matplotlib inline\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import pandas\n",
+    "\n",
+    "import pygridgen as pgg\n",
+    "import pygridtools as pgt\n",
+    "\n",
+    "import seaborn\n",
+    "clear_bkgd = {'axes.facecolor':'none', 'figure.facecolor':'none'}\n",
+    "palette = seaborn.color_palette(palette='deep')\n",
+    "seaborn.set(style='ticks', context='notebook', rc=clear_bkgd)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Basic merging operations\n",
+    "The function below create our 3 test model grids moving counter-clockwise in the figure shown two cells down."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def make_test_grids():\n",
+    "    domain1 = pandas.DataFrame({'x': [2, 5, 5, 2], 'y': [6, 6, 4, 4], 'beta': [1, 1, 1, 1]})\n",
+    "    domain2 = pandas.DataFrame({'x': [6, 11, 11, 5], 'y': [5, 5, 3, 3], 'beta': [1, 1, 1, 1]})\n",
+    "    domain3 = pandas.DataFrame({'x': [7, 9, 9, 7], 'y': [2, 2, 0, 0], 'beta': [1, 1, 1, 1]})\n",
+    "\n",
+    "    grid1 = pgt.make_grid(domain=domain1, nx=6, ny=5, rawgrid=False)\n",
+    "    grid2 = pgt.make_grid(domain=domain2, nx=8, ny=7, rawgrid=False)\n",
+    "    grid3 = pgt.make_grid(domain=domain3, nx=4, ny=10, rawgrid=False)\n",
+    "    \n",
+    "    return grid1, grid2, grid3\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Display positions of grids relative to each other"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "grid1, grid2, grid3 = make_test_grids()\n",
+    "\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = grid1.plot_cells(ax=ax, cell_kws=dict(cmap='Blues'))\n",
+    "_ = grid2.plot_cells(ax=ax, cell_kws=dict(cmap='Greens'))\n",
+    "_ = grid3.plot_cells(ax=ax, cell_kws=dict(cmap='Reds'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Merge grids 1 and 2 together, horizontally\n",
+    "By default, the bottom rows are aligned and the cell mask is not updated. We do that manually for now."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "one_two = grid1.merge(grid2, how='horiz')\n",
+    "grid1.cell_mask = np.ma.masked_invalid(grid1.xc).mask\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = one_two.plot_cells(ax=ax, cell_kws=dict(cmap='BuPu'))\n",
+    "_ = grid3.plot_cells(ax=ax, cell_kws=dict(cmap='Reds'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": true
+   },
+   "source": [
+    "#### Use the shift parameter to center grid 2\n",
+    "Use `shift=-1` since we're sliding grid 2's i-j indexes downward relative to grid 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "one_two = grid1.merge(grid2, how='horiz', shift=-1)\n",
+    "\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = one_two.plot_cells(ax=ax, cell_kws=dict(cmap='BuPu'))\n",
+    "_ = grid3.plot_cells(ax=ax, cell_kws=dict(cmap='Reds'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Vertically merge grid 2 and grid 3\n",
+    "Notice that by default, the grids are left-aligned and the *bottom* of grid 3 ties into the *top* of grid 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "two_three = grid2.merge(grid3, how='vert', shift=2)\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = grid1.plot_cells(ax=ax, cell_kws=dict(cmap='Blues'))\n",
+    "_ = two_three.plot_cells(ax=ax, cell_kws=dict(cmap='YlOrBr'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Try again, switching the order of the grids\n",
+    "Notice the change in sign of the `shift` parameter."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "two_three = grid3.merge(grid2, how='vert', shift=-2)\n",
+    "\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = grid1.plot_cells(ax=ax, cell_kws=dict(cmap='Blues'))\n",
+    "_ = two_three.plot_cells(ax=ax, cell_kws=dict(cmap='YlOrBr'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Alternatively, you can switch the arguments and use `where='-'` to indicate that the \"other\" grid is below the first.\n",
+    "And the sign of the `shift` parameter returns to its original value."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "two_three = grid2.merge(grid3, how='vert', where='-', shift=2)\n",
+    "\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = grid1.plot_cells(ax=ax, cell_kws=dict(cmap='Blues'))\n",
+    "_ = two_three.plot_cells(ax=ax, cell_kws=dict(cmap='YlOrBr'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Now merge all three in a single chained operation (`inplace=False`)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "grid1, grid2, grid3 = make_test_grids()\n",
+    "all_grids = (\n",
+    "    grid2.merge(grid3, how='vert', where='-', shift=2)\n",
+    "         .merge(grid1, how='horiz', where='-', shift=11) \n",
+    ")\n",
+    "\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = all_grids.plot_cells(ax=ax, cell_kws=dict(cmap='GnBu'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Split the final grid into two vertical parts\n",
+    "\n",
+    "`grid.split(<index of split>, axis=0)`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "grid_bottom, grid_top = all_grids.split(14, axis=0)\n",
+    "\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = grid_bottom.plot_cells(ax=ax, cell_kws=dict(cmap='OrRd'))\n",
+    "_ = grid_top.plot_cells(ax=ax, cell_kws=dict(cmap='BuPu'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Splitting and linearly refining columns and rows\n",
+    "#### Split the final grid into two horizontal parts\n",
+    "\n",
+    "`grid.split(<index of split>, axis=1)`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "grid_left, grid_right = all_grids.split(8, axis=1)\n",
+    "\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = grid_left.plot_cells(ax=ax, cell_kws=dict(cmap='Oranges'))\n",
+    "_ = grid_right.plot_cells(ax=ax, cell_kws=dict(cmap='Blues'))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Refine individual rows of the grid cells \n",
+    "`grid.refine(<index of cell>, axis=0, n_points=<num. of divisions>)`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = (\n",
+    "    all_grids\n",
+    "        .insert(13, axis=0, n_nodes=2)\n",
+    "        .plot_cells(ax=ax, cell_kws=dict(cmap='Blues'))\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Refine individual columns of the grid cells \n",
+    "`grid.refine(<index of cell>, axis=1, n_points=<num. of divisions>)`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "_ = (\n",
+    "    all_grids\n",
+    "        .insert(10, axis=1, n_nodes=4)\n",
+    "        .plot_cells(ax=ax, cell_kws=dict(cmap='Blues'))\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Chained operations\n",
+    "#### One big chained operation for fun"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def make_fake_bathy(grid):\n",
+    "    j_cells, i_cells = grid.cell_shape\n",
+    "    y, x = np.mgrid[:j_cells, :i_cells]\n",
+    "    z = (y - (j_cells // 2))** 2 - x\n",
+    "    return z\n",
+    "\n",
+    "\n",
+    "fig, ax = plt.subplots(figsize=(7.5, 7.5))\n",
+    "\n",
+    "g = (\n",
+    "  grid2.merge(grid3, how='vert', where='-', shift=2)\n",
+    "       .merge(grid1, how='horiz', where='-', shift=11) \n",
+    "       .insert(10, axis=1, n_nodes=4)\n",
+    "       .insert(13, axis=0, n_nodes=2)\n",
+    "       .transform(lambda x: x*5 + 2)\n",
+    ")\n",
+    "\n",
+    "bathy = make_fake_bathy(g)\n",
+    "_ = g.plot_cells(ax=ax, cell_kws=dict(cmap='Blues', colors=bathy))"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 1
+}

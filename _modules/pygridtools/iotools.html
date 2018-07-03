@@ -5,16 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pygridtools.iotools &mdash; pygridtools 0.2.1 documentation</title>
+  <title>pygridtools.iotools &mdash; pygridtools 0.3.0 documentation</title>
   
 
   
   
+  
+  
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -22,33 +24,44 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
   
-
-  
-    <link rel="top" title="pygridtools 0.2.1 documentation" href="../../index.html"/>
-        <link rel="up" title="Module code" href="../index.html"/> 
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
-          <a href="../../index.html" class="fa fa-home"> pygridtools</a>
-        
-        
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> pygridtools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -56,35 +69,21 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
           
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+            
+            
+              
+            
+            
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html">Grid Generation Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html#loading-and-plotting-the-boundary-data">Loading and plotting the boundary data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html#generating-a-grid-with-pygridgen-plotting-with-pygridtools">Generating a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plotting with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html#using-focus-to-refine-and-coarsen-portions-of-the-grid">Using <em>focus</em> to refine and coarsen portions of the grid</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#loading-data-from-shapefiles-via-pygridtools-iotools">Loading data from shapefiles via <code class="docutils literal"><span class="pre">pygridtools.iotools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#creating-a-gridgen-objects">Creating a <code class="docutils literal"><span class="pre">Gridgen</span></code> objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#exporting-the-masked-cells-to-a-shapefile">Exporting the masked cells to a shapefile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#notes">Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#basic-merging-operations">Basic merging operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#splitting-and-linearly-refining-columns-and-rows">Splitting and linearly refining columns and rows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#chained-operations">Chained operations</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html">Grid Generation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/core.html">The <cite>core</cite> API</a></li>
@@ -92,72 +91,100 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/misc.html">The <cite>misc</cite> API</a></li>
 </ul>
 
+            
           
-        
+        </div>
       </div>
-      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">pygridtools</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pygridtools</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../index.html">Module code</a> &raquo;</li>
-      
-    <li>pygridtools.iotools</li>
+        
+      <li>pygridtools.iotools</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
-          <div role="main" class="document">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <h1>Source code for pygridtools.iotools</h1><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">textwrap</span> <span class="k">import</span> <span class="n">dedent</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">pandas</span>
-<span class="kn">import</span> <span class="nn">fiona</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
 
-<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="kn">import</span> <span class="n">misc</span>
-<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="kn">import</span> <span class="n">validate</span>
-
-
-<span class="k">def</span> <span class="nf">_outputfile</span><span class="p">(</span><span class="n">outputdir</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">outputdir</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">outputdir</span> <span class="o">=</span> <span class="s">&#39;.&#39;</span>
-    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">outputdir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="k">import</span> <span class="n">misc</span>
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="k">import</span> <span class="n">validate</span>
 
 
-<div class="viewcode-block" id="loadBoundaryFromShapefile"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.loadBoundaryFromShapefile">[docs]</a><span class="k">def</span> <span class="nf">loadBoundaryFromShapefile</span><span class="p">(</span><span class="n">shapefile</span><span class="p">,</span> <span class="n">betacol</span><span class="o">=</span><span class="s">&#39;beta&#39;</span><span class="p">,</span> <span class="n">reachcol</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                              <span class="n">sortcol</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">upperleftcol</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                              <span class="n">filterfxn</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Loads boundary points from a shapefile.</span>
+<span class="k">def</span> <span class="nf">_warn_filterfxn</span><span class="p">(</span><span class="n">filterfxn</span><span class="p">):</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;`filterfxn` no longer supported. Use the `query` method of the resulting dataframe.&#39;</span>
+    <span class="k">if</span> <span class="n">filterfxn</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="read_boundary"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.read_boundary">[docs]</a><span class="k">def</span> <span class="nf">read_boundary</span><span class="p">(</span><span class="n">gisfile</span><span class="p">,</span> <span class="n">betacol</span><span class="o">=</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="n">reachcol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sortcol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">upperleftcol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">filterfxn</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Loads boundary points from a GIS File.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    shapefile : string</span>
-<span class="sd">        Path to the shapefile containaing boundary points.</span>
-<span class="sd">        Expected schema of the shapefile...</span>
+<span class="sd">    gisfile : string</span>
+<span class="sd">        Path to the GIS file containaing boundary points.</span>
+<span class="sd">        Expected schema of the file...</span>
 
 <span class="sd">        - order: numeric sort order of the points</span>
-<span class="sd">        - beta: the &#39;beta&#39; parameter used in grid generation to define turning points</span>
+<span class="sd">        - beta: the &#39;beta&#39; parameter used in grid generation to define</span>
+<span class="sd">          turning points</span>
 
 <span class="sd">    betacol : string (default=&#39;beta&#39;)</span>
 <span class="sd">        Column in the attribute table specifying the beta parameter&#39;s</span>
@@ -173,13 +200,12 @@
 <span class="sd">        consider the upper-left corner of the system. Only one row of</span>
 <span class="sd">        this column should evaluare to True.</span>
 <span class="sd">    filterfxn : function or lambda expression or None (default)</span>
-<span class="sd">        Pulls out relevant points from the boundary shapefile. Defaults</span>
-<span class="sd">        to `True` to consider everything.</span>
+<span class="sd">        Removed. Use the `query` method of the result.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    df : pandas.DataFrame</span>
-<span class="sd">        A DataFrame of the boundary points with the following columns:</span>
+<span class="sd">    gdf : geopandas.GeoDataFrame</span>
+<span class="sd">        A GeoDataFrame of the boundary points with the following columns:</span>
 
 <span class="sd">        - x (easting)</span>
 <span class="sd">        - y (northing)</span>
@@ -190,57 +216,47 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c"># load and filter the data</span>
-    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">shapefile</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">shp</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">filterfxn</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">reach_bry</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="n">shp</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">_get_col_val</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">reach_bry</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">filterfxn</span><span class="p">,</span> <span class="n">shp</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">default</span>
 
-    <span class="k">def</span> <span class="nf">_get_col_val</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">col</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">val</span> <span class="o">=</span> <span class="n">rec</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="n">col</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">val</span> <span class="o">=</span> <span class="n">default</span>
+    <span class="n">_warn_filterfxn</span><span class="p">(</span><span class="n">filterfxn</span><span class="p">)</span>
+    <span class="n">gdf</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gisfile</span><span class="p">)</span>
+                 <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+                 <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+                 <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">_get_col_val</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">betacol</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+                 <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">_get_col_val</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">sortcol</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+                 <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">reach</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">_get_col_val</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">reachcol</span><span class="p">,</span> <span class="s1">&#39;main&#39;</span><span class="p">))</span>
+                 <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">upperleft</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">_get_col_val</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">upperleftcol</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+                 <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                 <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;order&#39;</span><span class="p">])</span>
+    <span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">val</span>
+    <span class="k">return</span> <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="s1">&#39;upperleft&#39;</span><span class="p">,</span> <span class="s1">&#39;reach&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]]</span></div>
 
-    <span class="c"># stuff the data into a dataframe</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">reach_bry</span><span class="p">):</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-            <span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="n">record</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
-            <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="n">record</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
-            <span class="s">&#39;beta&#39;</span><span class="p">:</span> <span class="n">_get_col_val</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">betacol</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-            <span class="s">&#39;order&#39;</span><span class="p">:</span> <span class="n">_get_col_val</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">sortcol</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">n</span> <span class="o">*</span> <span class="mi">5</span><span class="p">),</span>
-            <span class="s">&#39;reach&#39;</span><span class="p">:</span> <span class="n">_get_col_val</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">reachcol</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;main&#39;</span><span class="p">),</span>
-            <span class="s">&#39;upperleft&#39;</span><span class="p">:</span> <span class="n">_get_col_val</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">upperleftcol</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">),</span>
-        <span class="p">})</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="c"># return just the right columns and sort the data</span>
-    <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="s">&#39;beta&#39;</span><span class="p">,</span> <span class="s">&#39;upperleft&#39;</span><span class="p">,</span> <span class="s">&#39;reach&#39;</span><span class="p">,</span> <span class="s">&#39;order&#39;</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s">&#39;order&#39;</span><span class="p">)</span>
-
-</div>
-<div class="viewcode-block" id="loadPolygonFromShapefile"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.loadPolygonFromShapefile">[docs]</a><span class="k">def</span> <span class="nf">loadPolygonFromShapefile</span><span class="p">(</span><span class="n">shapefile</span><span class="p">,</span> <span class="n">filterfxn</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Load polygons (e.g., water bodies, islands) from a shapefile.</span>
+<div class="viewcode-block" id="read_polygons"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.read_polygons">[docs]</a><span class="k">def</span> <span class="nf">read_polygons</span><span class="p">(</span><span class="n">gisfile</span><span class="p">,</span> <span class="n">filterfxn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">squeeze</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_gdf</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Load polygons (e.g., water bodies, islands) from a GIS file.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    shapefile : string</span>
-<span class="sd">        Path to the shapefile containaing boundary points.</span>
+<span class="sd">    gisfile : string</span>
+<span class="sd">        Path to the gisfile containaing boundary points.</span>
 <span class="sd">    filterfxn : function or lambda expression or None (default)</span>
-<span class="sd">        Pulls out relevant points from the boundary shapefile. Defaults</span>
-<span class="sd">        to `True` to consider everything.</span>
+<span class="sd">        Removed. Use the `as_gdf` and the `query` method of the resulting</span>
+<span class="sd">        GeoDataFrame.</span>
 <span class="sd">    squeeze : optional bool (default = True)</span>
 <span class="sd">        Set to True to return an array if only 1 record is present.</span>
 <span class="sd">        Otherwise, a list of arrays will be returned.</span>
+<span class="sd">    as_gdf : optional bool (default = False)</span>
+<span class="sd">        Set to True to return a GeoDataFrame instead of arrays.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    boundary : array or list of arrays</span>
-<span class="sd">        N x 2 array of the coordinates of the boundary.</span>
+<span class="sd">    boundary : array or list of arrays, or GeoDataFrame</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
@@ -251,70 +267,57 @@
 <span class="sd">    loaded.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_warn_filterfxn</span><span class="p">(</span><span class="n">filterfxn</span><span class="p">)</span>
+    <span class="n">gdf</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gisfile</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">as_gdf</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">gdf</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">boundary</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">squeeze</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">data</span></div>
 
-    <span class="c"># load and filter the data</span>
-    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">shapefile</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">shp</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">filterfxn</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">polygons</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="n">shp</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">polygons</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="n">filterfxn</span><span class="p">,</span> <span class="n">shp</span><span class="p">))</span>
 
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">polygons</span><span class="p">:</span>
-        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<div class="viewcode-block" id="read_grid"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.read_grid">[docs]</a><span class="k">def</span> <span class="nf">read_grid</span><span class="p">(</span><span class="n">gisfile</span><span class="p">,</span> <span class="n">icol</span><span class="o">=</span><span class="s1">&#39;ii&#39;</span><span class="p">,</span> <span class="n">jcol</span><span class="o">=</span><span class="s1">&#39;jj&#39;</span><span class="p">,</span> <span class="n">othercols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+              <span class="n">as_gdf</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">othercols</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">othercols</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">squeeze</span><span class="p">:</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">grid</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gisfile</span><span class="p">)</span>
+                 <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">icol</span><span class="p">:</span> <span class="s1">&#39;ii&#39;</span><span class="p">,</span> <span class="n">jcol</span><span class="p">:</span> <span class="s1">&#39;jj&#39;</span><span class="p">})</span>
+                 <span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ii&#39;</span><span class="p">,</span> <span class="s1">&#39;jj&#39;</span><span class="p">])</span>
+                 <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">as_gdf</span><span class="p">:</span>
+        <span class="n">final_cols</span> <span class="o">=</span> <span class="n">othercols</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">grid</span><span class="p">[</span><span class="n">final_cols</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">final_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;easting&#39;</span><span class="p">,</span> <span class="s1">&#39;northing&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">othercols</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">geom_type</span> <span class="o">!=</span> <span class="s1">&#39;Point&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;can only read points for now when not returning a geodataframe&quot;</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">data</span>
+        <span class="k">return</span> <span class="n">grid</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">easting</span><span class="o">=</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">northing</span><span class="o">=</span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">y</span><span class="p">)[</span><span class="n">final_cols</span><span class="p">]</span></div>
 
-</div>
-<div class="viewcode-block" id="dumpGridFiles"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.dumpGridFiles">[docs]</a><span class="k">def</span> <span class="nf">dumpGridFiles</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Dump vertices from a pygridgen object to file in the standard grid.out</span>
-<span class="sd">    format.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    grid : pygridgen.Gridgen object</span>
-<span class="sd">        The grid to be dumped</span>
-<span class="sd">    filename : string</span>
-<span class="sd">        path and filename of the output file</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    None</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;## {:d} x {:d}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">nx</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">ny</span><span class="p">))</span>
-
-        <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="n">grid</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="n">grid</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()})</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                  <span class="n">header</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%.3f</span><span class="s">&#39;</span><span class="p">)</span>
-
-</div>
-<div class="viewcode-block" id="savePointShapefile"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.savePointShapefile">[docs]</a><span class="k">def</span> <span class="nf">savePointShapefile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                       <span class="n">reach</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="write_points"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.write_points">[docs]</a><span class="k">def</span> <span class="nf">write_points</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Saves grid-related attributes of a pygridgen.Gridgen object to a</span>
-<span class="sd">    shapefile with geomtype = &#39;Point&#39;.</span>
+<span class="sd">    GIS file with geomtype = &#39;Point&#39;.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    X, Y : numpy (masked) arrays, same dimensions</span>
 <span class="sd">        Attributes of the gridgen object representing the x- and y-coords.</span>
-<span class="sd">    template : string</span>
-<span class="sd">        Path to a template shapfiles with the desired schema.</span>
+<span class="sd">    crs : string</span>
+<span class="sd">        A geopandas/proj/fiona-compatible string describing the coordinate</span>
+<span class="sd">        reference system of the x/y values.</span>
 <span class="sd">    outputfile : string</span>
-<span class="sd">        Path to the point shapefile to which the data will be written.</span>
-<span class="sd">    mode : optional string (default = &#39;w&#39;)</span>
-<span class="sd">        The mode with which `outputfile` will be written.</span>
-<span class="sd">        (i.e., &#39;a&#39; for append and &#39;w&#39; for write)</span>
+<span class="sd">        Path to the point-geometry GIS file to which the data will be written.</span>
 <span class="sd">    river : optional string (default = None)</span>
-<span class="sd">        The river to be listed in the shapefile&#39;s attribute table.</span>
+<span class="sd">        The river to be listed in the GIS files&#39;s attribute table.</span>
 <span class="sd">    reach : optional int (default = 0)</span>
-<span class="sd">        The reach of the river to be listed in the shapefile&#39;s attribute</span>
+<span class="sd">        The reach of the river to be listed in the GIS file&#39;s attribute</span>
 <span class="sd">        table.</span>
 <span class="sd">    elev : optional array or None (defauly)</span>
 <span class="sd">        The elevation of the grid cells. Array dimensions must be 1 less than</span>
@@ -322,60 +325,46 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    None</span>
+<span class="sd">    geopandas.GeoDataFrame</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c"># check that the `mode` is a valid value</span>
-    <span class="n">mode</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">file_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
-
-    <span class="c"># check that X and Y are have the same shape, NaN cells</span>
+    <span class="c1"># check that X and Y are have the same shape, NaN cells</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">equivalent_masks</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
 
-    <span class="c"># check elev shape</span>
-    <span class="n">elev</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">elev_or_mask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">elev</span><span class="p">,</span> <span class="s">&#39;elev&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># check elev shape</span>
+    <span class="n">elev</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">elev_or_mask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">elev</span><span class="p">,</span> <span class="s1">&#39;elev&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="c"># load the template</span>
-    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-        <span class="n">src_driver</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">driver</span>
-        <span class="n">src_crs</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">crs</span>
-        <span class="n">src_schema</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">schema</span>
+    <span class="c1"># start writting or appending to the output</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">geodata</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="c1"># check that nothing is masked (outside of the river)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]):</span>
+                <span class="n">row</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="n">src_schema</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Point&#39;</span>
+                <span class="c1"># build the coords</span>
+                <span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">])</span>
 
-    <span class="c"># start writting or appending to the output</span>
-    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-        <span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span>
-        <span class="n">driver</span><span class="o">=</span><span class="n">src_driver</span><span class="p">,</span>
-        <span class="n">crs</span><span class="o">=</span><span class="n">src_crs</span><span class="p">,</span>
-        <span class="n">schema</span><span class="o">=</span><span class="n">src_schema</span>
-    <span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
-        <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-            <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-                <span class="c"># check that nothing is masked (outside of the river)</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]):</span>
-                    <span class="n">row</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="c1"># build the attributes</span>
+                <span class="n">record</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
+                    <span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">),</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">,</span>
+                    <span class="n">ii</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span> <span class="n">jj</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">jj</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span> <span class="n">elev</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">elev</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]),</span>
+                    <span class="n">ii_jj</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">_</span><span class="si">{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">jj</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span>
+                    <span class="n">geometry</span><span class="o">=</span><span class="n">Point</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+                <span class="p">)</span>
 
-                    <span class="c"># build the coords</span>
-                    <span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">])</span>
+                <span class="n">geodata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
 
-                    <span class="c"># build the attributes</span>
-                    <span class="n">props</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
-                        <span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">),</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">,</span>
-                        <span class="n">ii</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">ii</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span> <span class="n">jj</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">jj</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span> <span class="n">elev</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">elev</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span><span class="n">ii</span><span class="p">]),</span>
-                        <span class="n">ii_jj</span><span class="o">=</span><span class="s">&#39;{:02d}_{:02d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">jj</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
-                    <span class="p">)</span>
+    <span class="n">gdf</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geodata</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">)</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">outputfile</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gdf</span></div>
 
-                    <span class="c"># append to the output file</span>
-                    <span class="n">record</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">make_record</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="s">&#39;Point&#39;</span><span class="p">,</span> <span class="n">props</span><span class="p">)</span>
-                    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
 
-</div>
-<div class="viewcode-block" id="saveGridShapefile"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.saveGridShapefile">[docs]</a><span class="k">def</span> <span class="nf">saveGridShapefile</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span>
-                      <span class="n">river</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Saves a shapefile of quadrilaterals representing grid cells.</span>
-
+<div class="viewcode-block" id="write_cells"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.write_cells">[docs]</a><span class="k">def</span> <span class="nf">write_cells</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">elev</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Saves a GIS file of quadrilaterals representing grid cells.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -385,17 +374,15 @@
 <span class="sd">        Array describing which cells to mask (exclude) from the output.</span>
 <span class="sd">        Shape should be N-1 by M-1, where N and M are the dimensions of</span>
 <span class="sd">        `X` and `Y`.</span>
-<span class="sd">    template : string</span>
-<span class="sd">        Path to a template shapfiles with the desired schema.</span>
+<span class="sd">    crs : string</span>
+<span class="sd">        A geopandas/proj/fiona-compatible string describing the coordinate</span>
+<span class="sd">        reference system of the x/y values.</span>
 <span class="sd">    outputfile : string</span>
-<span class="sd">        Path to the point shapefile to which the data will be written.</span>
-<span class="sd">    mode : string</span>
-<span class="sd">        The mode with which `outputfile` will be written.</span>
-<span class="sd">        (i.e., &#39;a&#39; for append and &#39;w&#39; for write)</span>
+<span class="sd">        Path to the point GIS file to which the data will be written.</span>
 <span class="sd">    river : optional string (default = None)</span>
-<span class="sd">        The river to be listed in the shapefile&#39;s attribute table.</span>
+<span class="sd">        The river to be listed in the GIS file&#39;s attribute table.</span>
 <span class="sd">    reach : optional int (default = 0)</span>
-<span class="sd">        The reach of the river to be listed in the shapefile&#39;s attribute</span>
+<span class="sd">        The reach of the river to be listed in the GIS file&#39;s attribute</span>
 <span class="sd">        table.</span>
 <span class="sd">    elev : optional array or None (defauly)</span>
 <span class="sd">        The elevation of the grid cells. Shape should be N-1 by M-1,</span>
@@ -405,331 +392,57 @@
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    None</span>
+<span class="sd">    geopandas.GeoDataFrame</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="c"># check that `mode` is valid</span>
-    <span class="n">mode</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">file_mode</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+    <span class="c1"># check X, Y shapes</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">elev_or_mask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="c"># check X, Y shapes</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">elev_or_mask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="s">&#39;Y&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># check elev shape</span>
+    <span class="n">elev</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">elev_or_mask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">elev</span><span class="p">,</span> <span class="s1">&#39;elev&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="c"># check elev shape</span>
-    <span class="n">elev</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">elev_or_mask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">elev</span><span class="p">,</span> <span class="s">&#39;elev&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># check the mask shape</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">elev_or_mask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="s1">&#39;mask&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="c"># check the mask shape</span>
-    <span class="n">mask</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">elev_or_mask</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="s">&#39;mask&#39;</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
     <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
 
+    <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">geodata</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ny</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="n">jj</span><span class="p">:</span><span class="n">jj</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ii</span><span class="p">:</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">2</span><span class="p">])</span> <span class="ow">or</span> <span class="n">mask</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]):</span>
+                <span class="n">row</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">Z</span> <span class="o">=</span> <span class="n">elev</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span>
+                <span class="c1"># build the array or coordinates</span>
+                <span class="n">coords</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">make_poly_coords</span><span class="p">(</span>
+                    <span class="n">xarr</span><span class="o">=</span><span class="n">X</span><span class="p">[</span><span class="n">jj</span><span class="p">:</span><span class="n">jj</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ii</span><span class="p">:</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">2</span><span class="p">],</span>
+                    <span class="n">yarr</span><span class="o">=</span><span class="n">Y</span><span class="p">[</span><span class="n">jj</span><span class="p">:</span><span class="n">jj</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ii</span><span class="p">:</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">2</span><span class="p">],</span>
+                    <span class="n">zpnt</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="n">triangles</span>
+                <span class="p">)</span>
 
-    <span class="c"># load the template</span>
-    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-        <span class="n">src_driver</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">driver</span>
-        <span class="n">src_crs</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">crs</span>
-        <span class="n">src_schema</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">schema</span>
+                <span class="c1"># build the attributes</span>
+                <span class="n">record</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
+                    <span class="nb">id</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">,</span>
+                    <span class="n">ii</span><span class="o">=</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">jj</span><span class="o">=</span><span class="n">jj</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span>
+                    <span class="n">ii_jj</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{:02d}</span><span class="s1">_</span><span class="si">{:02d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">jj</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span>
+                    <span class="n">geometry</span><span class="o">=</span><span class="n">Polygon</span><span class="p">(</span><span class="n">shell</span><span class="o">=</span><span class="n">coords</span><span class="p">)</span>
+                <span class="p">)</span>
 
-    <span class="n">src_schema</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Polygon&#39;</span>
+                <span class="c1"># append to file is coordinates are not masked</span>
+                <span class="c1"># (masked = beyond the river boundary)</span>
+                <span class="k">if</span> <span class="n">coords</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">geodata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
 
-    <span class="c"># start writting or appending to the output</span>
-    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-        <span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span>
-        <span class="n">driver</span><span class="o">=</span><span class="n">src_driver</span><span class="p">,</span>
-        <span class="n">crs</span><span class="o">=</span><span class="n">src_crs</span><span class="p">,</span>
-        <span class="n">schema</span><span class="o">=</span><span class="n">src_schema</span>
-    <span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
-        <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ny</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">mask</span><span class="p">[</span><span class="n">jj</span><span class="p">:</span><span class="n">jj</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">ii</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="mi">2</span><span class="p">])</span> <span class="ow">or</span> <span class="n">mask</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]):</span>
-                    <span class="n">row</span> <span class="o">+=</span> <span class="mi">1</span>
-                    <span class="n">Z</span> <span class="o">=</span> <span class="n">elev</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span>
-                    <span class="c"># build the array or coordinates</span>
-                    <span class="n">coords</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">make_poly_coords</span><span class="p">(</span>
-                        <span class="n">xarr</span><span class="o">=</span><span class="n">X</span><span class="p">[</span><span class="n">jj</span><span class="p">:</span><span class="n">jj</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">ii</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span>
-                        <span class="n">yarr</span><span class="o">=</span><span class="n">Y</span><span class="p">[</span><span class="n">jj</span><span class="p">:</span><span class="n">jj</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">ii</span><span class="p">:</span><span class="n">ii</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span>
-                        <span class="n">zpnt</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="n">triangles</span>
-                    <span class="p">)</span>
-
-                    <span class="c"># build the attributes</span>
-                    <span class="n">props</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
-                        <span class="nb">id</span><span class="o">=</span><span class="n">row</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">,</span>
-                        <span class="n">ii</span><span class="o">=</span><span class="n">ii</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">jj</span><span class="o">=</span><span class="n">jj</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span>
-                        <span class="n">ii_jj</span><span class="o">=</span><span class="s">&#39;{:02d}_{:02d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ii</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="n">jj</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
-                    <span class="p">)</span>
-
-                    <span class="c"># append to file is coordinates are not masked</span>
-                    <span class="c"># (masked = beyond the river boundary)</span>
-                    <span class="k">if</span> <span class="n">coords</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-                        <span class="n">record</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">make_record</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="s">&#39;Polygon&#39;</span><span class="p">,</span> <span class="n">props</span><span class="p">)</span>
-                        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-
-</div>
-<div class="viewcode-block" id="readGridShapefile"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.readGridShapefile">[docs]</a><span class="k">def</span> <span class="nf">readGridShapefile</span><span class="p">(</span><span class="n">shapefile</span><span class="p">,</span> <span class="n">icol</span><span class="o">=</span><span class="s">&#39;ii&#39;</span><span class="p">,</span> <span class="n">jcol</span><span class="o">=</span><span class="s">&#39;jj&#39;</span><span class="p">,</span> <span class="n">othercols</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                      <span class="n">expand</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">if</span> <span class="n">othercols</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="n">othercols</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">shapefile</span><span class="p">)</span> <span class="k">as</span> <span class="n">shp</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">shp</span><span class="p">:</span>
-            <span class="n">geomtype</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">][</span><span class="s">&#39;type&#39;</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">geomtype</span> <span class="o">==</span> <span class="s">&#39;Point&#39;</span><span class="p">:</span>
-                <span class="n">geom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">][</span><span class="s">&#39;coordinates&#39;</span><span class="p">])</span>
-            <span class="k">elif</span> <span class="n">geomtype</span> <span class="o">==</span> <span class="s">&#39;Polygon&#39;</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;can only read points for now&quot;</span><span class="p">)</span>
-                <span class="c">#geom = np.array(record[&#39;geometry&#39;][&#39;coordinates&#39;]).flatten()</span>
-
-            <span class="n">dfrow</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="s">&#39;i&#39;</span><span class="p">:</span> <span class="n">expand</span> <span class="o">*</span> <span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="n">icol</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">),</span>
-                <span class="s">&#39;j&#39;</span><span class="p">:</span> <span class="n">expand</span> <span class="o">*</span> <span class="p">(</span><span class="n">record</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="n">jcol</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2</span><span class="p">),</span>
-                <span class="s">&#39;easting&#39;</span><span class="p">:</span> <span class="n">geom</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                <span class="s">&#39;northing&#39;</span><span class="p">:</span> <span class="n">geom</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-            <span class="p">}</span>
-            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">othercols</span><span class="p">:</span>
-                <span class="n">dfrow</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">record</span><span class="p">[</span><span class="s">&#39;properties&#39;</span><span class="p">][</span><span class="n">col</span><span class="p">]</span>
-
-            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dfrow</span><span class="p">)</span>
-
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s">&#39;j&#39;</span><span class="p">,</span> <span class="s">&#39;i&#39;</span><span class="p">])</span>
-    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;easting&#39;</span><span class="p">,</span> <span class="s">&#39;northing&#39;</span><span class="p">]</span>
-    <span class="n">columns</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">othercols</span><span class="p">)</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
-
-</div>
-<span class="k">def</span> <span class="nf">_write_cellinp</span><span class="p">(</span><span class="n">cell_array</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="s">&#39;cell.inp&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">,</span>
-                   <span class="n">writeheader</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">rowlabels</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                   <span class="n">maxcols</span><span class="o">=</span><span class="mi">125</span><span class="p">,</span> <span class="n">flip</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Writes the cell.inp input file from an array of cell definitions.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    cell_array : numpy array</span>
-<span class="sd">        Integer array of the values written to ``outfile``.</span>
-<span class="sd">    outputfile : optional string (default = &quot;cell.inp&quot;)</span>
-<span class="sd">        Path *and* filename to the output file. Yes, you have to tell it</span>
-<span class="sd">        to call the file cell.inp</span>
-<span class="sd">    maxcols : optional int (default = 125)</span>
-<span class="sd">        Number of columns at which cell.inp should be wrapped. ``gefdc``</span>
-<span class="sd">        requires this to be 125.</span>
-<span class="sd">    flip : optional bool (default = True)</span>
-<span class="sd">        Numpy arrays have their origin in the upper left corner, so in</span>
-<span class="sd">        a sense south is up and north is down. This means that arrays</span>
-<span class="sd">        need to be flipped before writing to &quot;cell.inp&quot;. Unless you are</span>
-<span class="sd">        _absolutely_sure_ that your array has been flipped already,</span>
-<span class="sd">        leave this parameter as True.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    None</span>
-
-<span class="sd">    See also</span>
-<span class="sd">    --------</span>
-<span class="sd">    _make_gefdc_cells</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">if</span> <span class="n">flip</span><span class="p">:</span>
-        <span class="n">cell_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">cell_array</span><span class="p">)</span>
-
-    <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="n">cell_array</span><span class="o">.</span><span class="n">shape</span>
-
-    <span class="k">if</span> <span class="n">cell_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">maxcols</span><span class="p">:</span>
-        <span class="n">first_array</span> <span class="o">=</span> <span class="n">cell_array</span><span class="p">[:,</span> <span class="p">:</span><span class="n">maxcols</span><span class="p">]</span>
-        <span class="n">_second_array</span> <span class="o">=</span> <span class="n">cell_array</span><span class="p">[:,</span> <span class="n">maxcols</span><span class="p">:]</span>
-        <span class="n">padwidth</span> <span class="o">=</span> <span class="n">maxcols</span> <span class="o">-</span> <span class="n">_second_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">second_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">_second_array</span><span class="p">,</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">padwidth</span><span class="p">)),</span>
-                              <span class="n">mode</span><span class="o">=</span><span class="s">&#39;constant&#39;</span><span class="p">,</span> <span class="n">constant_values</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-        <span class="n">_write_cellinp</span><span class="p">(</span><span class="n">first_array</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-                       <span class="n">writeheader</span><span class="o">=</span><span class="n">writeheader</span><span class="p">,</span> <span class="n">rowlabels</span><span class="o">=</span><span class="n">rowlabels</span><span class="p">,</span>
-                       <span class="n">maxcols</span><span class="o">=</span><span class="n">maxcols</span><span class="p">,</span> <span class="n">flip</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-        <span class="n">_write_cellinp</span><span class="p">(</span><span class="n">second_array</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">&#39;a&#39;</span><span class="p">,</span>
-                       <span class="n">writeheader</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">rowlabels</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                       <span class="n">maxcols</span><span class="o">=</span><span class="n">maxcols</span><span class="p">,</span> <span class="n">flip</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxcols</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
-        <span class="n">colstr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="s">&#39;{:04d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">]</span>
-        <span class="n">hundreds</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colstr</span><span class="p">])</span>
-        <span class="n">tens</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colstr</span><span class="p">])</span>
-        <span class="n">ones</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colstr</span><span class="p">])</span>
-
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">writeheader</span><span class="p">:</span>
-                <span class="n">title</span> <span class="o">=</span> <span class="s">&#39;C -- cell.inp for EFDC model by pygridtools</span><span class="se">\n</span><span class="s">&#39;</span>
-                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;C    {}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hundreds</span><span class="p">[:</span><span class="n">ncols</span><span class="p">]))</span>
-                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;C    {}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tens</span><span class="p">[:</span><span class="n">ncols</span><span class="p">]))</span>
-                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;C    {}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ones</span><span class="p">[:</span><span class="n">ncols</span><span class="p">]))</span>
-
-            <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cell_array</span><span class="p">):</span>
-                <span class="n">row_number</span> <span class="o">=</span> <span class="n">nrows</span> <span class="o">-</span> <span class="n">n</span>
-                <span class="n">row_strings</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-                <span class="n">cell_text</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row_strings</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-                <span class="k">if</span> <span class="n">rowlabels</span><span class="p">:</span>
-                    <span class="n">row_text</span> <span class="o">=</span> <span class="s">&#39;{0:3d}  {1:s}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="nb">int</span><span class="p">(</span><span class="n">row_number</span><span class="p">),</span> <span class="n">cell_text</span>
-                    <span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">row_text</span> <span class="o">=</span> <span class="s">&#39;     {0:s}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cell_text</span><span class="p">)</span>
-
-                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">row_text</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">_write_gefdc_control_file</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">max_i</span><span class="p">,</span> <span class="n">max_j</span><span class="p">,</span> <span class="n">bathyrows</span><span class="p">):</span>
-    <span class="n">gefdc</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s">&quot;C1  TITLE</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C1  (LIMITED TO 80 CHARACTERS)</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    &#39;{0}&#39;</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C2  INTEGER INPUT</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C2  NTYPE   NBPP    IMIN    IMAX    JMIN    JMAX    IC   JC</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    0       0       1       {1}     1       {2}     {1}  {2}</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C3  GRAPHICS GRID INFORMATION</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C3  ISGG    IGM     JGM     DXCG    DYCG    NWTGG</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    0       0       0       0.      0.      1</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C4  CARTESIAN AND GRAPHICS GRID COORDINATE DATA</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C4  CDLON1  CDLON2  CDLON3  CDLAT1  CDLAT2  CDLAT3</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    0.      0.      0.      0.      0.      0.</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C5  INTEGER INPUT</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C5  ITRXM   ITRHM   ITRKM   ITRGM   NDEPSM  NDEPSMF DEPMIN  DDATADJ</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    200     200     200     200     4000    0       0       0</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C6  REAL INPUT</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C6  RPX     RPK     RPH     RSQXM   RSQKM   RSQKIM  RSQHM   RSQHIM  RSQHJM</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    1.8     1.8     1.8     1.E-12  1.E-12  1.E-12  1.E-12  1.E-12  1.E-12</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C7  COORDINATE SHIFT PARAMETERS</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C7  XSHIFT  YSHIFT  HSCALE  RKJDKI  ANGORO</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    0.      0.      1.      1.      5.0</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C8  INTERPOLATION SWITCHES</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C8  ISIRKI  JSIRKI  ISIHIHJ JSIHIHJ</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    1       0       0       0</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C9  NTYPE = 7 SPECIFIED INPUT</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C9  IB      IE      JB      JE      N7RLX   NXYIT   ITN7M   IJSMD   ISMD    JSMD    RP7     SERRMAX</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C10 NTYPE = 7 SPECIFIED INPUT</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C10 X       Y       IN ORDER    (IB,JB) (IE,JB) (IE,JE) (IB,JE)</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C11 DEPTH INTERPOLATION SWITCHES</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C11 ISIDEP  NDEPDAT CDEP    RADM    ISIDPTYP    SURFELEV    ISVEG   NVEGDAT NVEGTYP</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    1       {3:d}     2       0.5     1           0.0         0       0       0</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C12 LAST BOUNDARY POINT INFORMATION</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C12 ILT     JLT     X(ILT,JLT)      Y(ILT,JLT)</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;    0       0       0.0             0.0</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="s">&quot;C13 I   J       X(I,J)          Y(I,J)</span><span class="se">\n</span><span class="s">&quot;</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">max_i</span><span class="p">,</span> <span class="n">max_j</span><span class="p">,</span> <span class="n">bathyrows</span><span class="p">)</span>
-
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">gefdc</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">gefdc</span>
-
-
-<span class="k">def</span> <span class="nf">_write_gridout_file</span><span class="p">(</span><span class="n">xcoords</span><span class="p">,</span> <span class="n">ycoords</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">xcoords</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">ycoords</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;input dimensions must be equivalent&#39;</span><span class="p">)</span>
-
-    <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">xcoords</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-        <span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="n">xcoords</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
-        <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="n">ycoords</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-    <span class="p">})</span>
-
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;## {:d} x {:d}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                  <span class="n">header</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%.3f</span><span class="s">&#39;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">df</span>
-
-
-<span class="k">def</span> <span class="nf">_write_gridext_file</span><span class="p">(</span><span class="n">tidydf</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">icol</span><span class="o">=</span><span class="s">&#39;i&#39;</span><span class="p">,</span> <span class="n">jcol</span><span class="o">=</span><span class="s">&#39;j&#39;</span><span class="p">,</span>
-                        <span class="n">xcol</span><span class="o">=</span><span class="s">&#39;easting&#39;</span><span class="p">,</span> <span class="n">ycol</span><span class="o">=</span><span class="s">&#39;northing&#39;</span><span class="p">):</span>
-    <span class="c"># make sure cols are in the right order</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">tidydf</span><span class="p">[[</span><span class="n">icol</span><span class="p">,</span> <span class="n">jcol</span><span class="p">,</span> <span class="n">xcol</span><span class="p">,</span> <span class="n">ycol</span><span class="p">]]</span>
-
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#39; &#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-           <span class="n">float_format</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-
-
-<div class="viewcode-block" id="gridextToShapefile"><a class="viewcode-back" href="../../api/iotools.html#pygridtools.iotools.gridextToShapefile">[docs]</a><span class="k">def</span> <span class="nf">gridextToShapefile</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="s">&#39;na&#39;</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Converts gridext.inp from the rtools to a shapefile with</span>
-<span class="sd">    `geomtype = &#39;Point&#39;`.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    inputfile : string</span>
-<span class="sd">        Path and filename of the gridext.inp file</span>
-<span class="sd">    outputfile : string</span>
-<span class="sd">        Path and filename of the destination shapefile</span>
-<span class="sd">    template : string</span>
-<span class="sd">        Path to a template shapfiles with the desired schema.</span>
-<span class="sd">    river : optional string (default = None)</span>
-<span class="sd">        The river to be listed in the shapefile&#39;s attribute table.</span>
-<span class="sd">    reach : optional int (default = 0)</span>
-<span class="sd">        The reach of the river to be listed in the shapefile&#39;s attribute</span>
-<span class="sd">        table.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    None</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">errmsg</span> <span class="o">=</span> <span class="s">&#39;file {} not found in {}&#39;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">inputfile</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">errmsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()))</span>
-
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-        <span class="n">inputfile</span><span class="p">,</span>
-        <span class="n">sep</span><span class="o">=</span><span class="s">&#39;\s+&#39;</span><span class="p">,</span>
-        <span class="n">header</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-        <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;i&#39;</span><span class="p">,</span> <span class="s">&#39;j&#39;</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">],</span>
-        <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;i&#39;</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="s">&#39;j&#39;</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="s">&#39;x&#39;</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="s">&#39;y&#39;</span><span class="p">:</span><span class="nb">float</span><span class="p">}</span>
-    <span class="p">)</span>
-
-    <span class="c"># load the template</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">template</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">errmsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()))</span>
-
-    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-        <span class="n">src_driver</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">driver</span>
-        <span class="n">src_crs</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">crs</span>
-        <span class="n">src_schema</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">schema</span>
-
-    <span class="n">src_schema</span><span class="p">[</span><span class="s">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Point&#39;</span>
-
-    <span class="k">def</span> <span class="nf">row2record</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
-        <span class="n">coords</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
-        <span class="n">props</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
-            <span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">,</span>
-            <span class="n">ii</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">i</span><span class="p">),</span> <span class="n">jj</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">j</span><span class="p">),</span> <span class="n">elev</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-            <span class="n">ii_jj</span><span class="o">=</span><span class="s">&#39;{:03d}_{:03d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">i</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">j</span><span class="p">))</span>
-        <span class="p">)</span>
-        <span class="n">record</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">make_record</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">coords</span><span class="p">,</span> <span class="s">&#39;Point&#39;</span><span class="p">,</span> <span class="n">props</span><span class="p">)</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
-            <span class="k">return</span> <span class="mi">1</span>
-        <span class="k">except</span><span class="p">:</span> <span class="c"># pragma: no cover</span>
-            <span class="k">return</span> <span class="mi">0</span>
-
-    <span class="c"># start writting or appending to the output</span>
-    <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-        <span class="n">outputfile</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">,</span>
-        <span class="n">driver</span><span class="o">=</span><span class="n">src_driver</span><span class="p">,</span>
-        <span class="n">crs</span><span class="o">=</span><span class="n">src_crs</span><span class="p">,</span>
-        <span class="n">schema</span><span class="o">=</span><span class="n">src_schema</span>
-    <span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
-        <span class="n">df</span><span class="p">[</span><span class="s">&#39;in gis layer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
-            <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row2record</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">out</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
-        <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;in gis layer&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span></div>
+    <span class="n">gdf</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geodata</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">)</span>
+    <span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">outputfile</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gdf</span></div>
 </pre></div>
 
+           </div>
+           
           </div>
           <footer>
   
@@ -738,13 +451,14 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Paul Hobson.
+        &copy; Copyright 2016 - 2018, Paul Hobson.
+
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
 </footer>
+
         </div>
       </div>
 
@@ -759,32 +473,28 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.2.1',
+            VERSION:'0.3.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

@@ -5,16 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Grid Manipulations (merge, split, refine, transform) &mdash; pygridtools 0.2.1 documentation</title>
+  <title>Grid Manipulations (merge, split, refine, transform) &mdash; pygridtools 0.3.0 documentation</title>
   
 
   
   
+  
+  
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -22,34 +24,46 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The core API" href="../api/core.html" />
+    <link rel="prev" title="Masking grid cells" href="02_ShapefilesAndCellMasks.html" /> 
 
   
-
-  
-    <link rel="top" title="pygridtools 0.2.1 documentation" href="../index.html"/>
-        <link rel="next" title="The core API" href="../api/core.html"/>
-        <link rel="prev" title="Masking grid cells" href="02_ShapefilesAndCellMasks.html"/> 
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
-          <a href="../index.html" class="fa fa-home"> pygridtools</a>
-        
-        
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pygridtools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -57,33 +71,42 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
           
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+            
+            
+              
+            
+            
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="01_GridgenBasics.html">Grid Generation Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#loading-and-plotting-the-boundary-data">Loading and plotting the boundary data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#generating-a-grid-with-pygridgen-plotting-with-pygridtools">Generating a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plotting with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_GridgenBasics.html#using-focus-to-refine-and-coarsen-portions-of-the-grid">Using <em>focus</em> to refine and coarsen portions of the grid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_GridgenBasics.html">Grid Generation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_ShapefilesAndCellMasks.html">Masking grid cells</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Grid Manipulations (merge, split, refine, transform)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Basic-merging-operations">Basic merging operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Merge-grids-1-and-2-together,-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Try-again,-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Alternatively,-you-can-switch-the-arguments-and-use-where='-'-to-indicate-that-the-“other”-grid-is-below-the-first.">Alternatively, you can switch the arguments and use <code class="docutils literal notranslate"><span class="pre">where='-'</span></code> to indicate that the “other” grid is below the first.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Now-merge-all-three-in-a-single-chained-operation-(inplace=False).">Now merge all three in a single chained operation (<code class="docutils literal notranslate"><span class="pre">inplace=False</span></code>).</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#loading-data-from-shapefiles-via-pygridtools-iotools">Loading data from shapefiles via <code class="docutils literal"><span class="pre">pygridtools.iotools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#creating-a-gridgen-objects">Creating a <code class="docutils literal"><span class="pre">Gridgen</span></code> objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#exporting-the-masked-cells-to-a-shapefile">Exporting the masked cells to a shapefile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Splitting-and-linearly-refining-columns-and-rows">Splitting and linearly refining columns and rows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Grid Manipulations (merge, split, refine, transform)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-merging-operations">Basic merging operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#splitting-and-linearly-refining-columns-and-rows">Splitting and linearly refining columns and rows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chained-operations">Chained operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Chained-operations">Chained operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#One-big-chained-operation-for-fun">One big chained operation for fun</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -93,52 +116,268 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/misc.html">The <cite>misc</cite> API</a></li>
 </ul>
 
+            
           
-        
+        </div>
       </div>
-      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">pygridtools</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pygridtools</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Grid Manipulations (merge, split, refine, transform)</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Grid Manipulations (merge, split, refine, transform)</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/tutorial/03_MergingSpliting.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/tutorial/03_MergingSpliting.ipynb.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
-          <div role="main" class="document">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
-  <div class="section" id="grid-manipulations-merge-split-refine-transform">
-<h1>Grid Manipulations (merge, split, refine, transform)<a class="headerlink" href="#grid-manipulations-merge-split-refine-transform" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>Most grid transformations such as <code class="docutils literal"><span class="pre">merge</span></code> and <code class="docutils literal"><span class="pre">transpose</span></code> return a
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #303F9F;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #D84315;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 8ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    background: #f7f7f7;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.pngmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="Grid-Manipulations-(merge,-split,-refine,-transform)">
+<h1>Grid Manipulations (merge, split, refine, transform)<a class="headerlink" href="#Grid-Manipulations-(merge,-split,-refine,-transform)" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="Notes">
+<h2>Notes<a class="headerlink" href="#Notes" title="Permalink to this headline">¶</a></h2>
+<p>Most grid transformations such as <code class="docutils literal notranslate"><span class="pre">merge</span></code> and <code class="docutils literal notranslate"><span class="pre">transpose</span></code> return a
 new object, allowing consecutive operations to be chained together.
-Optionally, you can pass <code class="docutils literal"><span class="pre">inplace=True</span></code> to the call signature to
-modify the existing object and return <code class="docutils literal"><span class="pre">None</span></code>. Both approaches are
+Optionally, you can pass <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code> to the call signature to
+modify the existing object and return <code class="docutils literal notranslate"><span class="pre">None</span></code>. Both approaches are
 demonstrated below.</p>
-<div class="code python highlight-python"><div class="highlight"><pre>%matplotlib inline
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [1]:
 </pre></div>
 </div>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span>
 
@@ -146,209 +385,375 @@ demonstrated below.</p>
 <span class="kn">import</span> <span class="nn">pygridtools</span> <span class="kn">as</span> <span class="nn">pgt</span>
 
 <span class="kn">import</span> <span class="nn">seaborn</span>
-<span class="n">clear_bkgd</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;axes.facecolor&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">,</span> <span class="s">&#39;figure.facecolor&#39;</span><span class="p">:</span><span class="s">&#39;none&#39;</span><span class="p">}</span>
-<span class="n">palette</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s">&#39;deep&#39;</span><span class="p">)</span>
-<span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s">&#39;ticks&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">clear_bkgd</span><span class="p">)</span>
+<span class="n">clear_bkgd</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;axes.facecolor&#39;</span><span class="p">:</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;figure.facecolor&#39;</span><span class="p">:</span><span class="s1">&#39;none&#39;</span><span class="p">}</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">seaborn</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;deep&#39;</span><span class="p">)</span>
+<span class="n">seaborn</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s1">&#39;ticks&#39;</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s1">&#39;notebook&#39;</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="n">clear_bkgd</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="basic-merging-operations">
-<h2>Basic merging operations<a class="headerlink" href="#basic-merging-operations" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="Basic-merging-operations">
+<h2>Basic merging operations<a class="headerlink" href="#Basic-merging-operations" title="Permalink to this headline">¶</a></h2>
 <p>The function below create our 3 test model grids moving
 counter-clockwise in the figure shown two cells down.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">make_test_grids</span><span class="p">():</span>
-    <span class="n">domain1</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s">&#39;beta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
-    <span class="n">domain2</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s">&#39;beta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
-    <span class="n">domain3</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s">&#39;beta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">make_test_grids</span><span class="p">():</span>
+    <span class="n">domain1</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+    <span class="n">domain2</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+    <span class="n">domain3</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
 
-    <span class="n">grid1</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">makeGrid</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain1</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">rawgrid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">grid2</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">makeGrid</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain2</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">rawgrid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-    <span class="n">grid3</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">makeGrid</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain3</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rawgrid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">grid1</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain1</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">rawgrid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">grid2</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain2</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">rawgrid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">grid3</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">make_grid</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="n">domain3</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rawgrid</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span>
+
 </pre></div>
+</div>
 </div>
 <p>Display positions of grids relative to each other</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span> <span class="o">=</span> <span class="n">make_test_grids</span><span class="p">()</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid2</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid3</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [3]:
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_6_0.png" src="../_images/03_MergingSpliting_6_0.png" />
-<div class="section" id="merge-grids-1-and-2-together-horizontally">
-<h3>Merge grids 1 and 2 together, horizontally<a class="headerlink" href="#merge-grids-1-and-2-together-horizontally" title="Permalink to this headline">¶</a></h3>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span> <span class="o">=</span> <span class="n">make_test_grids</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid2</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid3</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_5_0.png" src="../_images/tutorial_03_MergingSpliting_5_0.png" />
+</div>
+</div>
+<div class="section" id="Merge-grids-1-and-2-together,-horizontally">
+<h3>Merge grids 1 and 2 together, horizontally<a class="headerlink" href="#Merge-grids-1-and-2-together,-horizontally" title="Permalink to this headline">¶</a></h3>
 <p>By default, the bottom rows are aligned and the cell mask is not
 updated. We do that manually for now.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;horiz&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">grid1</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid1</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [4]:
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_8_0.png" src="../_images/03_MergingSpliting_8_0.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">one_two</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;horiz&#39;</span><span class="p">)</span>
+<span class="n">grid1</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid1</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">one_two</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;BuPu&#39;</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid3</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">))</span>
+</pre></div>
 </div>
-<div class="section" id="use-the-shift-parameter-to-center-grid-2">
-<h3>Use the shift parameter to center grid 2<a class="headerlink" href="#use-the-shift-parameter-to-center-grid-2" title="Permalink to this headline">¶</a></h3>
-<p>Use <code class="docutils literal"><span class="pre">shift=-1</span></code> since we&#8217;re sliding grid 2&#8217;s i-j indexes downward
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_7_0.png" src="../_images/tutorial_03_MergingSpliting_7_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Use-the-shift-parameter-to-center-grid-2">
+<h3>Use the shift parameter to center grid 2<a class="headerlink" href="#Use-the-shift-parameter-to-center-grid-2" title="Permalink to this headline">¶</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">shift=-1</span></code> since we’re sliding grid 2’s i-j indexes downward
 relative to grid 1</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span> <span class="o">=</span> <span class="n">make_test_grids</span><span class="p">()</span>
-<span class="n">grid1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;horiz&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">grid1</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid1</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [5]:
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_10_0.png" src="../_images/03_MergingSpliting_10_0.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">one_two</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;horiz&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">one_two</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;BuPu&#39;</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid3</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">))</span>
+</pre></div>
 </div>
-<div class="section" id="vertically-merge-grid-2-and-grid-3">
-<h3>Vertically merge grid 2 and grid 3<a class="headerlink" href="#vertically-merge-grid-2-and-grid-3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_9_0.png" src="../_images/tutorial_03_MergingSpliting_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Vertically-merge-grid-2-and-grid-3">
+<h3>Vertically merge grid 2 and grid 3<a class="headerlink" href="#Vertically-merge-grid-2-and-grid-3" title="Permalink to this headline">¶</a></h3>
 <p>Notice that by default, the grids are left-aligned and the <em>bottom</em> of
 grid 3 ties into the <em>top</em> of grid 2</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span> <span class="o">=</span> <span class="n">make_test_grids</span><span class="p">()</span>
-<span class="n">grid2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid3</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">grid2</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid2</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid2</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s">&#39;firebrick&#39;</span><span class="p">))</span>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [6]:
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_12_0.png" src="../_images/03_MergingSpliting_12_0.png" />
-</div>
-<div class="section" id="try-again-switching-the-order-of-the-grids">
-<h3>Try again, switching the order of the grids<a class="headerlink" href="#try-again-switching-the-order-of-the-grids" title="Permalink to this headline">¶</a></h3>
-<p>Notice the change in sign of the <code class="docutils literal"><span class="pre">shift</span></code> parameter.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span> <span class="o">=</span> <span class="n">make_test_grids</span><span class="p">()</span>
-<span class="n">grid3</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">grid3</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid3</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">two_three</span> <span class="o">=</span> <span class="n">grid2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid3</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;vert&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid3</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">two_three</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlOrBr&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_14_0.png" src="../_images/03_MergingSpliting_14_0.png" />
 </div>
-<div class="section" id="alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">
-<h3>Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.<a class="headerlink" href="#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first" title="Permalink to this headline">¶</a></h3>
-<p>And the sign of the <code class="docutils literal"><span class="pre">shift</span></code> parameter returns to its original value.</p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span> <span class="o">=</span> <span class="n">make_test_grids</span><span class="p">()</span>
-<span class="n">grid2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid3</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-<span class="n">grid2</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid2</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid2</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_11_0.png" src="../_images/tutorial_03_MergingSpliting_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Try-again,-switching-the-order-of-the-grids">
+<h3>Try again, switching the order of the grids<a class="headerlink" href="#Try-again,-switching-the-order-of-the-grids" title="Permalink to this headline">¶</a></h3>
+<p>Notice the change in sign of the <code class="docutils literal notranslate"><span class="pre">shift</span></code> parameter.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [7]:
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_16_0.png" src="../_images/03_MergingSpliting_16_0.png" />
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">two_three</span> <span class="o">=</span> <span class="n">grid3</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;vert&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">two_three</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlOrBr&#39;</span><span class="p">))</span>
+</pre></div>
 </div>
-<div class="section" id="now-merge-all-three-in-a-single-chained-operation-inplace-false">
-<h3>Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).<a class="headerlink" href="#now-merge-all-three-in-a-single-chained-operation-inplace-false" title="Permalink to this headline">¶</a></h3>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span> <span class="o">=</span> <span class="n">make_test_grids</span><span class="p">()</span>
-<span class="n">grid</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">grid2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid3</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-         <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;horiz&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_13_0.png" src="../_images/tutorial_03_MergingSpliting_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Alternatively,-you-can-switch-the-arguments-and-use-where='-'-to-indicate-that-the-“other”-grid-is-below-the-first.">
+<h3>Alternatively, you can switch the arguments and use <code class="docutils literal notranslate"><span class="pre">where='-'</span></code> to indicate that the “other” grid is below the first.<a class="headerlink" href="#Alternatively,-you-can-switch-the-arguments-and-use-where='-'-to-indicate-that-the-“other”-grid-is-below-the-first." title="Permalink to this headline">¶</a></h3>
+<p>And the sign of the <code class="docutils literal notranslate"><span class="pre">shift</span></code> parameter returns to its original value.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">two_three</span> <span class="o">=</span> <span class="n">grid2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid3</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid1</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">two_three</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlOrBr&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_15_0.png" src="../_images/tutorial_03_MergingSpliting_15_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Now-merge-all-three-in-a-single-chained-operation-(inplace=False).">
+<h3>Now merge all three in a single chained operation (<code class="docutils literal notranslate"><span class="pre">inplace=False</span></code>).<a class="headerlink" href="#Now-merge-all-three-in-a-single-chained-operation-(inplace=False)." title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span> <span class="o">=</span> <span class="n">make_test_grids</span><span class="p">()</span>
+<span class="n">all_grids</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">grid2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid3</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+         <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;horiz&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="n">grid</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">all_grids</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;GnBu&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_18_0.png" src="../_images/03_MergingSpliting_18_0.png" />
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_17_0.png" src="../_images/tutorial_03_MergingSpliting_17_0.png" />
 </div>
 </div>
-<div class="section" id="split-the-final-grid-into-two-vertical-parts">
-<h2>Split the final grid into two vertical parts<a class="headerlink" href="#split-the-final-grid-into-two-vertical-parts" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="grid-split-index-of-split-axis-0">
-<h3><code class="docutils literal"><span class="pre">grid.split(&lt;index</span> <span class="pre">of</span> <span class="pre">split&gt;,</span> <span class="pre">axis=0)</span></code><a class="headerlink" href="#grid-split-index-of-split-axis-0" title="Permalink to this headline">¶</a></h3>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">ModelGrid</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">)</span>
-<span class="n">grid_bottom</span><span class="p">,</span> <span class="n">grid_top</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">grid_bottom</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid_bottom</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
-<span class="n">grid_top</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid_top</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid_bottom</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid_top</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+</div>
+</div>
+<div class="section" id="Split-the-final-grid-into-two-vertical-parts">
+<h2>Split the final grid into two vertical parts<a class="headerlink" href="#Split-the-final-grid-into-two-vertical-parts" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">grid.split(&lt;index</span> <span class="pre">of</span> <span class="pre">split&gt;,</span> <span class="pre">axis=0)</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [10]:
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_20_0.png" src="../_images/03_MergingSpliting_20_0.png" />
-</div>
-</div>
-<div class="section" id="splitting-and-linearly-refining-columns-and-rows">
-<h2>Splitting and linearly refining columns and rows<a class="headerlink" href="#splitting-and-linearly-refining-columns-and-rows" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="split-the-final-grid-into-two-horizontal-parts">
-<h3>Split the final grid into two horizontal parts<a class="headerlink" href="#split-the-final-grid-into-two-horizontal-parts" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">grid.split(&lt;index</span> <span class="pre">of</span> <span class="pre">split&gt;,</span> <span class="pre">axis=1)</span></code></p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">ModelGrid</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">)</span>
-<span class="n">grid_left</span><span class="p">,</span> <span class="n">grid_right</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">grid_left</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid_left</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
-<span class="n">grid_right</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid_right</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">grid_bottom</span><span class="p">,</span> <span class="n">grid_top</span> <span class="o">=</span> <span class="n">all_grids</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid_left</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid_right</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid_bottom</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;OrRd&#39;</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid_top</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;BuPu&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_22_0.png" src="../_images/03_MergingSpliting_22_0.png" />
 </div>
-<div class="section" id="refine-individual-rows-of-the-grid-cells">
-<h3>Refine individual rows of the grid cells<a class="headerlink" href="#refine-individual-rows-of-the-grid-cells" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">grid.refine(&lt;index</span> <span class="pre">of</span> <span class="pre">cell&gt;,</span> <span class="pre">axis=0,</span> <span class="pre">n_points=&lt;num.</span> <span class="pre">of</span> <span class="pre">divisions&gt;)</span></code></p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid</span> <span class="o">=</span> <span class="n">pgt</span><span class="o">.</span><span class="n">ModelGrid</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">)</span>
-<span class="n">grid_refined</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">grid_refined</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid_refined</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid_refined</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_19_0.png" src="../_images/tutorial_03_MergingSpliting_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Splitting-and-linearly-refining-columns-and-rows">
+<h2>Splitting and linearly refining columns and rows<a class="headerlink" href="#Splitting-and-linearly-refining-columns-and-rows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Split-the-final-grid-into-two-horizontal-parts">
+<h3>Split the final grid into two horizontal parts<a class="headerlink" href="#Split-the-final-grid-into-two-horizontal-parts" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">grid.split(&lt;index</span> <span class="pre">of</span> <span class="pre">split&gt;,</span> <span class="pre">axis=1)</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [11]:
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_24_0.png" src="../_images/03_MergingSpliting_24_0.png" />
-</div>
-<div class="section" id="refine-individual-columns-of-the-grid-cells">
-<h3>Refine individual columns of the grid cells<a class="headerlink" href="#refine-individual-columns-of-the-grid-cells" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">grid.refine(&lt;index</span> <span class="pre">of</span> <span class="pre">cell&gt;,</span> <span class="pre">axis=1,</span> <span class="pre">n_points=&lt;num.</span> <span class="pre">of</span> <span class="pre">divisions&gt;)</span></code></p>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid_refined_again</span> <span class="o">=</span> <span class="n">grid_refined</span><span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">grid_refined_again</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="n">grid_refined_again</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">grid_left</span><span class="p">,</span> <span class="n">grid_right</span> <span class="o">=</span> <span class="n">all_grids</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">grid_refined_again</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid_left</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Oranges&#39;</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">grid_right</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_26_0.png" src="../_images/03_MergingSpliting_26_0.png" />
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_21_0.png" src="../_images/tutorial_03_MergingSpliting_21_0.png" />
 </div>
 </div>
-<div class="section" id="chained-operations">
-<h2>Chained operations<a class="headerlink" href="#chained-operations" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="one-big-chained-operation-for-fun">
-<h3>One big chained operation for fun<a class="headerlink" href="#one-big-chained-operation-for-fun" title="Permalink to this headline">¶</a></h3>
-<div class="code python highlight-python"><div class="highlight"><pre><span class="n">grid1</span><span class="p">,</span> <span class="n">grid2</span><span class="p">,</span> <span class="n">grid3</span> <span class="o">=</span> <span class="n">make_test_grids</span><span class="p">()</span>
+</div>
+<div class="section" id="Refine-individual-rows-of-the-grid-cells">
+<h3>Refine individual rows of the grid cells<a class="headerlink" href="#Refine-individual-rows-of-the-grid-cells" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">grid.refine(&lt;index</span> <span class="pre">of</span> <span class="pre">cell&gt;,</span> <span class="pre">axis=0,</span> <span class="pre">n_points=&lt;num.</span> <span class="pre">of</span> <span class="pre">divisions&gt;)</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">all_grids</span>
+        <span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_23_0.png" src="../_images/tutorial_03_MergingSpliting_23_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Refine-individual-columns-of-the-grid-cells">
+<h3>Refine individual columns of the grid cells<a class="headerlink" href="#Refine-individual-columns-of-the-grid-cells" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">grid.refine(&lt;index</span> <span class="pre">of</span> <span class="pre">cell&gt;,</span> <span class="pre">axis=1,</span> <span class="pre">n_points=&lt;num.</span> <span class="pre">of</span> <span class="pre">divisions&gt;)</span></code></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
+<span class="n">_</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">all_grids</span>
+        <span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_25_0.png" src="../_images/tutorial_03_MergingSpliting_25_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="Chained-operations">
+<h2>Chained operations<a class="headerlink" href="#Chained-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="One-big-chained-operation-for-fun">
+<h3>One big chained operation for fun<a class="headerlink" href="#One-big-chained-operation-for-fun" title="Permalink to this headline">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre>
+<span></span>In [14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">make_fake_bathy</span><span class="p">(</span><span class="n">grid</span><span class="p">):</span>
+    <span class="n">j_cells</span><span class="p">,</span> <span class="n">i_cells</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">cell_shape</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[:</span><span class="n">j_cells</span><span class="p">,</span> <span class="p">:</span><span class="n">i_cells</span><span class="p">]</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">j_cells</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span><span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">z</span>
+
+
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">7.5</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">))</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="p">(</span>
-  <span class="n">grid2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid3</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-       <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;horiz&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
-       <span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-       <span class="o">.</span><span class="n">refine</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="n">grid2</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid3</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;horiz&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+       <span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
        <span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-       <span class="o">.</span><span class="n">update_cell_mask</span><span class="p">()</span>
-       <span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">))</span>
 <span class="p">)</span>
+
+<span class="n">bathy</span> <span class="o">=</span> <span class="n">make_fake_bathy</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">bathy</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../_images/03_MergingSpliting_28_0.png" src="../_images/03_MergingSpliting_28_0.png" />
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorial_03_MergingSpliting_27_0.png" src="../_images/tutorial_03_MergingSpliting_27_0.png" />
+</div>
+</div>
 </div>
 </div>
 </div>
 
 
+           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../api/core.html" class="btn btn-neutral float-right" title="The core API">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../api/core.html" class="btn btn-neutral float-right" title="The core API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="02_ShapefilesAndCellMasks.html" class="btn btn-neutral" title="Masking grid cells"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="02_ShapefilesAndCellMasks.html" class="btn btn-neutral" title="Masking grid cells" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -357,13 +762,14 @@ grid 3 ties into the <em>top</em> of grid 2</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Paul Hobson.
+        &copy; Copyright 2016 - 2018, Paul Hobson.
+
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
 </footer>
+
         </div>
       </div>
 
@@ -378,32 +784,28 @@ grid 3 ties into the <em>top</em> of grid 2</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.2.1',
+            VERSION:'0.3.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

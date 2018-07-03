@@ -5,16 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pygridtools.core &mdash; pygridtools 0.2.1 documentation</title>
+  <title>pygridtools.core &mdash; pygridtools 0.3.0 documentation</title>
   
 
   
   
+  
+  
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -22,33 +24,44 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
   
-
-  
-    <link rel="top" title="pygridtools 0.2.1 documentation" href="../../index.html"/>
-        <link rel="up" title="Module code" href="../index.html"/> 
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
-          <a href="../../index.html" class="fa fa-home"> pygridtools</a>
-        
-        
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> pygridtools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -56,35 +69,21 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
           
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+            
+            
+              
+            
+            
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html">Grid Generation Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html#loading-and-plotting-the-boundary-data">Loading and plotting the boundary data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html#generating-a-grid-with-pygridgen-plotting-with-pygridtools">Generating a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plotting with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html#using-focus-to-refine-and-coarsen-portions-of-the-grid">Using <em>focus</em> to refine and coarsen portions of the grid</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#loading-data-from-shapefiles-via-pygridtools-iotools">Loading data from shapefiles via <code class="docutils literal"><span class="pre">pygridtools.iotools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#creating-a-gridgen-objects">Creating a <code class="docutils literal"><span class="pre">Gridgen</span></code> objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#exporting-the-masked-cells-to-a-shapefile">Exporting the masked cells to a shapefile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#notes">Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#basic-merging-operations">Basic merging operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#splitting-and-linearly-refining-columns-and-rows">Splitting and linearly refining columns and rows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html#chained-operations">Chained operations</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html">Grid Generation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../api/core.html">The <cite>core</cite> API</a></li>
@@ -92,51 +91,81 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/misc.html">The <cite>misc</cite> API</a></li>
 </ul>
 
+            
           
-        
+        </div>
       </div>
-      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">pygridtools</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pygridtools</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../index.html">Module code</a> &raquo;</li>
-      
-    <li>pygridtools.core</li>
+        
+      <li>pygridtools.core</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
-          <div role="main" class="document">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
   <h1>Source code for pygridtools.core</h1><div class="highlight"><pre>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="k">import</span> <span class="n">deepcopy</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">interpolate</span>
 <span class="kn">import</span> <span class="nn">pandas</span>
 
-<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="kn">import</span> <span class="n">misc</span>
-<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="kn">import</span> <span class="n">iotools</span>
-<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="kn">import</span> <span class="n">viz</span>
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="k">import</span> <span class="n">misc</span>
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="k">import</span> <span class="n">iotools</span>
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="k">import</span> <span class="n">viz</span>
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="k">import</span> <span class="n">validate</span>
+<span class="kn">from</span> <span class="nn">pygridtools.gefdc</span> <span class="k">import</span> <span class="n">GEFDCWriter</span>
 
 
 <div class="viewcode-block" id="transform"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.transform">[docs]</a><span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">fxn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -161,9 +190,9 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">return</span> <span class="n">fxn</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fxn</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
-</div>
+
 <div class="viewcode-block" id="split"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.split">[docs]</a><span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Split a array of nodes into two separate, non-overlapping arrays.</span>
@@ -193,17 +222,17 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;cannot split grid at or beyond its edges&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;cannot split grid at or beyond its edges&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[:</span><span class="n">index</span><span class="p">,</span> <span class="p">:],</span> <span class="n">nodes</span><span class="p">[</span><span class="n">index</span><span class="p">:,</span> <span class="p">:]</span>
     <span class="k">elif</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[:,</span> <span class="p">:</span><span class="n">index</span><span class="p">],</span> <span class="n">nodes</span><span class="p">[:,</span> <span class="n">index</span><span class="p">:]</span>
 
-    <span class="k">return</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span>
+    <span class="k">return</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span></div>
 
-</div>
-<div class="viewcode-block" id="merge"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.merge">[docs]</a><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">other_nodes</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+
+<div class="viewcode-block" id="merge"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.merge">[docs]</a><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">other_nodes</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Merge two sets of nodes together.</span>
 
@@ -213,8 +242,8 @@
 <span class="sd">        The sets of nodes that will be merged.</span>
 <span class="sd">    how : string, optional (default = &#39;vert&#39;)</span>
 <span class="sd">        The method through wich the arrays should be stacked.</span>
-<span class="sd">        `&#39;Vert&#39;` is analogous to `np.vstack`. `&#39;Horiz&#39;` maps to</span>
-<span class="sd">        `np.hstack`.</span>
+<span class="sd">        `&#39;Vert&#39;` is analogous to `numpy.vstack`. `&#39;Horiz&#39;` maps to</span>
+<span class="sd">        `numpy.hstack`.</span>
 <span class="sd">    where : string, optional (default = &#39;+&#39;)</span>
 <span class="sd">        The placement of the arrays relative to each other. Keeping</span>
 <span class="sd">        in mind that the origin of an array&#39;s index is in the</span>
@@ -243,60 +272,86 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    merged : numpy.ndarrays</span>
-<span class="sd">        The unified nodes coordinates</span>
+<span class="sd">        The unified nodes coordinates.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">return</span> <span class="n">transform</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">misc</span><span class="o">.</span><span class="n">padded_stack</span><span class="p">,</span> <span class="n">other_nodes</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="n">how</span><span class="p">,</span>
-                     <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">shift</span><span class="p">)</span>
+                     <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">shift</span><span class="p">)</span></div>
 
-</div>
-<span class="k">def</span> <span class="nf">_interp_between_vectors</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n_points</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;number of interpolated points must be at least 1&quot;</span><span class="p">)</span>
 
-    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">old_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">interp</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">old_index</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s">&#39;linear&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">_interp_between_vectors</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n_nodes</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;number of interpolated points must be at least 1&quot;</span><span class="p">)</span>
 
-    <span class="n">new_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">n_points</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">old_index</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">interp</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span><span class="n">old_index</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+
+    <span class="n">new_index</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">n_nodes</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">interp</span><span class="p">(</span><span class="n">new_index</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
 
-<div class="viewcode-block" id="refine"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.refine">[docs]</a><span class="k">def</span> <span class="nf">refine</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Insert and linearly interpolate new nodes in an existing array.</span>
+<div class="viewcode-block" id="insert"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.insert">[docs]</a><span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Inserts new rows or columns between existing nodes.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    nodes : numpy.ndarray</span>
-<span class="sd">        An N x M array of individual node coordinates (i.e., the</span>
-<span class="sd">        x-coords or the y-coords only)</span>
+<span class="sd">        The the array to be inserted.</span>
 <span class="sd">    index : int</span>
-<span class="sd">        The leading edge of where the split should occur.</span>
-<span class="sd">    axis : int, optional</span>
-<span class="sd">        The axis along which ``nodes`` will be split. Use `axis = 0`</span>
-<span class="sd">        to split along rows and `axis = 1` for columns.</span>
-<span class="sd">    n_points : int, optional</span>
-<span class="sd">        The number of *new* rows or columns to be inserted.</span>
+<span class="sd">        The index within the array that will be inserted.</span>
+<span class="sd">    axis : int</span>
+<span class="sd">        Either 0 to insert rows or 1 to insert columns.</span>
+<span class="sd">    n_nodes : int</span>
+<span class="sd">        The number of new nodes to be inserted. In other words,</span>
+<span class="sd">        ``n_nodes = 1`` implies that the given row to columns will</span>
+<span class="sd">        be split in half. Similarly, ``n_nodes = 2`` will divide</span>
+<span class="sd">        into thirds, ``n_nodes = 3`` implies quarters, and so on.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    refined : numpy.ndarray</span>
+<span class="sd">    inserted : numpy.ndarray</span>
+<span class="sd">        The modified node array.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">refined</span> <span class="o">=</span> <span class="n">refine</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="n">n_points</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">inserted</span> <span class="o">=</span> <span class="n">insert</span><span class="p">(</span><span class="n">nodes</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="n">n_nodes</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">top</span><span class="p">,</span> <span class="n">bottom</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">edge1</span><span class="p">,</span> <span class="n">edge2</span> <span class="o">=</span> <span class="n">top</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">bottom</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="n">middle</span> <span class="o">=</span> <span class="n">_interp_between_vectors</span><span class="p">(</span><span class="n">edge1</span><span class="p">,</span> <span class="n">edge2</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="n">n_points</span><span class="p">)</span>
-        <span class="n">refined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">top</span><span class="p">,</span> <span class="n">middle</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bottom</span><span class="p">])</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">_interp_between_vectors</span><span class="p">(</span><span class="n">edge1</span><span class="p">,</span> <span class="n">edge2</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="n">n_nodes</span><span class="p">)</span>
+        <span class="n">inserted</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">top</span><span class="p">,</span> <span class="n">middle</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bottom</span><span class="p">])</span>
 
-    <span class="k">return</span> <span class="n">refined</span>
+    <span class="k">return</span> <span class="n">inserted</span></div>
 
-</div>
+
+<div class="viewcode-block" id="extract"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.extract">[docs]</a><span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">jstart</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">istart</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">jend</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iend</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extracts a subset of an array into new array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    jstart, jend : int, optional</span>
+<span class="sd">        Start and end of the selection along the j-index</span>
+<span class="sd">    istart, iend : int, optional</span>
+<span class="sd">        Start and end of the selection along the i-index</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    subset : array</span>
+<span class="sd">        The extracted subset of a copy of the original array.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Calling this without any [j|i][start|end] arguments effectively</span>
+<span class="sd">    just makes a copy of the array.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="n">jstart</span><span class="p">:</span><span class="n">jend</span><span class="p">,</span> <span class="n">istart</span><span class="p">:</span><span class="n">iend</span><span class="p">])</span></div>
+
+
 <div class="viewcode-block" id="ModelGrid"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid">[docs]</a><span class="k">class</span> <span class="nc">ModelGrid</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Container for a curvilinear-orthogonal grid. Provides convenient</span>
@@ -315,24 +370,25 @@
 <span class="sd">        M-by-N arrays of node (vertex) coordinates for the grid.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodes_x</span><span class="p">,</span> <span class="n">nodes_y</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">nodes_x</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">nodes_y</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;input arrays must have the same shape&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nodes_x</span><span class="p">,</span> <span class="n">nodes_y</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">nodes_x</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">nodes_y</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;input arrays must have the same shape&#39;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_nodes_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">nodes_x</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_nodes_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">nodes_y</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_template</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">nodes_x</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">nodes_y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_crs</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cell_mask</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_domain</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_extent</span> <span class="o">=</span> <span class="bp">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_islands</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_domain</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_extent</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_islands</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">nodes_x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Array of node x-coordinates. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodes_x</span>
-    <span class="nd">@nodes_x.setter</span>
+
+    <span class="nd">@nodes_x</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">nodes_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_nodes_x</span> <span class="o">=</span> <span class="n">value</span>
 
@@ -340,7 +396,8 @@
     <span class="k">def</span> <span class="nf">nodes_y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Array of node y-coordinates. &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nodes_y</span>
-    <span class="nd">@nodes_y.setter</span>
+
+    <span class="nd">@nodes_y</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">nodes_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Array object of y-nodes&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_nodes_y</span> <span class="o">=</span> <span class="n">value</span>
@@ -417,23 +474,26 @@
     <span class="k">def</span> <span class="nf">cell_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Boolean mask for the cells &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cell_mask</span>
-    <span class="nd">@cell_mask.setter</span>
+
+    <span class="nd">@cell_mask</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">cell_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cell_mask</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">template</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Template shapefile (schema) for export &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_template</span>
-    <span class="nd">@template.setter</span>
-    <span class="k">def</span> <span class="nf">template</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_template</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">crs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Coordinate reference system for GIS data export &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_crs</span>
+
+    <span class="nd">@crs</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">crs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_crs</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">domain</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; The optional domain used to generate the raw grid &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_domain</span>
-    <span class="nd">@domain.setter</span>
+
+    <span class="nd">@domain</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_domain</span> <span class="o">=</span> <span class="n">value</span>
 
@@ -442,7 +502,8 @@
         <span class="sd">&quot;&quot;&quot; The final extent of the model grid</span>
 <span class="sd">        (everything outside is masked). &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extent</span>
-    <span class="nd">@extent.setter</span>
+
+    <span class="nd">@extent</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">extent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_extent</span> <span class="o">=</span> <span class="n">value</span>
 
@@ -450,7 +511,8 @@
     <span class="k">def</span> <span class="nf">islands</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Polygons used to make holes/gaps in the grid &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_islands</span>
-    <span class="nd">@islands.setter</span>
+
+    <span class="nd">@islands</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">islands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_islands</span> <span class="o">=</span> <span class="n">value</span>
 
@@ -467,86 +529,95 @@
 <span class="sd">            .. note:</span>
 <span class="sd">               The function is applied to each node array (x and y)</span>
 <span class="sd">               individually.</span>
-<span class="sd">        inplace : bool, optional</span>
-<span class="sd">            Toggles the application of ``fxn`` in-place or on a copy.</span>
 <span class="sd">        arg, kwargs : optional arguments and keyword arguments</span>
 <span class="sd">            Additional values passed to ``fxn`` after the node array.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        None or ModelGrid</span>
-<span class="sd">            `None` is returned if ``inplace`` is `True`. Otherwise,</span>
-<span class="sd">            a new :class:`~ModelGrid` is returned.</span>
+<span class="sd">        modelgrid</span>
+<span class="sd">            A new :class:`~ModelGrid` is returned.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">inplace</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s">&#39;inplace&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
         <span class="n">nodes_x</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">fxn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">nodes_y</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">,</span> <span class="n">fxn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span> <span class="o">=</span> <span class="n">nodes_x</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span> <span class="o">=</span> <span class="n">nodes_y</span>
-            <span class="k">return</span> <span class="bp">None</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">ModelGrid</span><span class="p">(</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">nodes_y</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.transpose"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.transpose">[docs]</a>    <span class="k">def</span> <span class="nf">transpose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ModelGrid</span><span class="p">(</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">nodes_y</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.transform_x"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.transform_x">[docs]</a>    <span class="k">def</span> <span class="nf">transform_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fxn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">nodes_x</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">fxn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ModelGrid</span><span class="p">(</span><span class="n">nodes_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.transform_y"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.transform_y">[docs]</a>    <span class="k">def</span> <span class="nf">transform_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fxn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">nodes_y</span> <span class="o">=</span> <span class="n">transform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">,</span> <span class="n">fxn</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ModelGrid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">nodes_y</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Copies to nodes to a new model grid.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        None</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        modelgrid</span>
+<span class="sd">            A new :class:`~ModelGrid` is returned.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+
+<div class="viewcode-block" id="ModelGrid.transpose"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.transpose">[docs]</a>    <span class="k">def</span> <span class="nf">transpose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transposes the node arrays of the model grid.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        inplace : bool, optional</span>
-<span class="sd">            Toggles the application of ``fxn`` in-place or on a copy.</span>
+<span class="sd">        None</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        None or ModelGrid</span>
-<span class="sd">            `None` is returned if ``inplace`` is `True`. Otherwise,</span>
-<span class="sd">            a new :class:`~ModelGrid` is returned.</span>
+<span class="sd">        modelgrid</span>
+<span class="sd">            A new :class:`~ModelGrid` is returned.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.fliplr"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.fliplr">[docs]</a>    <span class="k">def</span> <span class="nf">fliplr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.fliplr"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.fliplr">[docs]</a>    <span class="k">def</span> <span class="nf">fliplr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reverses the columns of the node arrays of the model grid.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        inplace : bool, optional</span>
-<span class="sd">            Toggles the application of ``fxn`` in-place or on a copy.</span>
+<span class="sd">        None</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        None or ModelGrid</span>
-<span class="sd">            `None` is returned if ``inplace`` is `True`. Otherwise,</span>
-<span class="sd">            a new :class:`~ModelGrid` is returned.</span>
+<span class="sd">        modelgrid</span>
+<span class="sd">            A new :class:`~ModelGrid` is returned.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.flipud"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.flipud">[docs]</a>    <span class="k">def</span> <span class="nf">flipud</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">fliplr</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.flipud"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.flipud">[docs]</a>    <span class="k">def</span> <span class="nf">flipud</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reverses the rows of the node arrays of the model grid.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        inplace : bool, optional</span>
-<span class="sd">            Toggles the application of ``fxn`` in-place or on a copy.</span>
+<span class="sd">        None</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        None or ModelGrid</span>
-<span class="sd">            `None` is returned if ``inplace`` is `True`. Otherwise,</span>
-<span class="sd">            a new :class:`~ModelGrid` is returned.</span>
+<span class="sd">        modelgrid</span>
+<span class="sd">            A new :class:`~ModelGrid` is returned.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">)</span>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">flipud</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="ModelGrid.split"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.split">[docs]</a>    <span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Splits a model grid into two separate objects.</span>
@@ -558,8 +629,6 @@
 <span class="sd">        axis : int, optional</span>
 <span class="sd">            The axis along which ``nodes`` will be split. Use `axis = 0`</span>
 <span class="sd">            to split along rows and `axis = 1` for columns.</span>
-<span class="sd">        inplace : bool, optional</span>
-<span class="sd">            Toggles the application of ``fxn`` in-place or on a copy.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -576,11 +645,11 @@
 
         <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
         <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ModelGrid</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">ModelGrid</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.refine"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.refine">[docs]</a>    <span class="k">def</span> <span class="nf">refine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ModelGrid</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">),</span> <span class="n">ModelGrid</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.insert"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.insert">[docs]</a>    <span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Insert and linearly interpolate new nodes in an existing grid.</span>
+<span class="sd">        Inserts and linearly interpolates new nodes in an existing grid.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -592,22 +661,45 @@
 <span class="sd">        axis : int, optional</span>
 <span class="sd">            The axis along which ``nodes`` will be split. Use `axis = 0`</span>
 <span class="sd">            to split along rows and `axis = 1` for columns.</span>
-<span class="sd">        n_points : int, optional</span>
+<span class="sd">        n_nodes : int, optional</span>
 <span class="sd">            The number of *new* rows or columns to be inserted.</span>
-<span class="sd">        inplace : bool, optional</span>
-<span class="sd">            Toggles the application of ``fxn`` in-place or on a copy.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        None or ModelGrid</span>
-<span class="sd">            `None` is returned if ``inplace`` is `True`. Otherwise,</span>
-<span class="sd">            a new :class:`~ModelGrid` is returned.</span>
+<span class="sd">        modelgrid</span>
+<span class="sd">            A new :class:`~ModelGrid` is returned.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">insert</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">n_nodes</span><span class="o">=</span><span class="n">n_nodes</span><span class="p">)</span></div>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">refine</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">n_points</span><span class="o">=</span><span class="n">n_points</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.merge"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+<div class="viewcode-block" id="ModelGrid.extract"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.extract">[docs]</a>    <span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jstart</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">istart</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">jend</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">iend</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extracts a subset of an array into new grid.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        jstart, jend : int, optional</span>
+<span class="sd">            Start and end of the selection along the j-index</span>
+<span class="sd">        istart, iend : int, optional</span>
+<span class="sd">            Start and end of the selection along the i-index</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        subset : grid</span>
+<span class="sd">            The extracted subset of a copy of the original grid.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Calling this without any [j|i][start|end] arguments effectively</span>
+<span class="sd">        just makes a copy of the grid.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">extract</span><span class="p">,</span> <span class="n">jstart</span><span class="o">=</span><span class="n">jstart</span><span class="p">,</span> <span class="n">istart</span><span class="o">=</span><span class="n">istart</span><span class="p">,</span> <span class="n">jend</span><span class="o">=</span><span class="n">jend</span><span class="p">,</span> <span class="n">iend</span><span class="o">=</span><span class="n">iend</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.copy"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.merge"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.merge">[docs]</a>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;vert&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Merge with another grid using pygridtools.misc.padded_stack.</span>
 
@@ -617,8 +709,8 @@
 <span class="sd">            The other ModelGrid object.</span>
 <span class="sd">        how : optional string (default = &#39;vert&#39;)</span>
 <span class="sd">            The method through wich the arrays should be stacked.</span>
-<span class="sd">            `&#39;Vert&#39;` is analogous to `np.vstack`. `&#39;Horiz&#39;` maps to</span>
-<span class="sd">            `np.hstack`.</span>
+<span class="sd">            `&#39;Vert&#39;` is analogous to `numpy.vstack`. `&#39;Horiz&#39;` maps to</span>
+<span class="sd">            `numpy.hstack`.</span>
 <span class="sd">        where : optional string (default = &#39;+&#39;)</span>
 <span class="sd">            The placement of the arrays relative to each other. Keeping</span>
 <span class="sd">            in mind that the origin of an array&#39;s index is in the</span>
@@ -643,38 +735,38 @@
 <span class="sd">            axis other than the one being merged. In other words,</span>
 <span class="sd">            vertically stacked arrays can be shifted horizontally,</span>
 <span class="sd">            and horizontally stacked arrays can be shifted vertically.</span>
-<span class="sd">        inplace : bool, optional</span>
-<span class="sd">            Toggles the application of ``fxn`` in-place or on a copy.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        None or ModelGrid</span>
-<span class="sd">            `None` is returned if ``inplace`` is `True`. Otherwise,</span>
-<span class="sd">            a new :class:`~ModelGrid` is returned.</span>
-
-<span class="sd">        Notes</span>
-<span class="sd">        -----</span>
-<span class="sd">        The ``cell_mask`` attribute is not automatically updated</span>
-<span class="sd">        following merge operates. See the Examples section on handling</span>
-<span class="sd">        this manually.</span>
+<span class="sd">        modelgrid</span>
+<span class="sd">            A new :class:`~ModelGrid` is returned.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; domain1 = pandas.DataFrame({</span>
-<span class="sd">            &#39;x&#39;: [2, 5, 5, 2],</span>
-<span class="sd">            &#39;y&#39;: [6, 6, 4, 4],</span>
-<span class="sd">            &#39;beta&#39;: [1, 1, 1, 1]</span>
-<span class="sd">        })</span>
-<span class="sd">        &gt;&gt;&gt; domain2 = pandas.DataFrame({</span>
-<span class="sd">            &#39;x&#39;: [6, 11, 11, 5],</span>
-<span class="sd">            &#39;y&#39;: [5, 5, 3, 3],</span>
-<span class="sd">            &#39;beta&#39;: [1, 1, 1, 1]</span>
-<span class="sd">        })</span>
-<span class="sd">        &gt;&gt;&gt; grid1 = pgt.makeGrid(domain=domain1, nx=6, ny=5, rawgrid=False)</span>
-<span class="sd">        &gt;&gt;&gt; grid2 = pgt.makeGrid(domain=domain2, nx=8, ny=7, rawgrid=False)</span>
-<span class="sd">        &gt;&gt;&gt; grid1.merge(grid2, how=&#39;horiz&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; # update the cell mask to include new NA points:</span>
-<span class="sd">        &gt;&gt;&gt; grid1.cell_mask = np.ma.masked_invalid(grid1.xc).mask</span>
+<span class="sd">        .. plot ::</span>
+<span class="sd">           :include-source:</span>
+
+<span class="sd">            import matplotlib.pyplot as plt</span>
+<span class="sd">            import pandas</span>
+<span class="sd">            import pygridtools</span>
+<span class="sd">            domain1 = pandas.DataFrame({</span>
+<span class="sd">                &#39;x&#39;: [2, 5, 5, 2],</span>
+<span class="sd">                &#39;y&#39;: [6, 6, 4, 4],</span>
+<span class="sd">                &#39;beta&#39;: [1, 1, 1, 1]</span>
+<span class="sd">            })</span>
+<span class="sd">            domain2 = pandas.DataFrame({</span>
+<span class="sd">                &#39;x&#39;: [6, 11, 11, 5],</span>
+<span class="sd">                &#39;y&#39;: [5, 5, 3, 3],</span>
+<span class="sd">                &#39;beta&#39;: [1, 1, 1, 1]</span>
+<span class="sd">            })</span>
+<span class="sd">            grid1 = pygridtools.make_grid(domain=domain1, nx=6, ny=5, rawgrid=False)</span>
+<span class="sd">            grid2 = pygridtools.make_grid(domain=domain2, nx=8, ny=7, rawgrid=False)</span>
+<span class="sd">            merged = grid1.merge(grid2, how=&#39;horiz&#39;)</span>
+<span class="sd">            fig, (ax1, ax2) = plt.subplots(nrows=2, figsize=(6, 6))</span>
+<span class="sd">            grid1.plot_cells(ax=ax1, cell_kws=dict(cmap=&#39;Blues&#39;))</span>
+<span class="sd">            grid2.plot_cells(ax=ax1, cell_kws=dict(cmap=&#39;Greens&#39;))</span>
+<span class="sd">            merged.plot_cells(ax=ax2, cell_kws=dict(cmap=&#39;BuPu&#39;))</span>
+<span class="sd">            plt.show()</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -682,18 +774,12 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">nodes_x</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="n">how</span><span class="p">,</span>
-                        <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">shift</span><span class="p">)</span>
-        <span class="n">nodes_y</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="n">how</span><span class="p">,</span>
-                        <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">shift</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span> <span class="o">=</span> <span class="n">nodes_x</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span> <span class="o">=</span> <span class="n">nodes_y</span>
-            <span class="k">return</span> <span class="bp">None</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">ModelGrid</span><span class="p">(</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">nodes_y</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.update_cell_mask"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.update_cell_mask">[docs]</a>    <span class="k">def</span> <span class="nf">update_cell_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ModelGrid</span><span class="p">(</span>
+            <span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="n">how</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">shift</span><span class="p">),</span>
+            <span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">nodes_y</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="n">how</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">shift</span><span class="p">)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">update_cell_mask</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ModelGrid.update_cell_mask"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.update_cell_mask">[docs]</a>    <span class="k">def</span> <span class="nf">update_cell_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">merge_existing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Regenerate the cell mask based on either the NaN cells</span>
 <span class="sd">        or a user-provided mask. This is usefull after splitting,</span>
@@ -704,34 +790,36 @@
 <span class="sd">        mask : numpy.ndarray of bools, optional</span>
 <span class="sd">            The custom make to apply. If ommited, the mask will be</span>
 <span class="sd">            determined by the missing values in the cells arrays.</span>
+<span class="sd">        merge_existing : bool (default is True)</span>
+<span class="sd">            If True, the new mask is bitwise OR&#39;d with the existing</span>
+<span class="sd">            mask.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        self</span>
-<span class="sd">            So you can method-chain this.</span>
+<span class="sd">        masked : ModelGrid</span>
+<span class="sd">            A new :class:`~ModelGrid` wit the final mask to be applied</span>
+<span class="sd">            to the cells.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">mask</span>
-        <span class="k">return</span> <span class="bp">self</span>
 
-</div>
-<div class="viewcode-block" id="ModelGrid.mask_cells_with_polygon"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.mask_cells_with_polygon">[docs]</a>    <span class="k">def</span> <span class="nf">mask_cells_with_polygon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polyverts</span><span class="p">,</span> <span class="n">use_centroids</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                <span class="n">min_nodes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
-                                <span class="n">use_existing</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-                                <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_invalid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xc</span><span class="p">)</span><span class="o">.</span><span class="n">mask</span>
 
-        <span class="sd">&quot;&quot;&quot; Create mask for the cells of the ModelGrid with a polygon.</span>
+        <span class="k">if</span> <span class="n">merge_existing</span><span class="p">:</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+
+        <span class="n">masked</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">masked</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">mask</span>
+        <span class="k">return</span> <span class="n">masked</span></div>
+
+<div class="viewcode-block" id="ModelGrid.mask_nodes"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.mask_nodes">[docs]</a>    <span class="k">def</span> <span class="nf">mask_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polyverts</span><span class="p">,</span> <span class="n">min_nodes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                   <span class="n">triangles</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Create mask the ModelGrid based on its nodes with a polygon .</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        polyverts : sequence of a polygon&#39;s vertices</span>
 <span class="sd">            A sequence of x-y pairs for each vertex of the polygon.</span>
-<span class="sd">        use_centroids : bool (default = True)</span>
-<span class="sd">            When True, the cell centroid will be used to determine</span>
-<span class="sd">            whether the cell is &quot;inside&quot; the polygon. If False, the</span>
-<span class="sd">            nodes are used instead.</span>
 <span class="sd">        min_nodes : int (default = 3)</span>
 <span class="sd">            Only used when ``use_centroids`` is False. This is the</span>
 <span class="sd">            minimum number of nodes inside the polygon required to mark</span>
@@ -740,180 +828,72 @@
 <span class="sd">        inside : bool (default = True)</span>
 <span class="sd">            Toggles masking of cells either *inside* (True) or *outside*</span>
 <span class="sd">            (False) the polygon.</span>
-<span class="sd">        triangles : bool</span>
-<span class="sd">            Not yet implemented.</span>
+<span class="sd">        use_existing : bool (default = True)</span>
+<span class="sd">            When True, the newly computed mask is combined (via a</span>
+<span class="sd">            bit-wise `or` operation) with the existing ``cell_mask``</span>
+<span class="sd">            attribute of the ModelGrid.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        masked : ModelGrid</span>
+<span class="sd">            A new :class:`~ModelGrid` wit the final mask to be applied</span>
+<span class="sd">            to the cells.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">triangles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;triangular cells are not yet implemented&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">min_nodes</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">min_nodes</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;`min_nodes` must be greater than 0 and no more than 4.&quot;</span><span class="p">)</span>
+
+        <span class="n">_node_mask</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">mask_with_polygon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yn</span><span class="p">,</span> <span class="n">polyverts</span><span class="p">,</span>
+                                            <span class="n">inside</span><span class="o">=</span><span class="n">inside</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">cell_mask</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">_node_mask</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">_node_mask</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
+            <span class="n">_node_mask</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">_node_mask</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_nodes</span>
+        <span class="n">cell_mask</span> <span class="o">=</span> <span class="n">cell_mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_cell_mask</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="n">cell_mask</span><span class="p">,</span> <span class="n">merge_existing</span><span class="o">=</span><span class="n">use_existing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.mask_centroids"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.mask_centroids">[docs]</a>    <span class="k">def</span> <span class="nf">mask_centroids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polyverts</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot; Create mask for the cells of the ModelGrid with a polygon.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        polyverts : sequence of a polygon&#39;s vertices</span>
+<span class="sd">            A sequence of x-y pairs for each vertex of the polygon.</span>
+<span class="sd">        inside : bool (default = True)</span>
+<span class="sd">            Toggles masking of cells either *inside* (True) or *outside*</span>
+<span class="sd">            (False) the polygon.</span>
 <span class="sd">        use_existing : bool (default = True)</span>
 <span class="sd">            When True, the newly computed mask is combined (via a</span>
 <span class="sd">            bit-wise `or` operation) with the existing ``cell_mask``</span>
 <span class="sd">            attribute of the MdoelGrid.</span>
-<span class="sd">        inplace : bool (default = True):</span>
-<span class="sd">            If True, the ``cell_mask`` attribute of the ModelGrid is set</span>
-<span class="sd">            to the returned masked and None is returned. Otherwise, the</span>
-<span class="sd">            a new mask is returned the ``cell_mask`` attribute of the</span>
-<span class="sd">            ModelGrid is unchanged.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        cell_mask : np.array of bools</span>
-<span class="sd">            The final mask to be applied to the cells of the ModelGrid.</span>
+<span class="sd">        masked : ModelGrid</span>
+<span class="sd">            A new :class:`~ModelGrid` wit the final mask to be applied</span>
+<span class="sd">            to the cells.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">triangles</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;triangles are not yet implemented.&quot;</span><span class="p">)</span>
+        <span class="n">cell_mask</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">mask_with_polygon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yc</span><span class="p">,</span> <span class="n">polyverts</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="n">inside</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_cell_mask</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="n">cell_mask</span><span class="p">,</span> <span class="n">merge_existing</span><span class="o">=</span><span class="n">use_existing</span><span class="p">)</span></div>
 
+    <span class="nd">@numpy</span><span class="o">.</span><span class="n">deprecate</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">&#39;use mask_nodes or mask_centroids&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">mask_cells_with_polygon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">polyverts</span><span class="p">,</span> <span class="n">use_centroids</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">use_centroids</span><span class="p">:</span>
-            <span class="n">cell_mask</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">mask_with_polygon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yc</span><span class="p">,</span> <span class="n">polyverts</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="n">inside</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_centroids</span><span class="p">(</span><span class="n">polyverts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">min_nodes</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">min_nodes</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;`min_nodes` must be greater than 0 and no more than 4.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_nodes</span><span class="p">(</span><span class="n">polyverts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-            <span class="n">_node_mask</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">mask_with_polygon</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yn</span><span class="p">,</span> <span class="n">polyverts</span><span class="p">,</span> <span class="n">inside</span><span class="o">=</span><span class="n">inside</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-            <span class="n">cell_mask</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">_node_mask</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">_node_mask</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span>
-                <span class="n">_node_mask</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">_node_mask</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_nodes</span>
-            <span class="n">cell_mask</span> <span class="o">=</span> <span class="n">cell_mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">use_existing</span><span class="p">:</span>
-            <span class="n">cell_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">,</span> <span class="n">cell_mask</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span> <span class="o">=</span> <span class="n">cell_mask</span>
-
-        <span class="k">return</span> <span class="n">cell_mask</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.writeGEFDCControlFile"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.writeGEFDCControlFile">[docs]</a>    <span class="k">def</span> <span class="nf">writeGEFDCControlFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputdir</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;gefdc.inp&#39;</span><span class="p">,</span>
-                              <span class="n">bathyrows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;test&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generates the GEFDC control (gefdc.inp) file for the EFDC grid</span>
-<span class="sd">        preprocessor.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        outputdir : str, optional</span>
-<span class="sd">            The path to where the should be saved.</span>
-<span class="sd">        filename : str, optional</span>
-<span class="sd">            The name of the output file.</span>
-<span class="sd">        bathyrows : int, optional</span>
-<span class="sd">            The number of rows in the grid&#39;s bathymetry data file.</span>
-<span class="sd">        title : str, optional</span>
-<span class="sd">            The title of the grid as portrayed in ``filename``.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        gefdc : str</span>
-<span class="sd">            The text of the output file.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">outfile</span> <span class="o">=</span> <span class="n">iotools</span><span class="o">.</span><span class="n">_outputfile</span><span class="p">(</span><span class="n">outputdir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-
-        <span class="n">gefdc</span> <span class="o">=</span> <span class="n">iotools</span><span class="o">.</span><span class="n">_write_gefdc_control_file</span><span class="p">(</span>
-            <span class="n">outfile</span><span class="p">,</span>
-            <span class="n">title</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">inodes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">jnodes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="n">bathyrows</span>
-        <span class="p">)</span>
-        <span class="k">return</span> <span class="n">gefdc</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.writeGEFDCCellFile"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.writeGEFDCCellFile">[docs]</a>    <span class="k">def</span> <span class="nf">writeGEFDCCellFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputdir</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;cell.inp&#39;</span><span class="p">,</span>
-                           <span class="n">triangles</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">maxcols</span><span class="o">=</span><span class="mi">125</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generates the cell definition/ASCII-art file for GEFDC.</span>
-
-<span class="sd">        .. warning:</span>
-<span class="sd">           This whole thing is probably pretty buggy.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        outputdir : str, optional</span>
-<span class="sd">            The path to where the should be saved.</span>
-<span class="sd">        filename : str, optional</span>
-<span class="sd">            The name of the output file.</span>
-<span class="sd">        triangles : bool, optional</span>
-<span class="sd">            Toggles the inclusion of triangular cells.</span>
-
-<span class="sd">            .. warning:</span>
-<span class="sd">               This is experimental and probably buggy if it has been</span>
-<span class="sd">               implmented at all.</span>
-
-<span class="sd">        maxcols : int, optional</span>
-<span class="sd">            The maximum number of columns to write to each row. Cells</span>
-<span class="sd">            beyond this number will be writted in separate section at</span>
-<span class="sd">            the bottom of the file.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        cells : str</span>
-<span class="sd">            The text of the output file.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">cells</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">make_gefdc_cells</span><span class="p">(</span>
-            <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xn</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="n">triangles</span>
-        <span class="p">)</span>
-        <span class="n">outfile</span> <span class="o">=</span> <span class="n">iotools</span><span class="o">.</span><span class="n">_outputfile</span><span class="p">(</span><span class="n">outputdir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-
-        <span class="n">iotools</span><span class="o">.</span><span class="n">_write_cellinp</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span>
-                               <span class="n">flip</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">maxcols</span><span class="o">=</span><span class="n">maxcols</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">cells</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.writeGEFDCGridFile"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.writeGEFDCGridFile">[docs]</a>    <span class="k">def</span> <span class="nf">writeGEFDCGridFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputdir</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;grid.out&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Writes to the nodes as coordinate pairs for GEFDC.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        outputdir : str, optional</span>
-<span class="sd">            The path to where the should be saved.</span>
-<span class="sd">        filename : str, optional</span>
-<span class="sd">            The name of the output file.</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        df : pandas.DataFrame</span>
-<span class="sd">            The dataframe of node coordinate pairs.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">outfile</span> <span class="o">=</span> <span class="n">iotools</span><span class="o">.</span><span class="n">_outputfile</span><span class="p">(</span><span class="n">outputdir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">iotools</span><span class="o">.</span><span class="n">_write_gridout_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yn</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">df</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.writeGEFDCGridextFile"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.writeGEFDCGridextFile">[docs]</a>    <span class="k">def</span> <span class="nf">writeGEFDCGridextFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputdir</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;gridext.inp&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Writes to the nodes and I/J cell index as to a file for GEFDC.</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        outputdir : str, optional</span>
-<span class="sd">            The path to where the should be saved.</span>
-<span class="sd">        filename : str, optional</span>
-<span class="sd">            The name of the output file.</span>
-<span class="sd">        shift : int, optional</span>
-<span class="sd">            The shift that should be applied to the I/J index. The</span>
-<span class="sd">            default value to 2 means that the first cell is at (2, 2)</span>
-<span class="sd">            instead of (0, 0).</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        df : pandas.DataFrame</span>
-<span class="sd">            The dataframe of coordinates and I/J index.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">outfile</span> <span class="o">=</span> <span class="n">iotools</span><span class="o">.</span><span class="n">_outputfile</span><span class="p">(</span><span class="n">outputdir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s">&#39;i&#39;</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-        <span class="n">df</span><span class="p">[</span><span class="s">&#39;i&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">shift</span>
-        <span class="n">df</span><span class="p">[</span><span class="s">&#39;j&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">shift</span>
-        <span class="n">iotools</span><span class="o">.</span><span class="n">_write_gridext_file</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">df</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.plotCells"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.plotCells">[docs]</a>    <span class="k">def</span> <span class="nf">plotCells</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                  <span class="n">usemask</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                  <span class="n">domain_kws</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">extent_kws</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                  <span class="n">showisland</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">island_kws</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<div class="viewcode-block" id="ModelGrid.plot_cells"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.plot_cells">[docs]</a>    <span class="k">def</span> <span class="nf">plot_cells</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;mpl&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">usemask</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cell_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">domain_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extent_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="n">showisland</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">island_kws</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a figure of the cells, boundary, domain, and islands.</span>
 
@@ -934,47 +914,48 @@
 <span class="sd">            of the figure.</span>
 
 <span class="sd">            .. note:</span>
-<span class="sd">            ``cell_kws`` and ``island_kws`` are feed to</span>
+<span class="sd">            ``cell_kws`` and ``island_kws`` are fed to</span>
 <span class="sd">            :func:`~matplotlib.pyplot.Polygon`. All others are sent</span>
 <span class="sd">            to :meth:`~ax.plot`.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">cell_kws</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">cell_kws</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">cell_kws</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">fig</span> <span class="o">=</span> <span class="n">viz</span><span class="o">.</span><span class="n">plotCells</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yn</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-                            <span class="n">mask</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">,</span> <span class="o">**</span><span class="n">cell_kws</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">domain_kws</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">fig</span> <span class="o">=</span> <span class="n">viz</span><span class="o">.</span><span class="n">plotDomain</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">domain_kws</span><span class="p">)</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">viz</span><span class="o">.</span><span class="n">plot_cells</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">xn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yn</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                             <span class="n">mask</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">,</span> <span class="o">**</span><span class="n">cell_kws</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">domain_kws</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">viz</span><span class="o">.</span><span class="n">plot_domain</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">domain_kws</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">extent_kws</span><span class="p">:</span>
-            <span class="n">fig</span> <span class="o">=</span> <span class="n">viz</span><span class="o">.</span><span class="n">plotBoundaries</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">extent_kws</span><span class="p">)</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">viz</span><span class="o">.</span><span class="n">plot_boundaries</span><span class="p">(</span><span class="n">extent</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">extent</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">extent_kws</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">island_kws</span><span class="p">:</span>
-            <span class="n">fig</span> <span class="o">=</span> <span class="n">viz</span><span class="o">.</span><span class="n">plotBoundaries</span><span class="p">(</span><span class="n">islands</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">islands</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">island_kws</span><span class="p">)</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="n">viz</span><span class="o">.</span><span class="n">plot_boundaries</span><span class="p">(</span><span class="n">islands</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">islands</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="o">**</span><span class="n">island_kws</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">fig</span>
-</div>
-    <span class="k">def</span> <span class="nf">_get_x_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">which</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">which</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#39;nodes&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fig</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_x_y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">which</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">which</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;nodes&#39;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">usemask</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;can only mask cells, not nodes&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;can only mask cells, not nodes&quot;</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yn</span>
 
-        <span class="k">elif</span> <span class="n">which</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#39;cells&#39;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">which</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;cells&#39;</span><span class="p">:</span>
             <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">xc</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">yc</span>
             <span class="k">if</span> <span class="n">usemask</span><span class="p">:</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">)</span>
-                <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">)</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">)</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;`which` must be either &quot;nodes&quot; or &quot;cells&quot;&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;`which` must be either &quot;nodes&quot; or &quot;cells&quot;&#39;</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 
-<div class="viewcode-block" id="ModelGrid.to_dataframe"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.to_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s">&#39;nodes&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="ModelGrid.to_dataframe"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.to_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;nodes&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts a grid to a wide dataframe of coordinates.</span>
 
@@ -983,6 +964,7 @@
 <span class="sd">        usemask : bool, optional</span>
 <span class="sd">            Toggles the ommission of masked values (as determined by</span>
 <span class="sd">            :meth:`~cell_mask`.</span>
+
 <span class="sd">        which : str, optional (&#39;nodes&#39;)</span>
 <span class="sd">            This can be &quot;nodes&quot; (default) or &quot;cells&quot;. Specifies which</span>
 <span class="sd">            coordinates should be used.</span>
@@ -998,19 +980,19 @@
         <span class="k">def</span> <span class="nf">make_cols</span><span class="p">(</span><span class="n">top_level</span><span class="p">):</span>
             <span class="n">columns</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">(</span>
                 <span class="p">[[</span><span class="n">top_level</span><span class="p">],</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span>
-                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;coord&#39;</span><span class="p">,</span> <span class="s">&#39;i&#39;</span><span class="p">]</span>
+                <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;coord&#39;</span><span class="p">,</span> <span class="s1">&#39;ii&#39;</span><span class="p">]</span>
             <span class="p">)</span>
             <span class="k">return</span> <span class="n">columns</span>
 
-        <span class="n">index</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">name</span><span class="o">=</span><span class="s">&#39;j&#39;</span><span class="p">)</span>
-        <span class="n">easting_cols</span> <span class="o">=</span> <span class="n">make_cols</span><span class="p">(</span><span class="s">&#39;easting&#39;</span><span class="p">)</span>
-        <span class="n">northing_cols</span> <span class="o">=</span> <span class="n">make_cols</span><span class="p">(</span><span class="s">&#39;northing&#39;</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Index</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;jj&#39;</span><span class="p">)</span>
+        <span class="n">easting_cols</span> <span class="o">=</span> <span class="n">make_cols</span><span class="p">(</span><span class="s1">&#39;easting&#39;</span><span class="p">)</span>
+        <span class="n">northing_cols</span> <span class="o">=</span> <span class="n">make_cols</span><span class="p">(</span><span class="s1">&#39;northing&#39;</span><span class="p">)</span>
 
         <span class="n">easting</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">easting_cols</span><span class="p">)</span>
         <span class="n">northing</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">northing_cols</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">easting</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">northing</span><span class="p">)</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.to_coord_pairs"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.to_coord_pairs">[docs]</a>    <span class="k">def</span> <span class="nf">to_coord_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s">&#39;nodes&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">easting</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">northing</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.to_coord_pairs"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.to_coord_pairs">[docs]</a>    <span class="k">def</span> <span class="nf">to_coord_pairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;nodes&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Converts a grid to a long array of coordinates pairs.</span>
 
@@ -1019,6 +1001,7 @@
 <span class="sd">        usemask : bool, optional</span>
 <span class="sd">            Toggles the ommission of masked values (as determined by</span>
 <span class="sd">            :meth:`~cell_mask`.</span>
+
 <span class="sd">        which : str, optional (&#39;nodes&#39;)</span>
 <span class="sd">            This can be &quot;nodes&quot; (default) or &quot;cells&quot;. Specifies which</span>
 <span class="sd">            coordinates should be used.</span>
@@ -1030,18 +1013,18 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_x_y</span><span class="p">(</span><span class="n">which</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="n">usemask</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">())))</span>
-</div>
-<div class="viewcode-block" id="ModelGrid.to_shapefile"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.to_shapefile">[docs]</a>    <span class="k">def</span> <span class="nf">to_shapefile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s">&#39;cells&#39;</span><span class="p">,</span>
-                     <span class="n">river</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                     <span class="n">geom</span><span class="o">=</span><span class="s">&#39;Polygon&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">flatten</span><span class="p">())))</span></div>
+
+<div class="viewcode-block" id="ModelGrid.to_gis"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.to_gis">[docs]</a>    <span class="k">def</span> <span class="nf">to_gis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;cells&#39;</span><span class="p">,</span>
+               <span class="n">river</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+               <span class="n">geom</span><span class="o">=</span><span class="s1">&#39;Polygon&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Converts a grid to a shapefile via the *fiona* package.</span>
+<span class="sd">        Converts a grid to a GIS file via the *geopands* package.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        outputfile : str</span>
-<span class="sd">            The name of the shapefile where the data will be saved.</span>
+<span class="sd">            The path of the destination GIS file.</span>
 <span class="sd">        usemask : bool, optional</span>
 <span class="sd">            Toggles the ommission of masked values (as determined by</span>
 <span class="sd">            :meth:`~cell_mask`.</span>
@@ -1053,11 +1036,10 @@
 <span class="sd">        reach : int or str, optional</span>
 <span class="sd">            Indetifier of the reach of ``river``.</span>
 <span class="sd">        elev : numpy.ndarray, optional</span>
-<span class="sd">            Bathymetry data to be assigned to each record in the</span>
-<span class="sd">            shapefile.</span>
-<span class="sd">        template : str, optional</span>
-<span class="sd">            The shapefile schema template. If not provided, the</span>
-<span class="sd">            ``template`` attribute of the ModelGrid object is used.</span>
+<span class="sd">            Bathymetry data to be assigned to each record.</span>
+<span class="sd">        crs : string</span>
+<span class="sd">            A geopandas/proj/fiona-compatible string describing the coordinate</span>
+<span class="sd">            reference system of the x/y values.</span>
 <span class="sd">        geom : str, optional</span>
 <span class="sd">            The type of geometry to use. If &quot;Point&quot;, either the grid</span>
 <span class="sd">            nodes or the centroids of the can be used (see the</span>
@@ -1080,32 +1062,33 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">template</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="n">template</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">template</span>
+        <span class="k">if</span> <span class="n">crs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">crs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span>
 
-        <span class="k">if</span> <span class="n">geom</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#39;point&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">geom</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;point&#39;</span><span class="p">:</span>
             <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_x_y</span><span class="p">(</span><span class="n">which</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="n">usemask</span><span class="p">)</span>
-            <span class="n">iotools</span><span class="o">.</span><span class="n">savePointShapefile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span>
-                                       <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">,</span>
-                                       <span class="n">elev</span><span class="o">=</span><span class="n">elev</span><span class="p">)</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">write_points</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span>
+                                 <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="n">elev</span><span class="p">)</span>
 
-        <span class="k">elif</span> <span class="n">geom</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&#39;cell&#39;</span><span class="p">,</span> <span class="s">&#39;cells&#39;</span><span class="p">,</span> <span class="s">&#39;grid&#39;</span><span class="p">,</span> <span class="s">&#39;polygon&#39;</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="n">geom</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;cell&#39;</span><span class="p">,</span> <span class="s1">&#39;cells&#39;</span><span class="p">,</span> <span class="s1">&#39;grid&#39;</span><span class="p">,</span> <span class="s1">&#39;polygon&#39;</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">usemask</span><span class="p">:</span>
                 <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cell_mask</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">mask</span> <span class="o">=</span> <span class="bp">None</span>
-            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_x_y</span><span class="p">(</span><span class="s">&#39;nodes&#39;</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-            <span class="n">iotools</span><span class="o">.</span><span class="n">saveGridShapefile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">template</span><span class="p">,</span>
-                                      <span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span>
-                                      <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="n">elev</span><span class="p">,</span>
-                                      <span class="n">triangles</span><span class="o">=</span><span class="n">triangles</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s">&#39;cells&#39;</span><span class="p">:</span>
-                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s">&quot;polygons always constructed from nodes&quot;</span><span class="p">)</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_x_y</span><span class="p">(</span><span class="s1">&#39;nodes&#39;</span><span class="p">,</span> <span class="n">usemask</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">write_cells</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span>
+                                <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">,</span> <span class="n">elev</span><span class="o">=</span><span class="n">elev</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="n">triangles</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">which</span> <span class="o">==</span> <span class="s1">&#39;cells&#39;</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;polygons always constructed from nodes&quot;</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;geom must be either &#39;Point&#39; or &#39;Polygon&#39;&quot;</span><span class="p">)</span>
-</div>
-    <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="ModelGrid.from_dataframe"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.from_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">from_dataframe</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">xcol</span><span class="o">=</span><span class="s">&#39;easting&#39;</span><span class="p">,</span> <span class="n">ycol</span><span class="o">=</span><span class="s">&#39;northing&#39;</span><span class="p">,</span> <span class="n">ilevel</span><span class="o">=</span><span class="s">&#39;ii&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;geom must be either &#39;Point&#39; or &#39;Polygon&#39;&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.to_gefdc"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.to_gefdc">[docs]</a>    <span class="k">def</span> <span class="nf">to_gefdc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">GEFDCWriter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelGrid.from_dataframe"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.from_dataframe">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_dataframe</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">icol</span><span class="o">=</span><span class="s1">&#39;ii&#39;</span><span class="p">,</span> <span class="n">jcol</span><span class="o">=</span><span class="s1">&#39;jj&#39;</span><span class="p">,</span>
+                       <span class="n">xcol</span><span class="o">=</span><span class="s1">&#39;easting&#39;</span><span class="p">,</span> <span class="n">ycol</span><span class="o">=</span><span class="s1">&#39;northing&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Build a ModelGrid from a DataFrame of I/J indexes and x/y</span>
 <span class="sd">        columns.</span>
@@ -1116,7 +1099,7 @@
 <span class="sd">            Must have a MultiIndex of I/J cell index values.</span>
 <span class="sd">        xcol, ycol : str, optional</span>
 <span class="sd">            The names of the columns for the x and y coordinates.</span>
-<span class="sd">        ilevel : str, optional</span>
+<span class="sd">        icol : str, optional</span>
 <span class="sd">            The index level specifying the I-index of the grid.</span>
 
 <span class="sd">        Returns</span>
@@ -1124,22 +1107,21 @@
 <span class="sd">        ModelGrid</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">all_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">icol</span><span class="p">,</span> <span class="n">jcol</span><span class="p">,</span> <span class="n">xcol</span><span class="p">,</span> <span class="n">ycol</span><span class="p">]</span>
+        <span class="n">xtab</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="n">all_cols</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="n">icol</span><span class="p">,</span> <span class="n">jcol</span><span class="p">])</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">icol</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">xtab</span><span class="p">[</span><span class="n">xcol</span><span class="p">],</span> <span class="n">xtab</span><span class="p">[</span><span class="n">ycol</span><span class="p">])</span><span class="o">.</span><span class="n">update_cell_mask</span><span class="p">()</span></div>
 
-        <span class="n">nodes_x</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">xcol</span><span class="p">]</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">ilevel</span><span class="p">)</span>
-        <span class="n">nodes_y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">ycol</span><span class="p">]</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">ilevel</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="n">nodes_x</span><span class="p">,</span> <span class="n">nodes_y</span><span class="p">)</span>
-</div>
-    <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="ModelGrid.from_shapefile"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.from_shapefile">[docs]</a>    <span class="k">def</span> <span class="nf">from_shapefile</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">shapefile</span><span class="p">,</span> <span class="n">icol</span><span class="o">=</span><span class="s">&#39;ii&#39;</span><span class="p">,</span> <span class="n">jcol</span><span class="o">=</span><span class="s">&#39;jj&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="ModelGrid.from_gis"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.from_gis">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_gis</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">gisfile</span><span class="p">,</span> <span class="n">icol</span><span class="o">=</span><span class="s1">&#39;ii&#39;</span><span class="p">,</span> <span class="n">jcol</span><span class="o">=</span><span class="s1">&#39;jj&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Build a ModelGrid from a shapefile of *nodes*.</span>
+<span class="sd">        Build a ModelGrid from a GIS file of *nodes*.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        outputfile : str</span>
-<span class="sd">            The name of the shapefile of the grid *nodes*.</span>
+<span class="sd">        gisfile : str</span>
+<span class="sd">            The path to the GIS file of the grid *nodes*.</span>
 <span class="sd">        icol, jcol : str, optional</span>
-<span class="sd">            The names of the columns in the shapefile containing the</span>
+<span class="sd">            The names of the columns in the *gisfile* containing the</span>
 <span class="sd">            I/J index of the nodes.</span>
 
 <span class="sd">        Returns</span>
@@ -1148,11 +1130,11 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">df</span> <span class="o">=</span> <span class="n">iotools</span><span class="o">.</span><span class="n">readGridShapefile</span><span class="p">(</span><span class="n">shapefile</span><span class="p">,</span> <span class="n">icol</span><span class="o">=</span><span class="n">icol</span><span class="p">,</span> <span class="n">jcol</span><span class="o">=</span><span class="n">jcol</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">from_dataframes</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">&#39;easting&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s">&#39;northing&#39;</span><span class="p">])</span>
-</div>
-    <span class="nd">@classmethod</span>
-<div class="viewcode-block" id="ModelGrid.from_Gridgen"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.from_Gridgen">[docs]</a>    <span class="k">def</span> <span class="nf">from_Gridgen</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">gridgen</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">iotools</span><span class="o">.</span><span class="n">read_grid</span><span class="p">(</span><span class="n">gisfile</span><span class="p">,</span> <span class="n">icol</span><span class="o">=</span><span class="n">icol</span><span class="p">,</span> <span class="n">jcol</span><span class="o">=</span><span class="n">jcol</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">update_cell_mask</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="ModelGrid.from_Gridgen"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.ModelGrid.from_Gridgen">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_Gridgen</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">gridgen</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Build a ModelGrid from a :class:`~pygridgen.Gridgen` object.</span>
 
@@ -1165,11 +1147,11 @@
 <span class="sd">        ModelGrid</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">cls</span><span class="p">(</span><span class="n">gridgen</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">gridgen</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">gridgen</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">gridgen</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">update_cell_mask</span><span class="p">()</span></div></div>
 
-</div></div>
-<div class="viewcode-block" id="makeGrid"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.makeGrid">[docs]</a><span class="k">def</span> <span class="nf">makeGrid</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">bathydata</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
-             <span class="n">rawgrid</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="o">**</span><span class="n">gparams</span><span class="p">):</span>
+
+<div class="viewcode-block" id="make_grid"><a class="viewcode-back" href="../../api/core.html#pygridtools.core.make_grid">[docs]</a><span class="k">def</span> <span class="nf">make_grid</span><span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">bathydata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">rawgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">**</span><span class="n">gparams</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate a :class:`~pygridgen.Gridgen` or :class:`~ModelGrid`</span>
 <span class="sd">    from scratch. This can take a large number of parameters passed</span>
@@ -1267,25 +1249,27 @@
 
     <span class="k">try</span><span class="p">:</span>
         <span class="kn">import</span> <span class="nn">pygridgen</span>
-    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>  <span class="c"># pragma: no cover</span>
-        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s">&quot;`pygridgen` not installed. Cannot make grid.&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;`pygridgen` not installed. Cannot make grid.&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;generating grid&#39;</span><span class="p">)</span>
+    <span class="c1"># if verbose:</span>
+    <span class="c1">#     print(&#39;generating grid&#39;)</span>
 
     <span class="n">grid</span> <span class="o">=</span> <span class="n">pygridgen</span><span class="o">.</span><span class="n">Gridgen</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">domain</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="p">(</span><span class="n">ny</span><span class="p">,</span> <span class="n">nx</span><span class="p">),</span> <span class="o">**</span><span class="n">gparams</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&#39;interpolating bathymetry&#39;</span><span class="p">)</span>
+    <span class="c1"># if verbose:</span>
+    <span class="c1">#     print(&#39;interpolating bathymetry&#39;)</span>
 
-    <span class="n">newbathy</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">interpolate_bathymetry</span><span class="p">(</span><span class="n">bathydata</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">x_rho</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">y_rho</span><span class="p">,</span>
-                                           <span class="n">xcol</span><span class="o">=</span><span class="s">&#39;x&#39;</span><span class="p">,</span> <span class="n">ycol</span><span class="o">=</span><span class="s">&#39;y&#39;</span><span class="p">,</span> <span class="n">zcol</span><span class="o">=</span><span class="s">&#39;z&#39;</span><span class="p">)</span>
+    <span class="c1"># newbathy = misc.interpolate_bathymetry(bathydata, grid.x_rho, grid.y_rho,</span>
+    <span class="c1">#                                        xcol=&#39;x&#39;, ycol=&#39;y&#39;, zcol=&#39;z&#39;)</span>
     <span class="k">if</span> <span class="n">rawgrid</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">grid</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">ModelGrid</span><span class="o">.</span><span class="n">from_Gridgen</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span></div>
 </pre></div>
 
+           </div>
+           
           </div>
           <footer>
   
@@ -1294,13 +1278,14 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Paul Hobson.
+        &copy; Copyright 2016 - 2018, Paul Hobson.
+
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
 </footer>
+
         </div>
       </div>
 
@@ -1315,32 +1300,28 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.2.1',
+            VERSION:'0.3.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

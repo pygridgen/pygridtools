@@ -5,16 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The iotools API &mdash; pygridtools 0.2.1 documentation</title>
+  <title>The iotools API &mdash; pygridtools 0.3.0 documentation</title>
   
 
   
   
+  
+  
 
   
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
   
   
@@ -22,34 +24,46 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The misc API" href="misc.html" />
+    <link rel="prev" title="The core API" href="core.html" /> 
 
   
-
-  
-    <link rel="top" title="pygridtools 0.2.1 documentation" href="../index.html"/>
-        <link rel="next" title="The misc API" href="misc.html"/>
-        <link rel="prev" title="The core API" href="core.html"/> 
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-nav-search">
-        
-          <a href="../index.html" class="fa fa-home"> pygridtools</a>
-        
-        
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pygridtools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -57,138 +71,156 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        
           
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
+            
+            
+              
+            
+            
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/01_GridgenBasics.html">Grid Generation Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/01_GridgenBasics.html#load-and-plot-the-boundary-data">Load and plot the boundary data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/01_GridgenBasics.html#generate-a-grid-with-pygridgen-plot-it-with-pygridtools">Generate a grid with <code class="docutils literal"><span class="pre">pygridgen</span></code>, plot it with <code class="docutils literal"><span class="pre">pygridtools</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/01_GridgenBasics.html#now-numerically-add-focus-the-side-channels-and-coarsen-the-upper-portion">Now numerically add focus the side channels, and coarsen the upper portion</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#masking-basics">Masking basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#load-a-grid-boundary-river-and-set-of-islands-using-pygridtools-io">Load a grid boundary, river, and set of islands using <code class="docutils literal"><span class="pre">pygridtools.io</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#create-a-gridgen-object-and-convert-to-a-modelgrid">Create a <code class="docutils literal"><span class="pre">Gridgen</span></code> object and convert to a <code class="docutils literal"><span class="pre">ModelGrid</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#show-the-raw-unmasked-grid">Show the raw (unmasked) grid</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#mask-out-everything-beyond-the-river-banks">Mask out everything beyond the river banks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#loop-through-and-mask-out-the-islands">Loop through and mask out the islands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#export-the-masked-cells-to-a-shapefile">Export the masked cells to a shapefile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html#view-the-final-input-and-output-in-the-qgis-file-in-examples-masking-data-grid-qgs">View the final input and output in the QGIS file in <code class="docutils literal"><span class="pre">examples/masking_data/Grid.qgs</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#notes">Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#create-3-model-grids-moving-counter-clockwise-in-the-axis">Create 3 model grids moving counter-clockwise in the axis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#display-positions-of-grids-relative-to-each-other">Display positions of grids relative to each other</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#merge-grids-1-and-2-together-horizontally">Merge grids 1 and 2 together, horizontally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#use-the-shift-parameter-to-center-grid-2">Use the shift parameter to center grid 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#vertically-merge-grid-2-and-grid-3">Vertically merge grid 2 and grid 3</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#try-again-switching-the-order-of-the-grids">Try again, switching the order of the grids</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#alternatively-you-can-switch-the-arguments-and-use-where-to-indicate-that-the-other-grid-is-below-the-first">Alternatively, you can switch the arguments and use <code class="docutils literal"><span class="pre">where='-'</span></code> to indicate that the &#8220;other&#8221; grid is below the first.</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#now-merge-all-three-in-a-single-chained-operation-inplace-false">Now merge all three in a single chained operation (<code class="docutils literal"><span class="pre">inplace=False</span></code>).</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-vertical-parts">Split the final grid into two vertical parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#split-the-final-grid-into-two-horizontal-parts">Split the final grid into two horizontal parts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#refine-individual-rows-of-the-grid-cells">Refine individual rows of the grid cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#refine-individual-columns-of-the-grid-cells">Refine individual columns of the grid cells</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/03_MergingSpliting.html#one-big-chained-operation-for-fun">One big chained operation for fun</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/01_GridgenBasics.html">Grid Generation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a></li>
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="core.html">The <cite>core</cite> API</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">The <cite>iotools</cite> API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The <cite>iotools</cite> API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">The <cite>misc</cite> API</a></li>
 </ul>
 
+            
           
-        
+        </div>
       </div>
-      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">pygridtools</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pygridtools</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>The <cite>iotools</cite> API</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>The <cite>iotools</cite> API</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/api/iotools.txt" rel="nofollow"> View page source</a>
+            
+            <a href="../_sources/api/iotools.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
-          <div role="main" class="document">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
             
-  <div class="section" id="module-pygridtools.iotools">
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="module-pygridtools.iotools">
 <span id="the-iotools-api"></span><span id="iotools-auto"></span><h1>The <cite>iotools</cite> API<a class="headerlink" href="#module-pygridtools.iotools" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="pygridtools.iotools.loadBoundaryFromShapefile">
-<code class="descclassname">pygridtools.iotools.</code><code class="descname">loadBoundaryFromShapefile</code><span class="sig-paren">(</span><em>shapefile</em>, <em>betacol='beta'</em>, <em>reachcol=None</em>, <em>sortcol=None</em>, <em>upperleftcol=None</em>, <em>filterfxn=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#loadBoundaryFromShapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.loadBoundaryFromShapefile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loads boundary points from a shapefile.</p>
+<dt id="pygridtools.iotools.read_boundary">
+<code class="descclassname">pygridtools.iotools.</code><code class="descname">read_boundary</code><span class="sig-paren">(</span><em>gisfile</em>, <em>betacol='beta'</em>, <em>reachcol=None</em>, <em>sortcol=None</em>, <em>upperleftcol=None</em>, <em>filterfxn=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#read_boundary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.read_boundary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads boundary points from a GIS File.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>shapefile</strong> : string</p>
-<blockquote>
-<div><p>Path to the shapefile containaing boundary points.
-Expected schema of the shapefile...</p>
-<ul class="simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>gisfile</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first">Path to the GIS file containaing boundary points.
+Expected schema of the file…</p>
+<ul class="last simple">
 <li>order: numeric sort order of the points</li>
-<li>beta: the &#8216;beta&#8217; parameter used in grid generation to define turning points</li>
+<li>beta: the ‘beta’ parameter used in grid generation to define
+turning points</li>
 </ul>
-</div></blockquote>
-<p><strong>betacol</strong> : string (default=&#8217;beta&#8217;)</p>
-<blockquote>
-<div><p>Column in the attribute table specifying the beta parameter&#8217;s
+</dd>
+<dt><strong>betacol</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string (default=’beta’)</span></dt>
+<dd><p class="first last">Column in the attribute table specifying the beta parameter’s
 value at each point.</p>
-</div></blockquote>
-<p><strong>sortcol</strong> : optional string or None (default)</p>
-<blockquote>
-<div><p>Column in the attribute table specifying the sort order of the
+</dd>
+<dt><strong>sortcol</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional string or None (default)</span></dt>
+<dd><p class="first last">Column in the attribute table specifying the sort order of the
 points.</p>
-</div></blockquote>
-<p><strong>reachcol</strong> : optional string or None (default)</p>
-<blockquote>
-<div><p>Column in the attribute table specifying the names of the
+</dd>
+<dt><strong>reachcol</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional string or None (default)</span></dt>
+<dd><p class="first last">Column in the attribute table specifying the names of the
 reaches of the river/esturary system.</p>
-</div></blockquote>
-<p><strong>upperleftcol</strong> : optional string or None (default)</p>
-<blockquote>
-<div><p>Column in the attribute table toggling if the a point should be
+</dd>
+<dt><strong>upperleftcol</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional string or None (default)</span></dt>
+<dd><p class="first last">Column in the attribute table toggling if the a point should be
 consider the upper-left corner of the system. Only one row of
 this column should evaluare to True.</p>
-</div></blockquote>
-<p><strong>filterfxn</strong> : function or lambda expression or None (default)</p>
-<blockquote>
-<div><p>Pulls out relevant points from the boundary shapefile. Defaults
-to <cite>True</cite> to consider everything.</p>
-</div></blockquote>
+</dd>
+<dt><strong>filterfxn</strong> <span class="classifier-delimiter">:</span> <span class="classifier">function or lambda expression or None (default)</span></dt>
+<dd><p class="first last">Removed. Use the <cite>query</cite> method of the result.</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> : pandas.DataFrame</p>
-<blockquote class="last">
-<div><p>A DataFrame of the boundary points with the following columns:</p>
-<ul class="simple">
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>gdf</strong> <span class="classifier-delimiter">:</span> <span class="classifier">geopandas.GeoDataFrame</span></dt>
+<dd><p class="first">A GeoDataFrame of the boundary points with the following columns:</p>
+<ul class="last simple">
 <li>x (easting)</li>
 <li>y (northing)</li>
 <li>beta (turning parameter)</li>
@@ -196,7 +228,8 @@ to <cite>True</cite> to consider everything.</p>
 <li>reach</li>
 <li>upperleft</li>
 </ul>
-</div></blockquote>
+</dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -204,33 +237,35 @@ to <cite>True</cite> to consider everything.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="pygridtools.iotools.loadPolygonFromShapefile">
-<code class="descclassname">pygridtools.iotools.</code><code class="descname">loadPolygonFromShapefile</code><span class="sig-paren">(</span><em>shapefile</em>, <em>filterfxn=None</em>, <em>squeeze=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#loadPolygonFromShapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.loadPolygonFromShapefile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load polygons (e.g., water bodies, islands) from a shapefile.</p>
+<dt id="pygridtools.iotools.read_polygons">
+<code class="descclassname">pygridtools.iotools.</code><code class="descname">read_polygons</code><span class="sig-paren">(</span><em>gisfile</em>, <em>filterfxn=None</em>, <em>squeeze=True</em>, <em>as_gdf=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#read_polygons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.read_polygons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load polygons (e.g., water bodies, islands) from a GIS file.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>shapefile</strong> : string</p>
-<blockquote>
-<div><p>Path to the shapefile containaing boundary points.</p>
-</div></blockquote>
-<p><strong>filterfxn</strong> : function or lambda expression or None (default)</p>
-<blockquote>
-<div><p>Pulls out relevant points from the boundary shapefile. Defaults
-to <cite>True</cite> to consider everything.</p>
-</div></blockquote>
-<p><strong>squeeze</strong> : optional bool (default = True)</p>
-<blockquote>
-<div><p>Set to True to return an array if only 1 record is present.
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>gisfile</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">Path to the gisfile containaing boundary points.</p>
+</dd>
+<dt><strong>filterfxn</strong> <span class="classifier-delimiter">:</span> <span class="classifier">function or lambda expression or None (default)</span></dt>
+<dd><p class="first last">Removed. Use the <cite>as_gdf</cite> and the <cite>query</cite> method of the resulting
+GeoDataFrame.</p>
+</dd>
+<dt><strong>squeeze</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional bool (default = True)</span></dt>
+<dd><p class="first last">Set to True to return an array if only 1 record is present.
 Otherwise, a list of arrays will be returned.</p>
-</div></blockquote>
+</dd>
+<dt><strong>as_gdf</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional bool (default = False)</span></dt>
+<dd><p class="first last">Set to True to return a GeoDataFrame instead of arrays.</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>boundary</strong> : array or list of arrays</p>
-<blockquote class="last">
-<div><p>N x 2 array of the coordinates of the boundary.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>boundary</strong> <span class="classifier-delimiter">:</span> <span class="classifier">array or list of arrays, or GeoDataFrame</span></dt>
+<dd></dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -243,176 +278,99 @@ loaded.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="pygridtools.iotools.dumpGridFiles">
-<code class="descclassname">pygridtools.iotools.</code><code class="descname">dumpGridFiles</code><span class="sig-paren">(</span><em>grid</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#dumpGridFiles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.dumpGridFiles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dump vertices from a pygridgen object to file in the standard grid.out
-format.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>grid</strong> : pygridgen.Gridgen object</p>
-<blockquote>
-<div><p>The grid to be dumped</p>
-</div></blockquote>
-<p><strong>filename</strong> : string</p>
-<blockquote>
-<div><p>path and filename of the output file</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="pygridtools.iotools.savePointShapefile">
-<code class="descclassname">pygridtools.iotools.</code><code class="descname">savePointShapefile</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>template</em>, <em>outputfile</em>, <em>mode='w'</em>, <em>river=None</em>, <em>reach=0</em>, <em>elev=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#savePointShapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.savePointShapefile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves grid-related attributes of a pygridgen.Gridgen object to a
-shapefile with geomtype = &#8216;Point&#8217;.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X, Y</strong> : numpy (masked) arrays, same dimensions</p>
-<blockquote>
-<div><p>Attributes of the gridgen object representing the x- and y-coords.</p>
-</div></blockquote>
-<p><strong>template</strong> : string</p>
-<blockquote>
-<div><p>Path to a template shapfiles with the desired schema.</p>
-</div></blockquote>
-<p><strong>outputfile</strong> : string</p>
-<blockquote>
-<div><p>Path to the point shapefile to which the data will be written.</p>
-</div></blockquote>
-<p><strong>mode</strong> : optional string (default = &#8216;w&#8217;)</p>
-<blockquote>
-<div><p>The mode with which <cite>outputfile</cite> will be written.
-(i.e., &#8216;a&#8217; for append and &#8216;w&#8217; for write)</p>
-</div></blockquote>
-<p><strong>river</strong> : optional string (default = None)</p>
-<blockquote>
-<div><p>The river to be listed in the shapefile&#8217;s attribute table.</p>
-</div></blockquote>
-<p><strong>reach</strong> : optional int (default = 0)</p>
-<blockquote>
-<div><p>The reach of the river to be listed in the shapefile&#8217;s attribute
-table.</p>
-</div></blockquote>
-<p><strong>elev</strong> : optional array or None (defauly)</p>
-<blockquote>
-<div><p>The elevation of the grid cells. Array dimensions must be 1 less than
-X and Y.</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="pygridtools.iotools.saveGridShapefile">
-<code class="descclassname">pygridtools.iotools.</code><code class="descname">saveGridShapefile</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>mask</em>, <em>template</em>, <em>outputfile</em>, <em>mode</em>, <em>river=None</em>, <em>reach=0</em>, <em>elev=None</em>, <em>triangles=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#saveGridShapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.saveGridShapefile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves a shapefile of quadrilaterals representing grid cells.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X, Y</strong> : numpy (masked) arrays, same dimensions</p>
-<blockquote>
-<div><p>Attributes of the gridgen object representing the x- and y-coords.</p>
-</div></blockquote>
-<p><strong>mask</strong> : numpy array or None</p>
-<blockquote>
-<div><p>Array describing which cells to mask (exclude) from the output.
-Shape should be N-1 by M-1, where N and M are the dimensions of
-<cite>X</cite> and <cite>Y</cite>.</p>
-</div></blockquote>
-<p><strong>template</strong> : string</p>
-<blockquote>
-<div><p>Path to a template shapfiles with the desired schema.</p>
-</div></blockquote>
-<p><strong>outputfile</strong> : string</p>
-<blockquote>
-<div><p>Path to the point shapefile to which the data will be written.</p>
-</div></blockquote>
-<p><strong>mode</strong> : string</p>
-<blockquote>
-<div><p>The mode with which <cite>outputfile</cite> will be written.
-(i.e., &#8216;a&#8217; for append and &#8216;w&#8217; for write)</p>
-</div></blockquote>
-<p><strong>river</strong> : optional string (default = None)</p>
-<blockquote>
-<div><p>The river to be listed in the shapefile&#8217;s attribute table.</p>
-</div></blockquote>
-<p><strong>reach</strong> : optional int (default = 0)</p>
-<blockquote>
-<div><p>The reach of the river to be listed in the shapefile&#8217;s attribute
-table.</p>
-</div></blockquote>
-<p><strong>elev</strong> : optional array or None (defauly)</p>
-<blockquote>
-<div><p>The elevation of the grid cells. Shape should be N-1 by M-1,
-where N and M are the dimensions of <cite>X</cite> and <cite>Y</cite> (like <cite>mask</cite>).</p>
-</div></blockquote>
-<p><strong>triangles</strong> : optional bool (default = False)</p>
-<blockquote>
-<div><p>If True, triangles can be included</p>
-</div></blockquote>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="pygridtools.iotools.readGridShapefile">
-<code class="descclassname">pygridtools.iotools.</code><code class="descname">readGridShapefile</code><span class="sig-paren">(</span><em>shapefile</em>, <em>icol='ii'</em>, <em>jcol='jj'</em>, <em>othercols=None</em>, <em>expand=1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#readGridShapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.readGridShapefile" title="Permalink to this definition">¶</a></dt>
+<dt id="pygridtools.iotools.read_grid">
+<code class="descclassname">pygridtools.iotools.</code><code class="descname">read_grid</code><span class="sig-paren">(</span><em>gisfile</em>, <em>icol='ii'</em>, <em>jcol='jj'</em>, <em>othercols=None</em>, <em>expand=1</em>, <em>as_gdf=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#read_grid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.read_grid" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="pygridtools.iotools.gridextToShapefile">
-<code class="descclassname">pygridtools.iotools.</code><code class="descname">gridextToShapefile</code><span class="sig-paren">(</span><em>inputfile</em>, <em>outputfile</em>, <em>template</em>, <em>river='na'</em>, <em>reach=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#gridextToShapefile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.gridextToShapefile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts gridext.inp from the rtools to a shapefile with
-<cite>geomtype = &#8216;Point&#8217;</cite>.</p>
+<dt id="pygridtools.iotools.write_points">
+<code class="descclassname">pygridtools.iotools.</code><code class="descname">write_points</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>crs</em>, <em>outputfile</em>, <em>river=None</em>, <em>reach=0</em>, <em>elev=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#write_points"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.write_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves grid-related attributes of a pygridgen.Gridgen object to a
+GIS file with geomtype = ‘Point’.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>inputfile</strong> : string</p>
-<blockquote>
-<div><p>Path and filename of the gridext.inp file</p>
-</div></blockquote>
-<p><strong>outputfile</strong> : string</p>
-<blockquote>
-<div><p>Path and filename of the destination shapefile</p>
-</div></blockquote>
-<p><strong>template</strong> : string</p>
-<blockquote>
-<div><p>Path to a template shapfiles with the desired schema.</p>
-</div></blockquote>
-<p><strong>river</strong> : optional string (default = None)</p>
-<blockquote>
-<div><p>The river to be listed in the shapefile&#8217;s attribute table.</p>
-</div></blockquote>
-<p><strong>reach</strong> : optional int (default = 0)</p>
-<blockquote>
-<div><p>The reach of the river to be listed in the shapefile&#8217;s attribute
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>X, Y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy (masked) arrays, same dimensions</span></dt>
+<dd><p class="first last">Attributes of the gridgen object representing the x- and y-coords.</p>
+</dd>
+<dt><strong>crs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">A geopandas/proj/fiona-compatible string describing the coordinate
+reference system of the x/y values.</p>
+</dd>
+<dt><strong>outputfile</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">Path to the point-geometry GIS file to which the data will be written.</p>
+</dd>
+<dt><strong>river</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional string (default = None)</span></dt>
+<dd><p class="first last">The river to be listed in the GIS files’s attribute table.</p>
+</dd>
+<dt><strong>reach</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional int (default = 0)</span></dt>
+<dd><p class="first last">The reach of the river to be listed in the GIS file’s attribute
 table.</p>
-</div></blockquote>
+</dd>
+<dt><strong>elev</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional array or None (defauly)</span></dt>
+<dd><p class="first last">The elevation of the grid cells. Array dimensions must be 1 less than
+X and Y.</p>
+</dd>
+</dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">None</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>geopandas.GeoDataFrame</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.iotools.write_cells">
+<code class="descclassname">pygridtools.iotools.</code><code class="descname">write_cells</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>mask</em>, <em>crs</em>, <em>outputfile</em>, <em>river=None</em>, <em>reach=0</em>, <em>elev=None</em>, <em>triangles=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/iotools.html#write_cells"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.iotools.write_cells" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a GIS file of quadrilaterals representing grid cells.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>X, Y</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy (masked) arrays, same dimensions</span></dt>
+<dd><p class="first last">Attributes of the gridgen object representing the x- and y-coords.</p>
+</dd>
+<dt><strong>mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array or None</span></dt>
+<dd><p class="first last">Array describing which cells to mask (exclude) from the output.
+Shape should be N-1 by M-1, where N and M are the dimensions of
+<cite>X</cite> and <cite>Y</cite>.</p>
+</dd>
+<dt><strong>crs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">A geopandas/proj/fiona-compatible string describing the coordinate
+reference system of the x/y values.</p>
+</dd>
+<dt><strong>outputfile</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">Path to the point GIS file to which the data will be written.</p>
+</dd>
+<dt><strong>river</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional string (default = None)</span></dt>
+<dd><p class="first last">The river to be listed in the GIS file’s attribute table.</p>
+</dd>
+<dt><strong>reach</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional int (default = 0)</span></dt>
+<dd><p class="first last">The reach of the river to be listed in the GIS file’s attribute
+table.</p>
+</dd>
+<dt><strong>elev</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional array or None (defauly)</span></dt>
+<dd><p class="first last">The elevation of the grid cells. Shape should be N-1 by M-1,
+where N and M are the dimensions of <cite>X</cite> and <cite>Y</cite> (like <cite>mask</cite>).</p>
+</dd>
+<dt><strong>triangles</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional bool (default = False)</span></dt>
+<dd><p class="first last">If True, triangles can be included</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>geopandas.GeoDataFrame</strong></dt>
+<dd></dd>
+</dl>
 </td>
 </tr>
 </tbody>
@@ -422,15 +380,17 @@ table.</p>
 </div>
 
 
+           </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="misc.html" class="btn btn-neutral float-right" title="The misc API">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="misc.html" class="btn btn-neutral float-right" title="The misc API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="core.html" class="btn btn-neutral" title="The core API"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="core.html" class="btn btn-neutral" title="The core API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -439,13 +399,14 @@ table.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Paul Hobson.
+        &copy; Copyright 2016 - 2018, Paul Hobson.
+
     </p>
   </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-  
 </footer>
+
         </div>
       </div>
 
@@ -460,32 +421,28 @@ table.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.2.1',
+            VERSION:'0.3.0',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

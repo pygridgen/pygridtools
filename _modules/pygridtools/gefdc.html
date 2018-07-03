@@ -1,0 +1,661 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pygridtools.gefdc &mdash; pygridtools 0.3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> pygridtools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/01_GridgenBasics.html">Grid Generation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/core.html">The <cite>core</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/iotools.html">The <cite>iotools</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/misc.html">The <cite>misc</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/gefdc.html">The <cite>gefdc</cite> API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pygridtools</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>pygridtools.gefdc</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pygridtools.gefdc</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">textwrap</span> <span class="k">import</span> <span class="n">dedent</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="k">import</span> <span class="n">Point</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
+
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="k">import</span> <span class="n">iotools</span>
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="k">import</span> <span class="n">misc</span>
+<span class="kn">from</span> <span class="nn">pygridtools</span> <span class="k">import</span> <span class="n">validate</span>
+
+
+<span class="n">GEFDC_TEMPLATE</span> <span class="o">=</span> <span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">    C1  TITLE</span>
+<span class="s2">    C1  (LIMITED TO 80 CHARACTERS)</span>
+<span class="s2">        &#39;</span><span class="si">{0}</span><span class="s2">&#39;</span>
+<span class="s2">    C2  INTEGER INPUT</span>
+<span class="s2">    C2  NTYPE   NBPP    IMIN    IMAX    JMIN    JMAX    IC   JC</span>
+<span class="s2">        0       0       1       </span><span class="si">{1}</span><span class="s2">     1       </span><span class="si">{2}</span><span class="s2">     </span><span class="si">{1}</span><span class="s2">  </span><span class="si">{2}</span><span class="s2"></span>
+<span class="s2">    C3  GRAPHICS GRID INFORMATION</span>
+<span class="s2">    C3  ISGG    IGM     JGM     DXCG    DYCG    NWTGG</span>
+<span class="s2">        0       0       0       0.      0.      1</span>
+<span class="s2">    C4  CARTESIAN AND GRAPHICS GRID COORDINATE DATA</span>
+<span class="s2">    C4  CDLON1  CDLON2  CDLON3  CDLAT1  CDLAT2  CDLAT3</span>
+<span class="s2">        0.      0.      0.      0.      0.      0.</span>
+<span class="s2">    C5  INTEGER INPUT</span>
+<span class="s2">    C5  ITRXM   ITRHM   ITRKM   ITRGM   NDEPSM  NDEPSMF DEPMIN  DDATADJ</span>
+<span class="s2">        200     200     200     200     4000    0       0       0</span>
+<span class="s2">    C6  REAL INPUT</span>
+<span class="s2">    C6  RPX     RPK     RPH     RSQXM   RSQKM   RSQKIM  RSQHM   RSQHIM  RSQHJM</span>
+<span class="s2">        1.8     1.8     1.8     1.E-12  1.E-12  1.E-12  1.E-12  1.E-12  1.E-12</span>
+<span class="s2">    C7  COORDINATE SHIFT PARAMETERS</span>
+<span class="s2">    C7  XSHIFT  YSHIFT  HSCALE  RKJDKI  ANGORO</span>
+<span class="s2">        0.      0.      1.      1.      5.0</span>
+<span class="s2">    C8  INTERPOLATION SWITCHES</span>
+<span class="s2">    C8  ISIRKI  JSIRKI  ISIHIHJ JSIHIHJ</span>
+<span class="s2">        1       0       0       0</span>
+<span class="s2">    C9  NTYPE = 7 SPECIFIED INPUT</span>
+<span class="s2">    C9  IB      IE      JB      JE      N7RLX   NXYIT   ITN7M   IJSMD   ISMD    JSMD    RP7     SERRMAX</span>
+<span class="s2">    C10 NTYPE = 7 SPECIFIED INPUT</span>
+<span class="s2">    C10 X       Y       IN ORDER    (IB,JB) (IE,JB) (IE,JE) (IB,JE)</span>
+<span class="s2">    C11 DEPTH INTERPOLATION SWITCHES</span>
+<span class="s2">    C11 ISIDEP  NDEPDAT CDEP    RADM    ISIDPTYP    SURFELEV    ISVEG   NVEGDAT NVEGTYP</span>
+<span class="s2">        1       </span><span class="si">{3:d}</span><span class="s2">     2       0.5     1           0.0         0       0       0</span>
+<span class="s2">    C12 LAST BOUNDARY POINT INFORMATION</span>
+<span class="s2">    C12 ILT     JLT     X(ILT,JLT)      Y(ILT,JLT)</span>
+<span class="s2">        0       0       0.0             0.0</span>
+<span class="s2">    C13 I   J       X(I,J)          Y(I,J)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="write_cellinp"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.write_cellinp">[docs]</a><span class="k">def</span> <span class="nf">write_cellinp</span><span class="p">(</span><span class="n">cell_array</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="s1">&#39;cell.inp&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span>
+                  <span class="n">writeheader</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rowlabels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                  <span class="n">maxcols</span><span class="o">=</span><span class="mi">125</span><span class="p">,</span> <span class="n">flip</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Writes the cell.inp input file from an array of cell definitions.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cell_array : numpy array</span>
+<span class="sd">        Integer array of the values written to ``outfile``.</span>
+<span class="sd">    outputfile : optional string (default = &quot;cell.inp&quot;)</span>
+<span class="sd">        Path *and* filename to the output file. Yes, you have to tell it</span>
+<span class="sd">        to call the file cell.inp</span>
+<span class="sd">    maxcols : optional int (default = 125)</span>
+<span class="sd">        Number of columns at which cell.inp should be wrapped. ``gefdc``</span>
+<span class="sd">        requires this to be 125.</span>
+<span class="sd">    flip : optional bool (default = True)</span>
+<span class="sd">        Numpy arrays have their origin in the upper left corner, so in</span>
+<span class="sd">        a sense south is up and north is down. This means that arrays</span>
+<span class="sd">        need to be flipped before writing to &quot;cell.inp&quot;. Unless you are</span>
+<span class="sd">        _absolutely_sure_ that your array has been flipped already,</span>
+<span class="sd">        leave this parameter as True.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    make_gefdc_cells</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">flip</span><span class="p">:</span>
+        <span class="n">cell_array</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">cell_array</span><span class="p">)</span>
+
+    <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="n">cell_array</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="k">if</span> <span class="n">cell_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">maxcols</span><span class="p">:</span>
+        <span class="n">first_array</span> <span class="o">=</span> <span class="n">cell_array</span><span class="p">[:,</span> <span class="p">:</span><span class="n">maxcols</span><span class="p">]</span>
+        <span class="n">second_array</span> <span class="o">=</span> <span class="n">cell_array</span><span class="p">[:,</span> <span class="n">maxcols</span><span class="p">:]</span>
+
+        <span class="n">write_cellinp</span><span class="p">(</span><span class="n">first_array</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+                      <span class="n">writeheader</span><span class="o">=</span><span class="n">writeheader</span><span class="p">,</span> <span class="n">rowlabels</span><span class="o">=</span><span class="n">rowlabels</span><span class="p">,</span>
+                      <span class="n">maxcols</span><span class="o">=</span><span class="n">maxcols</span><span class="p">,</span> <span class="n">flip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">write_cellinp</span><span class="p">(</span><span class="n">second_array</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="n">outputfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
+                      <span class="n">writeheader</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">rowlabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                      <span class="n">maxcols</span><span class="o">=</span><span class="n">maxcols</span><span class="p">,</span> <span class="n">flip</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxcols</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">colstr</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:04d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">]</span>
+        <span class="n">hundreds</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colstr</span><span class="p">])</span>
+        <span class="n">tens</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colstr</span><span class="p">])</span>
+        <span class="n">ones</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colstr</span><span class="p">])</span>
+
+        <span class="k">with</span> <span class="n">Path</span><span class="p">(</span><span class="n">outputfile</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">writeheader</span><span class="p">:</span>
+                <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;C -- cell.inp for EFDC model by pygridtools</span><span class="se">\n</span><span class="s1">&#39;</span>
+                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;C    </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hundreds</span><span class="p">[:</span><span class="n">ncols</span><span class="p">]))</span>
+                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;C    </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tens</span><span class="p">[:</span><span class="n">ncols</span><span class="p">]))</span>
+                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;C    </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ones</span><span class="p">[:</span><span class="n">ncols</span><span class="p">]))</span>
+
+            <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cell_array</span><span class="p">):</span>
+                <span class="n">row_number</span> <span class="o">=</span> <span class="n">nrows</span> <span class="o">-</span> <span class="n">n</span>
+                <span class="n">row_strings</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+                <span class="n">cell_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">row_strings</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+                <span class="k">if</span> <span class="n">rowlabels</span><span class="p">:</span>
+                    <span class="n">row_text</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{0:3d}</span><span class="s1">  </span><span class="si">{1:s}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                        <span class="nb">int</span><span class="p">(</span><span class="n">row_number</span><span class="p">),</span> <span class="n">cell_text</span>
+                    <span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">row_text</span> <span class="o">=</span> <span class="s1">&#39;     </span><span class="si">{0:s}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cell_text</span><span class="p">)</span>
+
+                <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">row_text</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="write_gefdc_control_file"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.write_gefdc_control_file">[docs]</a><span class="k">def</span> <span class="nf">write_gefdc_control_file</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">max_i</span><span class="p">,</span> <span class="n">max_j</span><span class="p">,</span> <span class="n">bathyrows</span><span class="p">):</span>
+    <span class="n">gefdc</span> <span class="o">=</span> <span class="n">GEFDC_TEMPLATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">max_i</span><span class="p">,</span> <span class="n">max_j</span><span class="p">,</span> <span class="n">bathyrows</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">Path</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">gefdc</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">gefdc</span></div>
+
+
+<div class="viewcode-block" id="write_gridout_file"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.write_gridout_file">[docs]</a><span class="k">def</span> <span class="nf">write_gridout_file</span><span class="p">(</span><span class="n">xcoords</span><span class="p">,</span> <span class="n">ycoords</span><span class="p">,</span> <span class="n">outfile</span><span class="p">):</span>
+    <span class="n">xcoords</span><span class="p">,</span> <span class="n">ycoords</span> <span class="o">=</span> <span class="n">validate</span><span class="o">.</span><span class="n">xy_array</span><span class="p">(</span><span class="n">xcoords</span><span class="p">,</span> <span class="n">ycoords</span><span class="p">,</span> <span class="n">as_pairs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">xcoords</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">xcoords</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+        <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">ycoords</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="p">})</span>
+
+    <span class="k">with</span> <span class="n">Path</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;## </span><span class="si">{:d}</span><span class="s1"> x </span><span class="si">{:d}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">na_rep</span><span class="o">=</span><span class="s1">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.3f</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="write_gridext_file"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.write_gridext_file">[docs]</a><span class="k">def</span> <span class="nf">write_gridext_file</span><span class="p">(</span><span class="n">tidydf</span><span class="p">,</span> <span class="n">outfile</span><span class="p">,</span> <span class="n">icol</span><span class="o">=</span><span class="s1">&#39;ii&#39;</span><span class="p">,</span> <span class="n">jcol</span><span class="o">=</span><span class="s1">&#39;jj&#39;</span><span class="p">,</span>
+                       <span class="n">xcol</span><span class="o">=</span><span class="s1">&#39;easting&#39;</span><span class="p">,</span> <span class="n">ycol</span><span class="o">=</span><span class="s1">&#39;northing&#39;</span><span class="p">):</span>
+    <span class="c1"># make sure cols are in the right order</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">tidydf</span><span class="p">[[</span><span class="n">icol</span><span class="p">,</span> <span class="n">jcol</span><span class="p">,</span> <span class="n">xcol</span><span class="p">,</span> <span class="n">ycol</span><span class="p">]]</span>
+
+    <span class="k">with</span> <span class="n">Path</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">float_format</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="convert_gridext_to_gis"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.convert_gridext_to_gis">[docs]</a><span class="k">def</span> <span class="nf">convert_gridext_to_gis</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="n">outputfile</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="s1">&#39;na&#39;</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Converts gridext.inp from the rtools to a GIS file with</span>
+<span class="sd">    `geomtype = &#39;Point&#39;`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    inputfile : string</span>
+<span class="sd">        Path and filename of the gridext.inp file</span>
+<span class="sd">    outputfile : string</span>
+<span class="sd">        Path and filename of the destination GIS file</span>
+<span class="sd">    crs : string, optional</span>
+<span class="sd">        A geopandas/proj/fiona-compatible string describing the coordinate</span>
+<span class="sd">        reference system of the x/y values.</span>
+<span class="sd">    river : optional string (default = None)</span>
+<span class="sd">        The river to be listed in the output file&#39;s attributes.</span>
+<span class="sd">    reach : optional int (default = 0)</span>
+<span class="sd">        The reach of the river to be listed in the output file&#39;s attributes.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    geopandas.GeoDataFrame</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">errmsg</span> <span class="o">=</span> <span class="s1">&#39;file </span><span class="si">{}</span><span class="s1"> not found&#39;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">Path</span><span class="p">(</span><span class="n">inputfile</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">errmsg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inputfile</span><span class="p">))</span>
+
+    <span class="n">gdf</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">inputfile</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                        <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ii&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;jj&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">},</span>
+                        <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ii&#39;</span><span class="p">,</span> <span class="s1">&#39;jj&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+              <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+              <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ii_jj</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span>
+                      <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ii&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">fillchar</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span>
+                      <span class="n">df</span><span class="p">[</span><span class="s1">&#39;jj&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">fillchar</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="p">))</span>
+              <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">river</span><span class="o">=</span><span class="n">river</span><span class="p">,</span> <span class="n">reach</span><span class="o">=</span><span class="n">reach</span><span class="p">)</span>
+              <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">Point</span><span class="p">((</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+              <span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+              <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">outputfile</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">gdf</span></div>
+
+
+<div class="viewcode-block" id="GEFDCWriter"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.GEFDCWriter">[docs]</a><span class="k">class</span> <span class="nc">GEFDCWriter</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convenience class to write the GEFDC files for a ModelGrid</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mg : pygridtools.ModelGrid</span>
+<span class="sd">    directory : str or Path</span>
+<span class="sd">        Where all of the files will be saved</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mg</span><span class="p">,</span> <span class="n">directory</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mg</span> <span class="o">=</span> <span class="n">mg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GEFDCWriter.control_file"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.GEFDCWriter.control_file">[docs]</a>    <span class="k">def</span> <span class="nf">control_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;gefdc.inp&#39;</span><span class="p">,</span> <span class="n">bathyrows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                     <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates the GEFDC control (gefdc.inp) file for the EFDC grid</span>
+<span class="sd">        preprocessor.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str, optional</span>
+<span class="sd">            The name of the output file.</span>
+<span class="sd">        bathyrows : int, optional</span>
+<span class="sd">            The number of rows in the grid&#39;s bathymetry data file.</span>
+<span class="sd">        title : str, optional</span>
+<span class="sd">            The title of the grid as portrayed in ``filename``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        gefdc : str</span>
+<span class="sd">            The text of the output file.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">title</span><span class="p">:</span>
+            <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Model Grid from pygridtools&#39;</span>
+
+        <span class="n">outfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">/</span> <span class="n">filename</span>
+
+        <span class="n">gefdc</span> <span class="o">=</span> <span class="n">write_gefdc_control_file</span><span class="p">(</span>
+            <span class="n">outfile</span><span class="p">,</span>
+            <span class="n">title</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mg</span><span class="o">.</span><span class="n">inodes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mg</span><span class="o">.</span><span class="n">jnodes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="n">bathyrows</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">gefdc</span></div>
+
+<div class="viewcode-block" id="GEFDCWriter.cell_file"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.GEFDCWriter.cell_file">[docs]</a>    <span class="k">def</span> <span class="nf">cell_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;cell.inp&#39;</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">maxcols</span><span class="o">=</span><span class="mi">125</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates the cell definition/ASCII-art file for GEFDC.</span>
+
+<span class="sd">        .. warning:</span>
+<span class="sd">           This whole thing is probably pretty buggy.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str, optional</span>
+<span class="sd">            The name of the output file.</span>
+<span class="sd">        triangles : bool, optional</span>
+<span class="sd">            Toggles the inclusion of triangular cells.</span>
+
+<span class="sd">            .. warning:</span>
+<span class="sd">               This is experimental and probably buggy if it has been</span>
+<span class="sd">               implmented at all.</span>
+
+<span class="sd">        maxcols : int, optional</span>
+<span class="sd">            The maximum number of columns to write to each row. Cells</span>
+<span class="sd">            beyond this number will be writted in separate section at</span>
+<span class="sd">            the bottom of the file.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        cells : str</span>
+<span class="sd">            The text of the output file.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">cells</span> <span class="o">=</span> <span class="n">make_gefdc_cells</span><span class="p">(</span>
+            <span class="o">~</span><span class="n">numpy</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mg</span><span class="o">.</span><span class="n">xn</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mg</span><span class="o">.</span><span class="n">cell_mask</span><span class="p">,</span>
+            <span class="n">triangles</span><span class="o">=</span><span class="n">triangles</span>
+        <span class="p">)</span>
+        <span class="n">outfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">/</span> <span class="n">filename</span>
+
+        <span class="n">write_cellinp</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="n">outputfile</span><span class="o">=</span><span class="n">outfile</span><span class="p">,</span> <span class="n">flip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">maxcols</span><span class="o">=</span><span class="n">maxcols</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cells</span></div>
+
+<div class="viewcode-block" id="GEFDCWriter.gridout_file"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.GEFDCWriter.gridout_file">[docs]</a>    <span class="k">def</span> <span class="nf">gridout_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;grid.out&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writes to the nodes as coordinate pairs for GEFDC.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str, optional</span>
+<span class="sd">            The name of the output file.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        df : pandas.DataFrame</span>
+<span class="sd">            The dataframe of node coordinate pairs.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">outfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">/</span> <span class="n">filename</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">write_gridout_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mg</span><span class="o">.</span><span class="n">xn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mg</span><span class="o">.</span><span class="n">yn</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span></div>
+
+<div class="viewcode-block" id="GEFDCWriter.gridext_file"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.GEFDCWriter.gridext_file">[docs]</a>    <span class="k">def</span> <span class="nf">gridext_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;gridext.inp&#39;</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writes to the nodes and I/J cell index as to a file for GEFDC.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        filename : str, optional</span>
+<span class="sd">            The name of the output file.</span>
+<span class="sd">        shift : int, optional</span>
+<span class="sd">            The shift that should be applied to the I/J index. The</span>
+<span class="sd">            default value to 2 means that the first cell is at (2, 2)</span>
+<span class="sd">            instead of (0, 0).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        df : pandas.DataFrame</span>
+<span class="sd">            The dataframe of coordinates and I/J index.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">outfile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">directory</span> <span class="o">/</span> <span class="n">filename</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mg</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;ii&#39;</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ii&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">shift</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;jj&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">shift</span>
+        <span class="n">write_gridext_file</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span></div></div>
+
+
+<div class="viewcode-block" id="make_gefdc_cells"><a class="viewcode-back" href="../../api/gefdc.html#pygridtools.gefdc.make_gefdc_cells">[docs]</a><span class="k">def</span> <span class="nf">make_gefdc_cells</span><span class="p">(</span><span class="n">node_mask</span><span class="p">,</span> <span class="n">cell_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Take an array defining the nodes as wet (1) or dry (0) create</span>
+<span class="sd">    the array of cell values needed for GEFDC.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    node_mask : numpy bool array (N x M)</span>
+<span class="sd">        Bool array specifying if a *node* is present in the raw</span>
+<span class="sd">        (unmasked) grid.</span>
+<span class="sd">    cell_mask : optional numpy bool array (N-1 x M-1) or None (default)</span>
+<span class="sd">        Bool array specifying if a cell should be masked (e.g. due to</span>
+<span class="sd">        being an island or something like that).</span>
+<span class="sd">    triangles : optional bool (default = False)</span>
+<span class="sd">        Currently not implemented. Will eventually enable the writting of</span>
+<span class="sd">        triangular cells when True.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    cell_array : numpy array</span>
+<span class="sd">        Integer array of the values written to ``outfile``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">triangle_cells</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="mi">0</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">land_cell</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">water_cell</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">bank_cell</span> <span class="o">=</span> <span class="mi">9</span>
+
+    <span class="c1"># I can&#39;t figure this out</span>
+    <span class="k">if</span> <span class="n">triangles</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;triangles are experimental&#39;</span><span class="p">)</span>
+
+    <span class="c1"># define the initial cells with everything labeled as a bank</span>
+    <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">cell_mask</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">cells</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nx</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="n">bank_cell</span>
+
+    <span class="c1"># loop through each *node*</span>
+    <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># pull out the 4 nodes defining the cell (call it a quad)</span>
+            <span class="n">quad</span> <span class="o">=</span> <span class="n">node_mask</span><span class="p">[</span><span class="n">jj</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="n">jj</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ii</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">n_wet</span> <span class="o">=</span> <span class="n">quad</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+            <span class="c1"># anything that&#39;s masked is a &quot;bank&quot;</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">cell_mask</span><span class="p">[</span><span class="n">jj</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ii</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
+                <span class="c1"># if all 4 nodes are wet (=1), then the cell is 5</span>
+                <span class="k">if</span> <span class="n">n_wet</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                    <span class="n">cells</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">water_cell</span>
+
+                <span class="c1"># if only 3  are wet, might be a triangle, but...</span>
+                <span class="c1"># this ignored since we already raised an error</span>
+                <span class="k">elif</span> <span class="n">n_wet</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">triangles</span><span class="p">:</span>
+                    <span class="n">dry_node</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">quad</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+                    <span class="n">cells</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">triangle_cells</span><span class="p">[</span><span class="n">dry_node</span><span class="p">]</span>
+
+            <span class="c1"># otherwise it&#39;s just a bank</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">cells</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">bank_cell</span>
+
+    <span class="n">padded_cells</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">constant_values</span><span class="o">=</span><span class="n">bank_cell</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">cj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">ci</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">shift</span> <span class="o">=</span> <span class="mi">3</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">padded_cells</span><span class="p">[</span><span class="n">cj</span><span class="p">:</span><span class="n">cj</span> <span class="o">+</span> <span class="n">shift</span><span class="p">,</span> <span class="n">ci</span><span class="p">:</span><span class="n">ci</span> <span class="o">+</span> <span class="n">shift</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">total</span> <span class="o">==</span> <span class="n">bank_cell</span> <span class="o">*</span> <span class="n">shift</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
+                <span class="n">cells</span><span class="p">[</span><span class="n">cj</span><span class="p">,</span> <span class="n">ci</span><span class="p">]</span> <span class="o">=</span> <span class="n">land_cell</span>
+
+    <span class="n">nrows</span> <span class="o">=</span> <span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ncols</span> <span class="o">=</span> <span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># nchunks = numpy.ceil(ncols / maxcols)</span>
+    <span class="c1"># if ncols &gt; maxcols:</span>
+    <span class="c1">#     final_cells = numpy.zeros((nrows*nchunks, maxcols), dtype=int)</span>
+    <span class="c1">#     for n in numpy.arange(nchunks):</span>
+    <span class="c1">#         col_start = n * maxcols</span>
+    <span class="c1">#         col_stop = (n+1) * maxcols</span>
+
+    <span class="c1">#         row_start = n * nrows</span>
+    <span class="c1">#         row_stop = (n+1) * nrows</span>
+
+    <span class="c1">#         cells_to_move = cells[:, col_start:col_stop]</span>
+    <span class="c1">#         final_cells[row_start:row_stop, 0:cells_to_move.shape[1]] = cells_to_move</span>
+    <span class="c1"># else:</span>
+    <span class="c1">#     final_cells = cells.copy()</span>
+
+    <span class="n">final_cells</span> <span class="o">=</span> <span class="n">cells</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">final_cells</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 - 2018, Paul Hobson.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.3.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The gefdc API" href="gefdc.html" />
     <link rel="prev" title="The iotools API" href="iotools.html" /> 
 
   
@@ -90,6 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="core.html">The <cite>core</cite> API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iotools.html">The <cite>iotools</cite> API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The <cite>misc</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gefdc.html">The <cite>gefdc</cite> API</a></li>
 </ul>
 
             
@@ -404,42 +406,6 @@ stacked arrays can be shifted vertically.</p>
 </table>
 </dd></dl>
 
-<dl class="function">
-<dt id="pygridtools.misc.make_gefdc_cells">
-<code class="descclassname">pygridtools.misc.</code><code class="descname">make_gefdc_cells</code><span class="sig-paren">(</span><em>node_mask</em>, <em>cell_mask=None</em>, <em>triangles=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/misc.html#make_gefdc_cells"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.misc.make_gefdc_cells" title="Permalink to this definition">¶</a></dt>
-<dd><p>Take an array defining the nodes as wet (1) or dry (0) create
-the array of cell values needed for GEFDC.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
-<dt><strong>node_mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy bool array (N x M)</span></dt>
-<dd><p class="first last">Bool array specifying if a <em>node</em> is present in the raw
-(unmasked) grid.</p>
-</dd>
-<dt><strong>cell_mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional numpy bool array (N-1 x M-1) or None (default)</span></dt>
-<dd><p class="first last">Bool array specifying if a cell should be masked (e.g. due to
-being an island or something like that).</p>
-</dd>
-<dt><strong>triangles</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional bool (default = False)</span></dt>
-<dd><p class="first last">Currently not implemented. Will eventually enable the writting of
-triangular cells when True.</p>
-</dd>
-</dl>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
-<dt><strong>cell_array</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
-<dd><p class="first last">Integer array of the values written to <code class="docutils literal notranslate"><span class="pre">outfile</span></code>.</p>
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </div>
 
 
@@ -449,6 +415,8 @@ triangular cells when True.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gefdc.html" class="btn btn-neutral float-right" title="The gefdc API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="iotools.html" class="btn btn-neutral" title="The iotools API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

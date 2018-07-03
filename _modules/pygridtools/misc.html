@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api/core.html">The <cite>core</cite> API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/iotools.html">The <cite>iotools</cite> API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api/misc.html">The <cite>misc</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/gefdc.html">The <cite>gefdc</cite> API</a></li>
 </ul>
 
             
@@ -152,9 +153,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for pygridtools.misc</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">warnings</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">matplotlib.path</span> <span class="k">as</span> <span class="nn">mpath</span>
 <span class="kn">import</span> <span class="nn">pandas</span>
 <span class="kn">from</span> <span class="nn">pygridgen</span> <span class="k">import</span> <span class="n">csa</span>
@@ -457,100 +456,6 @@
         <span class="k">return</span> <span class="n">mask</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">~</span><span class="n">mask</span></div>
-
-
-<div class="viewcode-block" id="make_gefdc_cells"><a class="viewcode-back" href="../../api/misc.html#pygridtools.misc.make_gefdc_cells">[docs]</a><span class="k">def</span> <span class="nf">make_gefdc_cells</span><span class="p">(</span><span class="n">node_mask</span><span class="p">,</span> <span class="n">cell_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">triangles</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Take an array defining the nodes as wet (1) or dry (0) create</span>
-<span class="sd">    the array of cell values needed for GEFDC.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    node_mask : numpy bool array (N x M)</span>
-<span class="sd">        Bool array specifying if a *node* is present in the raw</span>
-<span class="sd">        (unmasked) grid.</span>
-<span class="sd">    cell_mask : optional numpy bool array (N-1 x M-1) or None (default)</span>
-<span class="sd">        Bool array specifying if a cell should be masked (e.g. due to</span>
-<span class="sd">        being an island or something like that).</span>
-<span class="sd">    triangles : optional bool (default = False)</span>
-<span class="sd">        Currently not implemented. Will eventually enable the writting of</span>
-<span class="sd">        triangular cells when True.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    cell_array : numpy array</span>
-<span class="sd">        Integer array of the values written to ``outfile``.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">triangle_cells</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="mi">0</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="mi">3</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="p">}</span>
-    <span class="n">land_cell</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">water_cell</span> <span class="o">=</span> <span class="mi">5</span>
-    <span class="n">bank_cell</span> <span class="o">=</span> <span class="mi">9</span>
-
-    <span class="c1"># I can&#39;t figure this out</span>
-    <span class="k">if</span> <span class="n">triangles</span><span class="p">:</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;triangles are experimental&#39;</span><span class="p">)</span>
-
-    <span class="c1"># define the initial cells with everything labeled as a bank</span>
-    <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">cell_mask</span><span class="o">.</span><span class="n">shape</span>
-    <span class="n">cells</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">ny</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">nx</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="o">+</span> <span class="n">bank_cell</span>
-
-    <span class="c1"># loop through each *node*</span>
-    <span class="k">for</span> <span class="n">jj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="c1"># pull out the 4 nodes defining the cell (call it a quad)</span>
-            <span class="n">quad</span> <span class="o">=</span> <span class="n">node_mask</span><span class="p">[</span><span class="n">jj</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="n">jj</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ii</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span><span class="n">ii</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="n">n_wet</span> <span class="o">=</span> <span class="n">quad</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
-            <span class="c1"># anything that&#39;s masked is a &quot;bank&quot;</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">cell_mask</span><span class="p">[</span><span class="n">jj</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ii</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
-                <span class="c1"># if all 4 nodes are wet (=1), then the cell is 5</span>
-                <span class="k">if</span> <span class="n">n_wet</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
-                    <span class="n">cells</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">water_cell</span>
-
-                <span class="c1"># if only 3  are wet, might be a triangle, but...</span>
-                <span class="c1"># this ignored since we already raised an error</span>
-                <span class="k">elif</span> <span class="n">n_wet</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">triangles</span><span class="p">:</span>
-                    <span class="n">dry_node</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">quad</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-                    <span class="n">cells</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">triangle_cells</span><span class="p">[</span><span class="n">dry_node</span><span class="p">]</span>
-
-            <span class="c1"># otherwise it&#39;s just a bank</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">cells</span><span class="p">[</span><span class="n">jj</span><span class="p">,</span> <span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">bank_cell</span>
-
-    <span class="n">padded_cells</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">constant_values</span><span class="o">=</span><span class="n">bank_cell</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">cj</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-        <span class="k">for</span> <span class="n">ci</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-            <span class="n">shift</span> <span class="o">=</span> <span class="mi">3</span>
-            <span class="n">total</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">padded_cells</span><span class="p">[</span><span class="n">cj</span><span class="p">:</span><span class="n">cj</span> <span class="o">+</span> <span class="n">shift</span><span class="p">,</span> <span class="n">ci</span><span class="p">:</span><span class="n">ci</span> <span class="o">+</span> <span class="n">shift</span><span class="p">])</span>
-            <span class="k">if</span> <span class="n">total</span> <span class="o">==</span> <span class="n">bank_cell</span> <span class="o">*</span> <span class="n">shift</span><span class="o">**</span><span class="mi">2</span><span class="p">:</span>
-                <span class="n">cells</span><span class="p">[</span><span class="n">cj</span><span class="p">,</span> <span class="n">ci</span><span class="p">]</span> <span class="o">=</span> <span class="n">land_cell</span>
-
-    <span class="n">nrows</span> <span class="o">=</span> <span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">ncols</span> <span class="o">=</span> <span class="n">cells</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="c1"># nchunks = numpy.ceil(ncols / maxcols)</span>
-    <span class="c1"># if ncols &gt; maxcols:</span>
-    <span class="c1">#     final_cells = numpy.zeros((nrows*nchunks, maxcols), dtype=int)</span>
-    <span class="c1">#     for n in numpy.arange(nchunks):</span>
-    <span class="c1">#         col_start = n * maxcols</span>
-    <span class="c1">#         col_stop = (n+1) * maxcols</span>
-
-    <span class="c1">#         row_start = n * nrows</span>
-    <span class="c1">#         row_stop = (n+1) * nrows</span>
-
-    <span class="c1">#         cells_to_move = cells[:, col_start:col_stop]</span>
-    <span class="c1">#         final_cells[row_start:row_stop, 0:cells_to_move.shape[1]] = cells_to_move</span>
-    <span class="c1"># else:</span>
-    <span class="c1">#     final_cells = cells.copy()</span>
-
-    <span class="n">final_cells</span> <span class="o">=</span> <span class="n">cells</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">final_cells</span></div>
 </pre></div>
 
            </div>

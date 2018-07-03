@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The gefdc API &mdash; pygridtools 0.3.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="The misc API" href="misc.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> pygridtools
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/01_GridgenBasics.html">Grid Generation Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/02_ShapefilesAndCellMasks.html">Masking grid cells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/03_MergingSpliting.html">Grid Manipulations (merge, split, refine, transform)</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">The <cite>core</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iotools.html">The <cite>iotools</cite> API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">The <cite>misc</cite> API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The <cite>gefdc</cite> API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">pygridtools</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>The <cite>gefdc</cite> API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/gefdc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="module-pygridtools.gefdc">
+<span id="the-gefdc-api"></span><span id="gefdc-auto"></span><h1>The <cite>gefdc</cite> API<a class="headerlink" href="#module-pygridtools.gefdc" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="pygridtools.gefdc.write_cellinp">
+<code class="descclassname">pygridtools.gefdc.</code><code class="descname">write_cellinp</code><span class="sig-paren">(</span><em>cell_array</em>, <em>outputfile='cell.inp'</em>, <em>mode='w'</em>, <em>writeheader=True</em>, <em>rowlabels=True</em>, <em>maxcols=125</em>, <em>flip=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#write_cellinp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.write_cellinp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the cell.inp input file from an array of cell definitions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>cell_array</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">Integer array of the values written to <code class="docutils literal notranslate"><span class="pre">outfile</span></code>.</p>
+</dd>
+<dt><strong>outputfile</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional string (default = “cell.inp”)</span></dt>
+<dd><p class="first last">Path <em>and</em> filename to the output file. Yes, you have to tell it
+to call the file cell.inp</p>
+</dd>
+<dt><strong>maxcols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional int (default = 125)</span></dt>
+<dd><p class="first last">Number of columns at which cell.inp should be wrapped. <code class="docutils literal notranslate"><span class="pre">gefdc</span></code>
+requires this to be 125.</p>
+</dd>
+<dt><strong>flip</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional bool (default = True)</span></dt>
+<dd><p class="first last">Numpy arrays have their origin in the upper left corner, so in
+a sense south is up and north is down. This means that arrays
+need to be flipped before writing to “cell.inp”. Unless you are
+_absolutely_sure_ that your array has been flipped already,
+leave this parameter as True.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>None</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#pygridtools.gefdc.make_gefdc_cells" title="pygridtools.gefdc.make_gefdc_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_gefdc_cells</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.gefdc.write_gefdc_control_file">
+<code class="descclassname">pygridtools.gefdc.</code><code class="descname">write_gefdc_control_file</code><span class="sig-paren">(</span><em>outfile</em>, <em>title</em>, <em>max_i</em>, <em>max_j</em>, <em>bathyrows</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#write_gefdc_control_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.write_gefdc_control_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.gefdc.write_gridout_file">
+<code class="descclassname">pygridtools.gefdc.</code><code class="descname">write_gridout_file</code><span class="sig-paren">(</span><em>xcoords</em>, <em>ycoords</em>, <em>outfile</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#write_gridout_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.write_gridout_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.gefdc.write_gridext_file">
+<code class="descclassname">pygridtools.gefdc.</code><code class="descname">write_gridext_file</code><span class="sig-paren">(</span><em>tidydf</em>, <em>outfile</em>, <em>icol='ii'</em>, <em>jcol='jj'</em>, <em>xcol='easting'</em>, <em>ycol='northing'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#write_gridext_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.write_gridext_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.gefdc.convert_gridext_to_gis">
+<code class="descclassname">pygridtools.gefdc.</code><code class="descname">convert_gridext_to_gis</code><span class="sig-paren">(</span><em>inputfile</em>, <em>outputfile</em>, <em>crs=None</em>, <em>river='na'</em>, <em>reach=0</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#convert_gridext_to_gis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.convert_gridext_to_gis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts gridext.inp from the rtools to a GIS file with
+<cite>geomtype = ‘Point’</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>inputfile</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">Path and filename of the gridext.inp file</p>
+</dd>
+<dt><strong>outputfile</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string</span></dt>
+<dd><p class="first last">Path and filename of the destination GIS file</p>
+</dd>
+<dt><strong>crs</strong> <span class="classifier-delimiter">:</span> <span class="classifier">string, optional</span></dt>
+<dd><p class="first last">A geopandas/proj/fiona-compatible string describing the coordinate
+reference system of the x/y values.</p>
+</dd>
+<dt><strong>river</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional string (default = None)</span></dt>
+<dd><p class="first last">The river to be listed in the output file’s attributes.</p>
+</dd>
+<dt><strong>reach</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional int (default = 0)</span></dt>
+<dd><p class="first last">The reach of the river to be listed in the output file’s attributes.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>geopandas.GeoDataFrame</strong></dt>
+<dd></dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="pygridtools.gefdc.GEFDCWriter">
+<em class="property">class </em><code class="descclassname">pygridtools.gefdc.</code><code class="descname">GEFDCWriter</code><span class="sig-paren">(</span><em>mg</em>, <em>directory</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#GEFDCWriter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.GEFDCWriter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Convenience class to write the GEFDC files for a ModelGrid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>mg</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pygridtools.ModelGrid</span></dt>
+<dd></dd>
+<dt><strong>directory</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str or Path</span></dt>
+<dd><p class="first last">Where all of the files will be saved</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="pygridtools.gefdc.GEFDCWriter.control_file">
+<code class="descname">control_file</code><span class="sig-paren">(</span><em>filename='gefdc.inp'</em>, <em>bathyrows=0</em>, <em>title=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#GEFDCWriter.control_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.GEFDCWriter.control_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the GEFDC control (gefdc.inp) file for the EFDC grid
+preprocessor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>filename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">The name of the output file.</p>
+</dd>
+<dt><strong>bathyrows</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional</span></dt>
+<dd><p class="first last">The number of rows in the grid’s bathymetry data file.</p>
+</dd>
+<dt><strong>title</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">The title of the grid as portrayed in <code class="docutils literal notranslate"><span class="pre">filename</span></code>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>gefdc</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">The text of the output file.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.gefdc.GEFDCWriter.cell_file">
+<code class="descname">cell_file</code><span class="sig-paren">(</span><em>filename='cell.inp'</em>, <em>triangles=False</em>, <em>maxcols=125</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#GEFDCWriter.cell_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.GEFDCWriter.cell_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the cell definition/ASCII-art file for GEFDC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>filename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">The name of the output file.</p>
+</dd>
+<dt><strong>triangles</strong> <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd><p class="first last">Toggles the inclusion of triangular cells.</p>
+</dd>
+<dt><strong>maxcols</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional</span></dt>
+<dd><p class="first last">The maximum number of columns to write to each row. Cells
+beyond this number will be writted in separate section at
+the bottom of the file.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>cells</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd><p class="first last">The text of the output file.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.gefdc.GEFDCWriter.gridout_file">
+<code class="descname">gridout_file</code><span class="sig-paren">(</span><em>filename='grid.out'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#GEFDCWriter.gridout_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.GEFDCWriter.gridout_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes to the nodes as coordinate pairs for GEFDC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>filename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">The name of the output file.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pandas.DataFrame</span></dt>
+<dd><p class="first last">The dataframe of node coordinate pairs.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pygridtools.gefdc.GEFDCWriter.gridext_file">
+<code class="descname">gridext_file</code><span class="sig-paren">(</span><em>filename='gridext.inp'</em>, <em>shift=2</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#GEFDCWriter.gridext_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.GEFDCWriter.gridext_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes to the nodes and I/J cell index as to a file for GEFDC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>filename</strong> <span class="classifier-delimiter">:</span> <span class="classifier">str, optional</span></dt>
+<dd><p class="first last">The name of the output file.</p>
+</dd>
+<dt><strong>shift</strong> <span class="classifier-delimiter">:</span> <span class="classifier">int, optional</span></dt>
+<dd><p class="first last">The shift that should be applied to the I/J index. The
+default value to 2 means that the first cell is at (2, 2)
+instead of (0, 0).</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>df</strong> <span class="classifier-delimiter">:</span> <span class="classifier">pandas.DataFrame</span></dt>
+<dd><p class="first last">The dataframe of coordinates and I/J index.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pygridtools.gefdc.make_gefdc_cells">
+<code class="descclassname">pygridtools.gefdc.</code><code class="descname">make_gefdc_cells</code><span class="sig-paren">(</span><em>node_mask</em>, <em>cell_mask=None</em>, <em>triangles=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pygridtools/gefdc.html#make_gefdc_cells"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pygridtools.gefdc.make_gefdc_cells" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take an array defining the nodes as wet (1) or dry (0) create
+the array of cell values needed for GEFDC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><dl class="first docutils">
+<dt><strong>node_mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy bool array (N x M)</span></dt>
+<dd><p class="first last">Bool array specifying if a <em>node</em> is present in the raw
+(unmasked) grid.</p>
+</dd>
+<dt><strong>cell_mask</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional numpy bool array (N-1 x M-1) or None (default)</span></dt>
+<dd><p class="first last">Bool array specifying if a cell should be masked (e.g. due to
+being an island or something like that).</p>
+</dd>
+<dt><strong>triangles</strong> <span class="classifier-delimiter">:</span> <span class="classifier">optional bool (default = False)</span></dt>
+<dd><p class="first last">Currently not implemented. Will eventually enable the writting of
+triangular cells when True.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><dl class="first last docutils">
+<dt><strong>cell_array</strong> <span class="classifier-delimiter">:</span> <span class="classifier">numpy array</span></dt>
+<dd><p class="first last">Integer array of the values written to <code class="docutils literal notranslate"><span class="pre">outfile</span></code>.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="misc.html" class="btn btn-neutral" title="The misc API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 - 2018, Paul Hobson.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.3.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
